@@ -1,4 +1,4 @@
-# Paula Waite Individual Project
+# Tim Hamilton Individual Project
 
 This repository will serve as an example for Madison College's Enterprise Java Class. 
 
