@@ -1,7 +1,5 @@
 # Tim Hamilton Individual Project
 
-This repository will serve as an example for Madison College's Enterprise Java Class. 
-
 ### Problem Statement
 
 I want to create a manager for a user's personal collection of trading cards.
