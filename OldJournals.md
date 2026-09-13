@@ -4,9 +4,9 @@ Document project progress, the development process, accomplishments, snags, and 
 
 [Time Log](2026TimeLog.md)
 
-### Week 1 - Spring 2024
+### Week 1 - Fall 2026
 
-**1/19/24** I originally built this project in the spring of 2016, but would like to revisit it with fresh eyes this semester, so I deleted much of what was there to so that this becomes more of a realtime demo project. Right now the project is set up where students should be as of the end of week 2 or so. It has a problem statement, a start at a project plan, this journal and a time log, and the basic directory and package structure. Looking forward to reworking this!
+**9/13/26** This is the first week of really working on the indie project for Enterprise Java - Fall 2026!  The focus seems to be pretty much entirely on setup.  We've learned how to create a new repository in GitHub, a new project in IntelliJ IDEA, and how to connect those two together.  And we're tweaking much of the initial setup to be sure that our workflow over the next several weeks goes as smoothly as possible.
 
 ### Week 3 - Spring 2024
 
