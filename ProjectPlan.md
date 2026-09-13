@@ -1,7 +1,5 @@
 # Project Plan
 
-The beginning of a project plan follows as an example.
-
 ### Week 2
 - [X] Create project repository on GitHub
 - [X] Create project structure in intellij and push
