@@ -4,15 +4,13 @@ This repository will serve as an example for Madison College's Enterprise Java C
 
 ### Problem Statement
 
-For over 20 years, cross-country (XC) ski enthusiasts in the midwest have relied on [SkinnySki.com](https://www.skinnyski.com) as the go-to website for cross-country ski information. The site has information on XC ski races, training, tips and trails.  The trail data includes descriptions, location/driving directions, trail maps, trail type (skate versus classic) and conditions (rolled, tracked, skiied in). While most trail systems have their own websites with this type of information, SkinnySki's benefit is that all the trail information is located in one place.  Even better, users are encouraged to add their own trail reports which means SkinnySki.com tends to be the most current source of information.  
+I want to create a manager for a user's personal collection of trading cards.
 
-With the growing popularity of winter fat biking (riding bikes with 3.5" or larger tires in the snow), riders have found themselves in need of a site similar to SkinnySki.com to discover and share fat bike trails and conditions. Currently, trail information is found on various social media sites and web sites, or is simply shared in email among those "in the know". I'd like to build a Fat Bike Trail Reports website to serve as the SkinnySki.com for fat biking. 
+I've been a huge fan of the trading card table-top game Magic: The Gathering since I first became aware of it as a child sometime in the mid 90's.  Over the years, I've collected literally thousands of cards.  I've tried to keep the physical cards organized over the years but that's made all the more difficult to maintain since I also want to use the cards in games and possibly even trade with other enthusiasts.
 
-Screenshots from SkinnySki.com:
+I want a database in which I can record each and every card I own, create new entries when I acquire cards, read cards I own with various filtration options, update entries as my collection changes with time, and delete entries of cards I no longer own.  Accessing a dashboard with all this functionality on the web would make this database more easily accessible for me since it wouldn't necessarily matter where I am or what hardware I use.
 
-![Trail Description](images/MirrorLakeTrailExample.png)
-
-![Trail Report](images/MadisonAreaExample.png)
+Using cards in games, any potential card trading, and maintaining physical card organization would be much easier if I could browse my collection digitally on the web.
 
 
 ### Project Technologies/Techniques 
