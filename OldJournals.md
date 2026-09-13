@@ -1,7 +1,7 @@
 # Journal
-
+<!--
 Document project progress, the development process, accomplishments, snags, and time spent on this class. You may use whatever format suits you, as long as this information is shared. 
-
+-->
 [Time Log](2026TimeLog.md)
 
 ### Week 1 - Fall 2026
