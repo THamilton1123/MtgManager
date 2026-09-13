@@ -1,7 +1,5 @@
 # Project Plan
 
-[Click here to view the Fall 2025 Project Plan](https://github.com/orgs/mad-ent-java-f25/projects/2/views/2)
-
 The beginning of a project plan follows as an example.
 
 ### Week 2
