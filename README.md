@@ -59,6 +59,6 @@ Screenshots from SkinnySki.com:
 ### Examples of documentation of progress, reflections, and time spent on this class
 Choose a format that works for you, or create your own.
 
-#### [Weekly Refelection](2016WeeklyReflection.md)
+#### [Weekly Refelection](2026WeeklyReflection.md)
 #### [Journal](OldJournals.md)
-#### [TimeLog](2024TimeLog.md)
+#### [TimeLog](2026TimeLog.md)
