@@ -8,7 +8,7 @@
 - [X] Weekly reflection/time log
 
 ### Week 3
-- [ ] Research possible Web Services/APIs to use
+- [X] Research possible Web Services/APIs to use
 - [ ] List technologies, versions and how they will be used
 - [ ] Write project plan
 - [ ] Document user stories and select MVP stories 
