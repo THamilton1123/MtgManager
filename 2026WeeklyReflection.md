@@ -26,7 +26,7 @@ I also started looking at a few different services that could be used:
 
 ### Week 1
 
-9/13/2026 - ??? hours
+9/13/2026 - 7 hours
 
 Tasks Completed: 
  * Chose a project goal
