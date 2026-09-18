@@ -8,6 +8,10 @@ Document project progress, the development process, accomplishments, snags, and 
 
 **9/13/26** This is the first week of really working on the indie project for Enterprise Java - Fall 2026!  The focus seems to be pretty much entirely on setup.  We've learned how to create a new repository in GitHub, a new project in IntelliJ IDEA, and how to connect those two together.  And we're tweaking much of the initial setup to be sure that our workflow over the next several weeks goes as smoothly as possible.
 
+### Week 2 - Fall 2026
+
+**9/18/26** I spent a couple hours (1:00pm - 3:00pm) working on the indie project.  Created the Card.java entity, created a database for cards and its test duplicate.
+
 ### Week 3 - Spring 2024
 
 **1/30/24** Today's goal is to get this project ready for checkpoint 1. Per the course website, checkpoint 1 is: Problem statement, user stories, project plan, screen design and reflection statements pushed to GitHub. Be sure to identify which stories are part of the Minimum Viable Product (MVP). Link to your repository in student repo. This is due in the middle of next week. 
