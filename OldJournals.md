@@ -11,6 +11,7 @@ Document project progress, the development process, accomplishments, snags, and 
 ### Week 2 - Fall 2026
 
 **9/18/26** I spent a couple hours (1:00pm - 3:00pm) working on the indie project.  Created the Card.java entity, created a database for cards and its test duplicate.
+**9/19/26** Between 3:00pm and 5:30pm, I copied the coursework as closely as I could for my own project so that I might work on both in parallel.
 
 ### Week 3 - Spring 2024
 
