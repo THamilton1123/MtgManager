@@ -25,7 +25,7 @@
         <tbody>
         <c:forEach items="${cards}" var="card">
             <tr>
-                <td>${card.id}</td>
+                <td>${card.cardId}</td>
                 <td>${card.cardName}</td>
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>
