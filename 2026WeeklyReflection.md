@@ -38,3 +38,16 @@ Tasks Completed:
 I'm pretty much just copying the FatBikeTrailReports file structure and formatting.  I'm certain all the copy/pasting is saving me loads of time I would've otherwise spent typing and researching.  Well, this is just setup for now, and the course website (Module1/Week2/Activity3 > Make Some Updates > Step 2) says we can use that for an example.  Maybe I'm taking it too far, or too literally, but, like I said, this is saving a lot of time.  I intend to retain the existence of all these examples as reminders of how to fill all of this out myself throughout the course of the...course.  It'll be messy, but I'm certain I'll be able to tell the difference between my own additions to these documents and the example texts.  And then, at the end of it all, the only text left in these documents will be what I've added, and all the example text will be gone, and the entire thing will be an original work.
 
 The text of this example reminds me that one thing I want to work on is learning how to use an mtg api to my benefit for this project.  I think it's basically essential, really.
+
+
+### Week 2
+
+9/18/2026 - 2 hours
+9/19/2026 - 2.5 hours
+
+Tasks Completed:
+* Created mtg_manager database and its test counterpart
+* Matched the project's file structure to the current state of coursework so I can work on both in parallel
+* 
+* 
+* 
