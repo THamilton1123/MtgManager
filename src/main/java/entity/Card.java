@@ -9,6 +9,7 @@ package entity;
 public class Card {
 
     //Instance Variables
+    private int cardId;
     private String cardName;
     private int cardCmc;
     private String cardType;
@@ -22,14 +23,34 @@ public class Card {
     /**
      * Instantiates a new Card.
      *
+     * @param cardId   the card id
      * @param cardName the card name
      * @param cardCmc  the card cmc
      * @param cardType the card type
      */
-    public Card(String cardName, int cardCmc, String cardType) {
+    public Card(int cardId, String cardName, int cardCmc, String cardType) {
+        this.cardId = cardId;
         this.cardName = cardName;
         this.cardCmc = cardCmc;
         this.cardType = cardType;
+    }
+
+    /**
+     * Gets card id.
+     *
+     * @return the card id
+     */
+    public int getCardId() {
+        return cardId;
+    }
+
+    /**
+     * Sets card id.
+     *
+     * @param cardId the card id
+     */
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
     }
 
     /**
@@ -89,7 +110,8 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "cardName='" + cardName + '\'' +
+                "cardId=" + cardId +
+                ", cardName='" + cardName + '\'' +
                 ", cardCmc=" + cardCmc +
                 ", cardType='" + cardType + '\'' +
                 '}';
