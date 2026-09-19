@@ -1,6 +1,6 @@
-package persistence;
+package com.magMan.persistence;
 
-import util.PropertiesLoader;
+import com.magMan.util.PropertiesLoader;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

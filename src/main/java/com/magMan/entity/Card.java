@@ -1,4 +1,4 @@
-package entity;
+package com.magMan.entity;
 
 /**
  * A class to represent a MTG card.

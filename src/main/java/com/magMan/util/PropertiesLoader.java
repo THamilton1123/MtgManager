@@ -1,4 +1,4 @@
-package util;
+package com.magMan.util;
 
 import java.io.*;
 import java.util.*;

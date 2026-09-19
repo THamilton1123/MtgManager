@@ -1,6 +1,6 @@
-package controller;
+package com.magMan.controller;
 
-import persistence.CardData;
+import com.magMan.persistence.CardData;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

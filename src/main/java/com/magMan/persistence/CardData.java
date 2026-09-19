@@ -1,6 +1,6 @@
-package persistence;
+package com.magMan.persistence;
 
-import entity.Card;
+import com.magMan.entity.Card;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
