@@ -4,6 +4,10 @@
 
 ![Home Page](wireframes/index01.png)
 
+### Dashboard/Search Page
+
+![View Trail Info](wireframes/dashboardSearch01.png)
+
 ### Add New Trail Report Page
 
 ![Add New Report](wireframes/2-NewReport.png)
@@ -11,10 +15,6 @@
 ### Add New Trail Page
 
 ![Add New Trail](wireframes/3-NewTrail.png)
-
-### Trail Information Page
-
-![View Trail Info](wireframes/4-Trail.png)
 
 ### Dialog for Sign In
 
