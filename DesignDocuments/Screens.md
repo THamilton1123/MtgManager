@@ -26,7 +26,7 @@
 
 ### About Page Without Signing In
 
-![About Page](wireframes/MtgManagerAboutPage-NoSignIn01.png)
+![About Page](wireframes/aboutPage-NoSignIn01.png)
 
 ### About Page After Signing In
 
