@@ -44,10 +44,12 @@ The text of this example reminds me that one thing I want to work on is learning
 
 9/18/2026 - 2 hours
 9/19/2026 - 2.5 hours
+9/21/2026 - 7.5 hours
 
 Tasks Completed:
 * Created mtg_manager database and its test counterpart
 * Matched the project's file structure to the current state of coursework so I can work on both in parallel
-* 
-* 
-* 
+* Completed userStories.md
+* Completed screen design
+
+Anxious as I am to work on the actual code for the MtgManager webapp and get it up and running, maybe even expand its capabilities, I buckled down instead and got to work on making sure I can meet the first checkpoint on time.  After all, there are still things I need to learn before Mtg Manager can work as I intend.  I think I've completed everything Checkpoint 1 needs: Problem Statement, User Stories, Project Plan, Screen Design, and now I'm working on Reflection Statements.  I suppose the next step is to let Prof. Paula know and see what she has to say about it.  I thought creating the screenshots was useful since it got me thinking about exactly how the user experience was going to work, and it was even kinda fun!  And I suppose that's what all of this preamble is for - to give us a clearer idea of exactly what we're doing and what it will require.  Still, I'm looking forward to actually building it!
