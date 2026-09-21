@@ -18,7 +18,7 @@
 
 ### Dialog for Delete Card
 
-![Delete Card](wireframes/.png)
+![Delete Card](wireframes/deleteCard01.png)
 
 ### Add Card(s) Page
 
