@@ -8,9 +8,9 @@
 
 ![View Trail Info](wireframes/dashboardSearch01.png)
 
-### Add New Trail Report Page
+### Add Card(s) Page
 
-![Add New Report](wireframes/2-NewReport.png)
+![Add New Report](wireframes/addCards01.png)
 
 ### Add New Trail Page
 
