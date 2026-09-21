@@ -14,7 +14,7 @@
 
 ### Dialog for Edit Card
 
-![Edit Card Info](wireframes/.png)
+![Edit Card Info](wireframes/editCard01.png)
 
 ### Dialog for Delete Card
 
