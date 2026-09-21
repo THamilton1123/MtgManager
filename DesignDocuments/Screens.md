@@ -6,15 +6,31 @@
 
 ### Dashboard/Search Page
 
-![View Trail Info](wireframes/dashboardSearch01.png)
+![Dashboard](wireframes/dashboardSearch01.png)
+
+### Search Results Page
+
+![View Cards Returned](wireframes/.png)
+
+### Dialog for Edit Card
+
+![Edit Card Info](wireframes/.png)
+
+### Dialog for Delete Card
+
+![Delete Card](wireframes/.png)
 
 ### Add Card(s) Page
 
-![Add New Report](wireframes/addCards01.png)
+![Add New Card](wireframes/addCards01.png)
 
-### Add New Trail Page
+### Dialog for Add Card(s) Confirmation
 
-![Add New Trail](wireframes/3-NewTrail.png)
+![Confirm Add Card](wireframes/.png)
+
+### Dialog for Already Have Card Being Added
+
+![Card Already Owned](wireframes/.png)
 
 ### Dialog for Sign In
 
