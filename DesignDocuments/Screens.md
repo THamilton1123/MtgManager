@@ -30,4 +30,4 @@
 
 ### About Page After Signing In
 
-![About Page](wireframes/.png)
+![About Page](wireframes/aboutPage-SignedIn01.png)
