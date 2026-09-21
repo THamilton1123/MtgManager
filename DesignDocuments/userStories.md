@@ -6,111 +6,103 @@
 
 #### Sign up *
 
-As a new user I want to create an account so that I can add or edit trails and reports.
+As a new user I want to create an account so that I can add, edit, or remove cards from my own personal collection.
 
 #### Sign In *
 
-As a registered user I want to log in so that I can add or edit trails and reports.
+As a registered user I want to log in so that I can add, edit, or remove cards from my own personal collection.
 
 #### Password Reset *
 
 As a registered user or admin user, I want to be able to be able to reset my password if I forget it.
 
-### Trail Discovery & Filtering
+### Card Discovery & Filtering
 
-#### Find Trails by Name *
+#### Find Cards by Name *
 
-As a visitor I want to be able find trails by name so that I can learn more about those trails.
+As a registered user I want to be able to find cards I own by name for deck-building, trading, etc.
 
-#### Filter Trails by Attributes *
+#### Filter Cards by Attributes *
 
-As a visitor, I want to filter trails by attributes (e.g., groomed, singletrack, fee, night riding) so that I can find trails that match my preferences.
+As a registered user, I want to filter cards by attributes (e.g., converted mana cost, color) so that I can find cards that match my preferences.
 
-### Trail Information & Viewing
+### Card Info & Viewing
 
-#### View Trail *
+#### View Card *
 
-As a visitor, I want to view information such as length, difficulty, and location so that I can choose an appropriate trail to ride.
+As a registered user, I want to view information such as converted mana cost and color so that I can choose an appropriate card for deck-building, trading, etc.
 
-#### View Trail Report *
+#### View Card Report *
 
-As a visitor, I want to read a trail report for a given trail so that I can understand the current conditions of that trail.
+As a registered user, I want to read a card report for a given card so that I can understand the current conditions of that card.
 
-### Trail Reports & Contributions
+### Card Notes
 
-#### Add Trail Report *
+#### Add Card Notes *
 
-As a registered user, I want to be able to add trail reports for a trail so that others will know the current conditions.
+As a registered user, I want to be able to add card notes for a card so that I can record information about my specific physical card copy.
 
-#### Edit Trail Report *
+#### Edit Card Notes *
 
-As registered user, I want to be able to edit my trail reports.
+As registered user, I want to be able to edit my card notes.
 
-#### Add Trail *
+#### Add Card *
 
-As a registered user, I want to be able to add a new trail so that others can learn about the trail and add trail reports for it.
+As a registered user, I want to be able to add new cards to my collection as my collection expands and changes over time.
 
-#### Edit Trail *
+#### Edit Card *
 
-As registered user, I want to be able to edit any trails that I added.
+As registered user, I want to be able to edit any editable card info that I added.
 
 ### Admin & Data Management
 
-#### Admin Edit Trail *
+#### Admin Edit Card Info *
 
-As an admin user, I want to be able to edit any trail.
+As an admin user, I want to be able to edit any card info.
 
-#### Admin Edit Trail Report *
+#### Admin Delete Card Info *
 
-As an admin user, I want to be able to edit any trail report.
+As an admin user, I want to be able to delete any card info that may be inappropriate, misplaced, incorrect, etc. so that the site has relevant and current information.
 
-#### Admin Delete Trail Report *
+#### Admin Delete Card *
 
-As an admin user, I want to be able to delete any trail report that may be inappropriate, misplaced, etc. so that the site has relevent and current information.
-
-#### Admin Delete Trail *
-
-As an admin user, I want to be able to delete any trail that may be inappropriate, no longer in existence, etc. so that the site has relevent and current information.
+As an admin user, I want to be able to delete any card that may be inappropriate, no longer in existence, etc. so that the site has relevant and current information.
 
 ---
 
 ## Non-MVP User Stories
 
-### Trail Discovery & Filtering
+### Card Discovery & Filtering
 
-#### Find Trails by Location
+#### Find Cards by Color
 
-As a visitor I want to be able find trails by location so that I can learn more about those trails.
+As a registered user I want to be able find cards by color so that I can learn more about those cards.
 
-#### View Photos or Videos of Trail
+#### View Photos of Cards
 
-As a visitor, I want to see photos or videos of the trail so that I can get a sense of what the terrain and conditions look like.
+As a registered user, I want to see photos of the card so that I can get a sense of what condition cards I own may be in.
 
-### Trail Information & Viewing
+### Card Info & Viewing
 
-#### View Snow Depth
+### Card Info
 
-As a visitor, I want to be able to view the current snow depth near a given trail.
+#### Add Photos to Card Info
 
-### Trail Reports & Contributions
-
-#### Add Photos or Videos to Trail Report
-
-As a registered user, I want to add photos or short videos to my trail report so that others can see what the trail looks like.
+As a registered user, I want to add photos to my card info so that I can see what the card looks like.
 
 ### Personalization & Notifications
 
-#### Mark Trails as Favorites
+#### Mark Cards as In-Deck
 
-As a registered user, I want to mark trails as favorites so that I can easily access them later.
+As a registered user, I want to mark cards as in-deck so that I can know whether the card is available for another deck or not.
 
-#### Receive Notifications for Favorite Trails
+#### Receive Notifications for In-Deck Cards
 
-As a registered user, I want to receive notifications when someone adds a new report to my favorite trails so that I stay informed.
+As a registered user, I want to receive notifications if I add a card, that's already in a deck, to another deck so that I stay informed and organized.
 
-#### View Submitted Reports History
+#### View Card History
 
-As a registered user, I want to view my history of submitted reports so that I can track where I've ridden.
+As a registered user, I want to view my history of cards owned, traded, or used in decks, so that I can stay informed and organized.
 
 #### Edit User Profile
 
@@ -118,67 +110,63 @@ As a registered user or admin user, I want to be able to edit my profile.
 
 ### Admin & Data Management
 
-#### Approve or Reject Submitted Trails
+#### Reject Fake Cards
 
-As an admin, I want to approve or reject submitted trails so that the site maintains quality and avoids duplicates.
+As an admin, I want to reject fake cards so that the site maintains quality.
 
-#### Admin Review Inaccurate Trail Info
+#### Admin Review Inaccurate Card Info
 
-As an admin, I want to receive notifications of reported inaccurate trail info.
+As an admin, I want to receive notifications of reported inaccurate card info.
 
-#### Admin Review Inappropriate Items
+#### Admin Review Fake Cards
 
-As an admin, I want to receive notifications of reported inappropriate items.
+As an admin, I want to receive notifications of reported fake cards.
 
 ### Mobile & Mapping
 
 #### Mobile-Friendly Site
 
-As a visitor, I want the site to work well on mobile so that I can check trail conditions while traveling.
+As a registered user, I want the site to work well on mobile so that I can browse my collection while traveling.
 
-#### Browser Location to Find Nearby Trails
+#### Browser Location to Find Nearby Stores with MTG Related Merchandise
 
-As a visitor, I want to use my browser location to locate nearby trails so that I can find somewhere to ride quickly.
+As a registered user, I want to use my browser location to locate nearby stores so that I can find somewhere to purchase MTG related merchandise.
 
-#### Get Driving Directions to Trail
+#### Get Driving Directions to Stores with MTG Related Merchandise
 
-As a visitor, I want to get driving directions to a trail from within the site so that I can easily navigate there.
-
-#### Open Trail in Mapping App
-
-As a visitor, I want to open a trail in a mapping app (e.g., Google Maps, Trailforks) so that I can view terrain and nearby amenities.
+As a visitor, I want to get driving directions to a nearby store with MTG related merchandise so that I can easily navigate there.
 
 ### Engagement & Social Features
 
-#### Upvote or Like Trail Reports
+#### Open Card in EDHREC Website
 
-As a user, I want to upvote or like helpful trail reports so that the best information rises to the top.
+As a registered user, I want to open a card in EDHREC website so that I can view other players' decks and strategies pertaining to the card.
 
-#### Comment on Trail Reports
+#### Comment on Cards
 
-As a user, I want to comment on trail reports so that I can ask follow-up questions.
+As a registered user, I want to comment on cards for potential trading and asking follow-up questions.
 
-#### Share Trail Pages on Social Media
+#### Share Cards I Want to Trade on Social Media
 
-As a user, I want to share trail pages or reports on social media so that I can spread information easily.
+As a registered user, I want to share cards I want to trade on social media so that I can spread information easily.
 
 #### View Aggregated Trail Conditions by Region
 
-As a user, I want to see aggregated trail conditions for a region (e.g., "Northwoods trails") so that I can plan a weekend trip.
+As a registered user, I want to see aggregated Local Game Store information for a region (e.g., "Madison, WI LGS") so that I can make an informed decision about which store to visit.
 
 ### General
 
 #### About
 
-As a user I want to find out more information about this site so that I can make donations or contact the admin.
+As a registered user I want to find out more information about this site so that I can make donations or contact the admin.
 
-#### Report Inaccurate Trail Information
+#### Report Inaccurate Card Info
 
-As a visitor, I want to be able to report inaccurate trail information.
+As a registered user, I want to be able to report inaccurate card info.
 
-#### Report Inappropriate Items
+#### Report Fake Cards
 
-As a visitor, I want to be able to report inappropriate items (trails, reports, usernames, etc.)
+As a registered user, I want to be able to report fake cards.
 
 ---
 
