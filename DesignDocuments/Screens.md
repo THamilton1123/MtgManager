@@ -2,7 +2,7 @@
 
 ### Home Page aka Reports Page
 
-![Home Page](wireframes/1-Reports.png)
+![Home Page](wireframes/index01.png)
 
 ### Add New Trail Report Page
 
