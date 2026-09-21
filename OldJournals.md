@@ -12,6 +12,7 @@ Document project progress, the development process, accomplishments, snags, and 
 
 **9/18/26** I spent a couple hours (1:00pm - 3:00pm) working on the indie project.  Created the Card.java entity, created a database for cards and its test duplicate.
 **9/19/26** Between 3:00pm and 5:30pm, I copied the coursework as closely as I could for my own project so that I might work on both in parallel.
+**9/21/26** Between 11:00am and 6:30pm, I tweaked userStories.md to suit MtgManager instead of FatBikeTrail, and I also used Figma to create a dozen screen designs, added screenshots of them to DesignDocuments/wireframes directory in MtgManager repo, and linked the images to Screens.md.
 
 ### Week 3 - Spring 2024
 
