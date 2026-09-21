@@ -30,7 +30,7 @@
 
 ### Dialog for Already Have Card Being Added
 
-![Card Already Owned](wireframes/.png)
+![Card Already Owned](wireframes/addAlreadyHave01.png)
 
 ### Dialog for Sign In
 
