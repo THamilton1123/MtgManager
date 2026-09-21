@@ -24,8 +24,10 @@
 
 ![Sign up Dialog](wireframes/signUpDialog01.png)
 
-### About Page
+### About Page Without Signing In
 
-![About Page](wireframes/8-About.png)
+![About Page](wireframes/MtgManagerAboutPage-NoSignIn01.png)
 
+### About Page After Signing In
 
+![About Page](wireframes/.png)
