@@ -1,6 +1,6 @@
 # Screen Design
 
-### Home Page aka Reports Page
+### Home Page
 
 ![Home Page](wireframes/index01.png)
 
