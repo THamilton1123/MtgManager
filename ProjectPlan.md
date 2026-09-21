@@ -11,9 +11,9 @@
 - [X] Research possible Web Services/APIs to use
 - [ ] List technologies, versions and how they will be used
 - [ ] Write project plan
-- [ ] Document user stories and select MVP stories 
+- [X] Document user stories and select MVP stories 
 - [ ] Confirm MVP stories meet Ent Java indie project objectives
-- [ ] Design screens - make sure all MVP user stories are covered
+- [X] Design screens - make sure all MVP user stories are covered
 - [ ] Triple-check for Checkpoint 1
 - [ ] Update journal/time log/reflection - I should probably just use one :)
 
