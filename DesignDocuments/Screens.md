@@ -10,7 +10,7 @@
 
 ### Search Results Page
 
-![View Cards Returned](wireframes/.png)
+![View Cards Returned](wireframes/searchResults01.png)
 
 ### Dialog for Edit Card
 
