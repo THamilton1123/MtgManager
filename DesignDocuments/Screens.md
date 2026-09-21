@@ -18,7 +18,7 @@
 
 ### Dialog for Sign In
 
-![Sign In Dialog](wireframes/6-Sign-In.png)
+![Sign In Dialog](wireframes/signInDialog01.png)
 
 ### Dialog for Sign Up
 
