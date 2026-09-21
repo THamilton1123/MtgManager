@@ -26,7 +26,7 @@
 
 ### Dialog for Add Card(s) Confirmation
 
-![Confirm Add Card](wireframes/.png)
+![Confirm Add Card](wireframes/addConfirm01.png)
 
 ### Dialog for Already Have Card Being Added
 
