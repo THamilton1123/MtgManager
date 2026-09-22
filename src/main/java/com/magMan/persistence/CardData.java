@@ -83,6 +83,7 @@ public class CardData {
         card.setCardName(results.getString("cardName"));
         card.setCardCmc(results.getInt("cardCmc"));
         card.setCardType(results.getString("cardType"));
+        card.setCardQuantity(results.getInt("cardQuantity"));
         return card;
     }
 
