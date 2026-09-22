@@ -13,6 +13,7 @@ public class Card {
     private String cardName;
     private int cardCmc;
     private String cardType;
+    private int cardQuantity;
 
     /**
      * Instantiates a new Card.
@@ -23,16 +24,16 @@ public class Card {
     /**
      * Instantiates a new Card.
      *
-     * @param cardId   the card id
-     * @param cardName the card name
-     * @param cardCmc  the card cmc
-     * @param cardType the card type
+     * @param cardName     the card name
+     * @param cardCmc      the card cmc
+     * @param cardType     the card type
+     * @param cardQuantity the card quantity
      */
-    public Card(int cardId, String cardName, int cardCmc, String cardType) {
-        this.cardId = cardId;
+    public Card(String cardName, int cardCmc, String cardType, int cardQuantity) {
         this.cardName = cardName;
         this.cardCmc = cardCmc;
         this.cardType = cardType;
+        this.cardQuantity = cardQuantity;
     }
 
     /**
@@ -107,6 +108,24 @@ public class Card {
         this.cardType = cardType;
     }
 
+    /**
+     * Gets card quantity.
+     *
+     * @return the card quantity
+     */
+    public int getCardQuantity() {
+        return cardQuantity;
+    }
+
+    /**
+     * Sets card quantity.
+     *
+     * @param cardQuantity the card quantity
+     */
+    public void setCardQuantity(int cardQuantity) {
+        this.cardQuantity = cardQuantity;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
@@ -114,6 +133,7 @@ public class Card {
                 ", cardName='" + cardName + '\'' +
                 ", cardCmc=" + cardCmc +
                 ", cardType='" + cardType + '\'' +
+                ", cardQuantity=" + cardQuantity +
                 '}';
     }
 }
