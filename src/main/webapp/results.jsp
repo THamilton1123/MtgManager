@@ -20,6 +20,7 @@
             <th>Card Name</th>
             <th>Card CMC</th>
             <th>Card Type</th>
+            <th>Card Quantity</th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                 <td>${card.cardName}</td>
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>
+                <td>${card.cardQuantity}</td>
             </tr>
         </c:forEach>
         </tbody>
