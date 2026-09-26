@@ -14,8 +14,9 @@ Document project progress, the development process, accomplishments, snags, and 
 **9/19/26** Between 3:00pm and 5:30pm, I copied the coursework as closely as I could for my own project so that I might work on both in parallel.
 **9/21/26** Between 11:00am and 6:30pm, I tweaked userStories.md to suit MtgManager instead of FatBikeTrail, and I also used Figma to create a dozen screen designs, added screenshots of them to DesignDocuments/wireframes directory in MtgManager repo, and linked the images to Screens.md.
 
-### Week 3 - Spring 2024
+### Week 3 - Fall 2026
 
+**9/26/26** Today was about getting hibernate setup.  I added hibernate dependencies in the pom file, added hibernate.cfg.xml to the src/main/resources directory, and added SessionFactoryProvider.java and CardDao.java to the main/java/com.magMan.persistence directory.
 **1/30/24** Today's goal is to get this project ready for checkpoint 1. Per the course website, checkpoint 1 is: Problem statement, user stories, project plan, screen design and reflection statements pushed to GitHub. Be sure to identify which stories are part of the Minimum Viable Product (MVP). Link to your repository in student repo. This is due in the middle of next week. 
 
 Started poking around to see what is currently available for snow depth data. 
