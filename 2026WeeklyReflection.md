@@ -53,3 +53,14 @@ Tasks Completed:
 * Completed screen design
 
 Anxious as I am to work on the actual code for the MtgManager webapp and get it up and running, maybe even expand its capabilities, I buckled down instead and got to work on making sure I can meet the first checkpoint on time.  After all, there are still things I need to learn before Mtg Manager can work as I intend.  I think I've completed everything Checkpoint 1 needs: Problem Statement, User Stories, Project Plan, Screen Design, and now I'm working on Reflection Statements.  I suppose the next step is to let Prof. Paula know and see what she has to say about it.  I thought creating the screenshots was useful since it got me thinking about exactly how the user experience was going to work, and it was even kinda fun!  And I suppose that's what all of this preamble is for - to give us a clearer idea of exactly what we're doing and what it will require.  Still, I'm looking forward to actually building it!
+
+### Week 3
+
+9/26/2026 - 3 hours
+
+Tasks Completed:
+* Added hibernate dependencies to pom
+* Added hibernate.cfg.xml to src/main/resources directory
+* Added SessionFactoryProvider.java to src/main/java/persistence directory
+* Added CardDao.java to src/main/java/persistence directory
+
