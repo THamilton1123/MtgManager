@@ -16,7 +16,7 @@ Document project progress, the development process, accomplishments, snags, and 
 
 ### Week 3 - Fall 2026
 
-**9/26/26** Today was about getting hibernate setup.  I added hibernate dependencies in the pom file, added hibernate.cfg.xml to the src/main/resources directory, and added SessionFactoryProvider.java and CardDao.java to the main/java/com.magMan.persistence directory.
+**9/26/26** Today was about getting hibernate setup.  Between 12:00pm and 3:00pm, I added hibernate dependencies in the pom file, added hibernate.cfg.xml to the src/main/resources directory, and added SessionFactoryProvider.java and CardDao.java to the main/java/com.magMan.persistence directory.
 **1/30/24** Today's goal is to get this project ready for checkpoint 1. Per the course website, checkpoint 1 is: Problem statement, user stories, project plan, screen design and reflection statements pushed to GitHub. Be sure to identify which stories are part of the Minimum Viable Product (MVP). Link to your repository in student repo. This is due in the middle of next week. 
 
 Started poking around to see what is currently available for snow depth data. 
