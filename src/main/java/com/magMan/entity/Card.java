@@ -1,18 +1,29 @@
 package com.magMan.entity;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * A class to represent a MTG card.
  *
  * @author thamilton12
  */
-
+@Entity
+@Table(name="cards")
 public class Card {
 
     //Instance Variables
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
+    @GenericGenerator(name="native",strategy="native")
     private int cardId;
+    @Column(name="cardName")
     private String cardName;
+    @Column(name="cardCmc")
     private int cardCmc;
+    @Column(name="cardType")
     private String cardType;
+    @Column(name="cardQuantity")
     private int cardQuantity;
 
     /**
