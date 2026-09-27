@@ -1,10 +1,17 @@
 package com.magMan.persistence;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardDaoTest {
+
+    @BeforeEach
+    void setUp() {
+        Database database = Database.getInstance();
+        database.runSQL("cleanDB.sql");
+    }
 
     @Test
     void getById() {
