@@ -58,7 +58,7 @@ class CardDaoTest {
     @Test
     void getAllSuccess() {
         List<Card> cards = cardDao.getAll();
-        assertEquals(7, cards.size());
+        assertEquals(8, cards.size());
     }
 
     @Test
@@ -71,7 +71,7 @@ class CardDaoTest {
     @Test
     void getByPropertyLikeSuccess() {
         List<Card> cards = cardDao.getByPropertyLike("cardName", "in");
-        assertEquals(2, cards.size());
+        assertEquals(3, cards.size());
     }
 
     @AfterAll
