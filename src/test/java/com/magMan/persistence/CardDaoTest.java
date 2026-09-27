@@ -1,5 +1,6 @@
 package com.magMan.persistence;
 
+import com.magMan.util.Database;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
