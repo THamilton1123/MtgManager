@@ -16,11 +16,11 @@ public class Card {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name="native",strategy="native")
-    private int cardId;
+    private int id;
     @Column(name="cardName")
     private String cardName;
     @Column(name="cardCmc")
-    private int cardCmc;
+    private Integer cardCmc;
     @Column(name="cardType")
     private String cardType;
     @Column(name="cardQuantity")
@@ -40,7 +40,7 @@ public class Card {
      * @param cardType     the card type
      * @param cardQuantity the card quantity
      */
-    public Card(String cardName, int cardCmc, String cardType, int cardQuantity) {
+    public Card(String cardName, Integer cardCmc, String cardType, int cardQuantity) {
         this.cardName = cardName;
         this.cardCmc = cardCmc;
         this.cardType = cardType;
@@ -52,17 +52,17 @@ public class Card {
      *
      * @return the card id
      */
-    public int getCardId() {
-        return cardId;
+    public int getId() {
+        return id;
     }
 
     /**
      * Sets card id.
      *
-     * @param cardId the card id
+     * @param id the card id
      */
-    public void setCardId(int cardId) {
-        this.cardId = cardId;
+    public void setId(int id) {
+        this.id = Card.this.id;
     }
 
     /**
@@ -88,7 +88,7 @@ public class Card {
      *
      * @return the card cmc
      */
-    public int getCardCmc() {
+    public Integer getCardCmc() {
         return cardCmc;
     }
 
@@ -97,7 +97,7 @@ public class Card {
      *
      * @param cardCmc the card cmc
      */
-    public void setCardCmc(int cardCmc) {
+    public void setCardCmc(Integer cardCmc) {
         this.cardCmc = cardCmc;
     }
 
@@ -140,7 +140,7 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "cardId=" + cardId +
+                "id=" + id +
                 ", cardName='" + cardName + '\'' +
                 ", cardCmc=" + cardCmc +
                 ", cardType='" + cardType + '\'' +

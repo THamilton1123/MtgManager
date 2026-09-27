@@ -50,7 +50,7 @@ public class CardDao {
         Transaction transaction = session.beginTransaction();
         session.persist(card);
         transaction.commit();
-        id = card.getCardId();
+        id = card.getId();
         session.close();
         return id;
     }
