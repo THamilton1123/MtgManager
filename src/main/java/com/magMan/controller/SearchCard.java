@@ -1,5 +1,7 @@
 package com.magMan.controller;
 
+import com.magMan.persistence.CardDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,12 +23,14 @@ public class SearchCard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //CardData cardData = new CardData();
-        //if (req.getParameter("submit").equals("search")) {
-        //    req.setAttribute("cards", cardData.getCardsByName(req.getParameter("searchTerm")));
-        //} else {
-        //    req.setAttribute("cards", cardData.getAllCards());
-        //}
+        CardDao cardDao = new CardDao();
+
+        if (req.getParameter("submit").equals("search")) {
+            req.setAttribute("cards", cardDao.getByPropertyLike("cardName", req.getParameter("searchTerm")));
+        } else {
+            req.setAttribute("cards", cardDao.getAll());
+        }
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
     }
