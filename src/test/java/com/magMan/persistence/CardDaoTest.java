@@ -1,5 +1,6 @@
 package com.magMan.persistence;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,5 +40,11 @@ class CardDaoTest {
 
     @Test
     void getByPropertyLike() {
+    }
+
+    @AfterAll
+    static void cleanUp() {
+        Database database = Database.getInstance();
+        database.runSQL("cleanDB.sql");
     }
 }
