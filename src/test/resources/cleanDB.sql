@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.4.8, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mtg_manager_test
+-- Host: 127.0.0.1    Database: mtg_manager
 -- ------------------------------------------------------
 -- Server version	8.4.8
 
@@ -27,9 +27,9 @@ CREATE TABLE `cards` (
   `cardName` varchar(255) NOT NULL,
   `cardCmc` int DEFAULT NULL,
   `cardType` varchar(100) NOT NULL,
-  `cardQuantity` int DEFAULT NULL,
+  `cardQuantity` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `cards` (
 
 LOCK TABLES `cards` WRITE;
 /*!40000 ALTER TABLE `cards` DISABLE KEYS */;
-INSERT INTO `cards` VALUES (1,'Counterspell',2,'Instant',20),(2,'Sol Ring',1,'Artifact',20),(3,'Urza, Lord High Artificer',4,'Creature',1),(4,'Island',NULL,'Land',100),(5,'Tinker',3,'Sorcery',10),(6,'Omniscience',10,'Enchantment',2),(7,'Jace, Wielder of Mysteries',4,'Planeswalker',1);
+INSERT INTO `cards` VALUES (1,'Counterspell',2,'Instant',20),(2,'Sol Ring',1,'Artifact',20),(3,'Urza, Lord High Artificer',4,'Creature',1),(4,'Island',NULL,'Land',100),(5,'Tinker',3,'Sorcery',10),(6,'Omniscience',10,'Enchantment',2),(7,'Jace, Wielder of Mysteries',4,'Planeswalker',1),(8,'Welding Jar',0,'Artifact',8);
 /*!40000 ALTER TABLE `cards` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-27 14:46:07
+-- Dump completed on 2026-09-27 18:25:54
