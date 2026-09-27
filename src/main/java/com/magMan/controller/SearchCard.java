@@ -1,7 +1,5 @@
 package com.magMan.controller;
 
-import com.magMan.persistence.CardData;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
