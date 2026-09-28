@@ -35,7 +35,7 @@ Using cards in games, any potential card trading, and maintaining physical card 
 * Tech I'd like to explore as part of this work
   * CI tools in AWS
   * Materialize
-  * Google Maps API
+  * allIdentifiers.json API from MTGJSON.com
   * Hibernate Validator
   * Hibernate Search
 * Project Lombok
