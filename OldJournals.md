@@ -17,6 +17,11 @@ Document project progress, the development process, accomplishments, snags, and 
 ### Week 3 - Fall 2026
 
 **9/26/26** Today was about getting hibernate setup.  Between 12:00pm and 3:00pm, I added hibernate dependencies in the pom file, added hibernate.cfg.xml to the src/main/resources directory, and added SessionFactoryProvider.java and CardDao.java to the main/java/com.magMan.persistence directory.
+**9/27/26** Today was more work with Hibernate.  Between 11:30pm and 7:30 pm, I added CardDaoTest.java to src/test/java/persistence directory, moved Database.java to src/test/java/util, created sqldump file in new dba directory, copy/pasted it to src/test/resources as cleanDB.sql, copy/pasted hibernate.cfg.xml to src/test/resources and pointed it to the test database, added new code to log4j2.properties pertaining to Hibernate, and created new logs directory, and altered code in SearchCard.java to utilize new DAOs
+**9/28/26** Today, I thought I was going to work on the Week 4 Exercise, but the work I'd been doing to my indie project the past couple days WAS the week 4 exercise.  So, between 11:30am and 3:30pm, I put some final touches on all of the code in my indie project; created a new Screenshots directory and added a screenshot of all DAO tests passing, with full coverage; double, triple, quadruple, quintuple (and so on) checked everything to make sure it worked before merging the week4-hibernate branch into main and pushing that to origin/main; then created the issue in GitHub + answered weekly reflection questions
+
+### Week 4 - Fall 2026
+
 **1/30/24** Today's goal is to get this project ready for checkpoint 1. Per the course website, checkpoint 1 is: Problem statement, user stories, project plan, screen design and reflection statements pushed to GitHub. Be sure to identify which stories are part of the Minimum Viable Product (MVP). Link to your repository in student repo. This is due in the middle of next week. 
 
 Started poking around to see what is currently available for snow depth data. 
