@@ -57,6 +57,8 @@ Anxious as I am to work on the actual code for the MtgManager webapp and get it 
 ### Week 3
 
 9/26/2026 - 3 hours
+9/27/2026 - 8 hours
+9/28/2026 - 4 hours
 
 Tasks Completed:
 * Added hibernate dependencies to pom
