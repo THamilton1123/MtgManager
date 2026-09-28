@@ -63,4 +63,13 @@ Tasks Completed:
 * Added hibernate.cfg.xml to src/main/resources directory
 * Added SessionFactoryProvider.java to src/main/java/persistence directory
 * Added CardDao.java to src/main/java/persistence directory
+* Added CardDaoTest.java to src/test/java/persistence directory
+* Moved Database.java to src/test/java/util
+* Created sqldump file in new dba directory, copy/pasted it to src/test/resources as cleanDB.sql
+* Copy/pasted hibernate.cfg.xml to src/test/resources and pointed it to the test database
+* Added new code to log4j2.properties pertaining to Hibernate, and created new logs directory
+* Altered code in SearchCard.java to utilize new DAOs
+* Created new Screenshots directory and added a screenshot of all DAO tests passing, with full coverage
+
+I'm happy to have set up the environment so I don't have to write any actual SQL, but have Hibernate take care of that for me.  All I gotta do is make sure to feed it the information pertinent to the query.  I realized at some point that I know I'm gonna want to access a certain api for the purposes of my project, and so I'm really looking forward to learning how to do that with Java.  Having typed that now makes me concerned that that's already been covered in adv java(?), and I just don't remember.  Oh well, I'll figure something out.  In any case, I feel pretty good about the state of my webapp, currently.  And I'm looking forward to where this will go from here.
 
