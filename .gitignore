@@ -40,4 +40,3 @@ build/
 
 ### TODO Remember to git ignore sensitive files and log files ###
 logs/*
-!logs/.gitkeep
