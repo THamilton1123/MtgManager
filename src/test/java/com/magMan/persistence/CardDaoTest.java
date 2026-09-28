@@ -62,7 +62,7 @@ class CardDaoTest {
 
     @Test
     void getByPropertyEqualSuccess() {
-        List<Card> cards = cardDao.getByPropertyLike("cardName", "Jace, Wielder of Mysteries");
+        List<Card> cards = cardDao.getByPropertyEqual("cardName", "Jace, Wielder of Mysteries");
         assertEquals(1, cards.size());
         assertEquals(7, cards.get(0).getId());
     }
