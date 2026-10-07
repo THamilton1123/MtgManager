@@ -3,6 +3,8 @@ package com.magMan.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
+
 /**
  * A class to represent a MTG card.
  *
@@ -25,6 +27,8 @@ public class Card {
     private String cardType;
     @Column(name="cardQuantity")
     private int cardQuantity;
+    @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true)
+    private ArrayList<Ruling> rulings = new ArrayList<>();
 
     /**
      * Instantiates a new Card.
@@ -45,6 +49,26 @@ public class Card {
         this.cardCmc = cardCmc;
         this.cardType = cardType;
         this.cardQuantity = cardQuantity;
+    }
+
+    /**
+     * Add ruling.
+     *
+     * @param ruling the ruling
+     */
+    public void addRuling(Ruling ruling) {
+        rulings.add(ruling);
+        ruling.setCard(this);
+    }
+
+    /**
+     * Remove ruling.
+     *
+     * @param ruling the ruling
+     */
+    public void removeRuling(Ruling ruling) {
+        rulings.remove(ruling);
+        ruling.setCard(null);
     }
 
     /**
