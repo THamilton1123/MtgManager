@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class RulingDao {
@@ -91,12 +92,10 @@ public class RulingDao {
      * Get ruling by property (exact match)
      * sample usage: getByPropertyEqual("ruling_date", "12/8/2022")
      */
-    public List<Ruling> getByPropertyEqual(String propertyRulingDate, String value) {
+    public List<Ruling> getByPropertyEqual(String propertyRulingDate, LocalDate value) {
         Session session = sessionFactory.openSession();
 
         logger.debug("Searching for rulings for " + propertyRulingDate + " = " + value);
-
-
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Ruling> query = builder.createQuery(Ruling.class);
