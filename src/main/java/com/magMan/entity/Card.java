@@ -161,6 +161,24 @@ public class Card {
         this.cardQuantity = cardQuantity;
     }
 
+    /**
+     * Gets rulings.
+     *
+     * @return the rulings
+     */
+    public ArrayList<Ruling> getRulings() {
+        return rulings;
+    }
+
+    /**
+     * Sets rulings.
+     *
+     * @param rulings the rulings
+     */
+    public void setRulings(ArrayList<Ruling> rulings) {
+        this.rulings = rulings;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
