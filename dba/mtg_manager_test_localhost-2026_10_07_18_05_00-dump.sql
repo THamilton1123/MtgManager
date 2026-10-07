@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `cards`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cards` (
-                         `id` int NOT NULL AUTO_INCREMENT,
-                         `cardName` varchar(255) NOT NULL,
-                         `cardCmc` int DEFAULT NULL,
-                         `cardType` varchar(100) NOT NULL,
-                         `cardQuantity` int NOT NULL,
-                         PRIMARY KEY (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cardName` varchar(255) NOT NULL,
+  `cardCmc` int DEFAULT NULL,
+  `cardType` varchar(100) NOT NULL,
+  `cardQuantity` int NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,13 +50,13 @@ DROP TABLE IF EXISTS `rulings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rulings` (
-                           `id` int NOT NULL AUTO_INCREMENT,
-                           `ruling_date` date DEFAULT NULL,
-                           `ruling_text` varchar(1000) DEFAULT NULL,
-                           `card_id` int DEFAULT NULL,
-                           PRIMARY KEY (`id`),
-                           KEY `rulings_cards_id_fk` (`card_id`),
-                           CONSTRAINT `rulings_cards_id_fk` FOREIGN KEY (`card_id`) REFERENCES `cards` (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ruling_date` date DEFAULT NULL,
+  `ruling_text` varchar(1000) DEFAULT NULL,
+  `card_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `rulings_cards_id_fk` (`card_id`),
+  CONSTRAINT `rulings_cards_id_fk` FOREIGN KEY (`card_id`) REFERENCES `cards` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
