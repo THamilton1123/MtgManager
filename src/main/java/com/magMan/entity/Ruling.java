@@ -14,6 +14,8 @@ public class Ruling {
     @GeneratedValue(strategy=GenerationType.AUTO, generator="native")
     @GenericGenerator(name="native", strategy="native")
     private int id;
+    @Column(name="ruling_date")
+    private String rulingDate;
     @Column(name="ruling_text")
     private String rulingText;
     @ManyToOne
@@ -28,10 +30,12 @@ public class Ruling {
     /**
      * Instantiates a new Ruling.
      *
+     * @param rulingDate the ruling date
      * @param rulingText the ruling text
      * @param card       the card
      */
-    public Ruling(String rulingText, Card card) {
+    public Ruling(String rulingDate, String rulingText, Card card) {
+        this.rulingDate = rulingDate;
         this.rulingText = rulingText;
         this.card = card;
     }
@@ -52,6 +56,24 @@ public class Ruling {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * Gets ruling date.
+     *
+     * @return the ruling date
+     */
+    public String getRulingDate() {
+        return rulingDate;
+    }
+
+    /**
+     * Sets ruling date.
+     *
+     * @param rulingDate the ruling date
+     */
+    public void setRulingDate(String rulingDate) {
+        this.rulingDate = rulingDate;
     }
 
     /**
@@ -94,6 +116,7 @@ public class Ruling {
     public String toString() {
         return "Ruling{" +
                 "id=" + id +
+                ", rulingDate='" + rulingDate + '\'' +
                 ", rulingText='" + rulingText + '\'' +
                 ", card=" + card.getCardName() +
                 '}';
