@@ -3,6 +3,8 @@ package com.magMan.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.time.LocalDate;
+
 /**
  * The type Ruling.
  */
@@ -15,7 +17,7 @@ public class Ruling {
     @GenericGenerator(name="native", strategy="native")
     private int id;
     @Column(name="ruling_date")
-    private String rulingDate;
+    private LocalDate rulingDate;
     @Column(name="ruling_text")
     private String rulingText;
     @ManyToOne
@@ -34,7 +36,7 @@ public class Ruling {
      * @param rulingText the ruling text
      * @param card       the card
      */
-    public Ruling(String rulingDate, String rulingText, Card card) {
+    public Ruling(LocalDate rulingDate, String rulingText, Card card) {
         this.rulingDate = rulingDate;
         this.rulingText = rulingText;
         this.card = card;
@@ -63,7 +65,7 @@ public class Ruling {
      *
      * @return the ruling date
      */
-    public String getRulingDate() {
+    public LocalDate getRulingDate() {
         return rulingDate;
     }
 
@@ -72,7 +74,7 @@ public class Ruling {
      *
      * @param rulingDate the ruling date
      */
-    public void setRulingDate(String rulingDate) {
+    public void setRulingDate(LocalDate rulingDate) {
         this.rulingDate = rulingDate;
     }
 
