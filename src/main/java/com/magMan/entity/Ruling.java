@@ -95,7 +95,7 @@ public class Ruling {
         return "Ruling{" +
                 "id=" + id +
                 ", rulingText='" + rulingText + '\'' +
-                ", card=" + card +
+                ", card=" + card.getCardName() +
                 '}';
     }
 }
