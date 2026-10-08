@@ -90,7 +90,7 @@ public class RulingDao {
 
     /**
      * Get ruling by property (exact match)
-     * sample usage: getByPropertyEqual("ruling_date", "12/8/2022")
+     * sample usage: getByPropertyEqual("rulingDate", "12/8/2022")
      */
     public List<Ruling> getByPropertyEqual(String propertyRulingDate, LocalDate value) {
         Session session = sessionFactory.openSession();
