@@ -190,4 +190,23 @@ public class Card {
                 ", cardQuantity=" + cardQuantity +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Card)) {
+            return false;
+        }
+
+        Card other = (Card) o;
+        return this.id != 0 && this.id == other.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
 }
