@@ -188,7 +188,6 @@ public class Card {
                 ", cardCmc=" + cardCmc +
                 ", cardType='" + cardType + '\'' +
                 ", cardQuantity=" + cardQuantity +
-                ", rulings=" + rulings +
                 '}';
     }
 }
