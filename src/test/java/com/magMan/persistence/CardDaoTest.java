@@ -54,7 +54,7 @@ class CardDaoTest {
     }
 
     @Test
-    void deleteWithRulings() {
+    void deleteWithRulingsSuccess() {
         // get the card we want to delete that has multiple rulings associated
         Card urzaLordHighArtificer = cardDao.getById(3);
         List<Ruling> rulings = urzaLordHighArtificer.getRulings();
