@@ -36,7 +36,7 @@ class RulingDaoTest {
     }
 
     @Test
-    void update() {
+    void updateSuccess() {
         Ruling ruling = rulingDao.getById(2);
         ruling.setRulingDate(LocalDate.parse("9999-12-31"));
         rulingDao.update(ruling);
@@ -46,7 +46,7 @@ class RulingDaoTest {
     }
 
     @Test
-    void insert() {
+    void insertSuccess() {
         // get a Card
         Card counterspell = cardDao.getById(1);
 
