@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A class to represent a MTG card.
@@ -28,7 +29,7 @@ public class Card {
     @Column(name="cardQuantity")
     private int cardQuantity;
     @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true)
-    private ArrayList<Ruling> rulings = new ArrayList<>();
+    private List<Ruling> rulings = new ArrayList<>();
 
     /**
      * Instantiates a new Card.
@@ -166,7 +167,7 @@ public class Card {
      *
      * @return the rulings
      */
-    public ArrayList<Ruling> getRulings() {
+    public List<Ruling> getRulings() {
         return rulings;
     }
 
@@ -175,7 +176,7 @@ public class Card {
      *
      * @param rulings the rulings
      */
-    public void setRulings(ArrayList<Ruling> rulings) {
+    public void setRulings(List<Ruling> rulings) {
         this.rulings = rulings;
     }
 
