@@ -2,3 +2,4 @@
 [DEBUG] 2026-10-08 16:02:49.512 [main] CardDao - Searching for card with cardName = Jace, Wielder of Mysteries
 [DEBUG] 2026-10-08 16:02:49.711 [main] CardDao - Searching for card with cardName = in
 [DEBUG] 2026-10-08 16:10:47.613 [main] CardDao - Searching for card with cardName = Jace, Wielder of Mysteries
+[DEBUG] 2026-10-08 16:20:00.447 [main] CardDao - Searching for card with cardName = in

@@ -71,8 +71,12 @@ class CardDaoTest {
 
     @Test
     void getByPropertyLikeSuccess() {
+        Card solRing = cardDao.getById(2);
+        Card tinker = cardDao.getById(5);
+        Card weldingJar = cardDao.getById(8);
         List<Card> cards = cardDao.getByPropertyLike("cardName", "in");
         assertEquals(3, cards.size());
+        assertTrue(cards.containsAll(List.of(solRing, tinker, weldingJar)));
     }
 
     @AfterAll
