@@ -52,7 +52,7 @@ class RulingDaoTest {
 
         // verify
         assertNotNull(retrievedFakeRuling);
-        assertEquals(fakeRuling.getRulingText(), retrievedFakeRuling.getRulingText());
+        assertEquals(fakeRuling, retrievedFakeRuling);
         assertEquals(fakeRuling.getCard(), retrievedFakeRuling.getCard());
     }
 
