@@ -88,6 +88,11 @@ class RulingDaoTest {
 
     @Test
     void getByPropertyLike() {
+        Ruling expectedRuling1 = rulingDao.getById(5);
+        Ruling expectedRuling2 = rulingDao.getById(6);
+        List<Ruling> rulings = rulingDao.getByPropertyLike("rulingText", "abilities");
+        assertEquals(2, rulings.size());
+        assertTrue(rulings.containsAll(List.of(expectedRuling1, expectedRuling2)));
     }
 
     @AfterAll
