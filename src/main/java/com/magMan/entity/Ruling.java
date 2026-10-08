@@ -120,7 +120,6 @@ public class Ruling {
                 "id=" + id +
                 ", rulingDate='" + rulingDate + '\'' +
                 ", rulingText='" + rulingText + '\'' +
-                ", card=" + card.getCardName() +
                 '}';
     }
 }
