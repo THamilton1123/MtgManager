@@ -46,6 +46,7 @@ class CardDaoTest {
         assertNotEquals(0, insertedCardId);
         Card insertedCard = cardDao.getById(insertedCardId);
         assertEquals("Static Orb", insertedCard.getCardName());
+        assertEquals(cardToInsert, insertedCard);
     }
 
     @Test
