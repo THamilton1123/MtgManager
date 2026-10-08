@@ -122,4 +122,22 @@ public class Ruling {
                 ", rulingText='" + rulingText + '\'' +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Ruling)) {
+            return false;
+        }
+
+        Ruling other = (Ruling) o;
+        return this.id != 0 && this.id == other.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
 }
