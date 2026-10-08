@@ -78,7 +78,12 @@ class RulingDaoTest {
     }
 
     @Test
-    void getByPropertyEqual() {
+    void getByPropertyEqualSuccess() {
+        Ruling expectedRuling1 = rulingDao.getById(3);
+        Ruling expectedRuling2 = rulingDao.getById(6);
+        List<Ruling> rulings = rulingDao.getByPropertyEqual("rulingDate", LocalDate.parse("2018-07-13"));
+        assertEquals(2, rulings.size());
+        assertTrue(rulings.containsAll(List.of(expectedRuling1, expectedRuling2)));
     }
 
     @Test
