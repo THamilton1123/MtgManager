@@ -109,7 +109,7 @@ public class RulingDao {
 
     /**
      * Get ruling by property (like)
-     * sample usage: getByPropertyLike("ruling_text", "win the game")
+     * sample usage: getByPropertyLike("rulingText", "win the game")
      */
     public List<Ruling> getByPropertyLike(String propertyRulingText, String value) {
         Session session = sessionFactory.openSession();
