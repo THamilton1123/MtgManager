@@ -15,10 +15,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class RulingDaoTest {
 
     RulingDao rulingDao;
+    CardDao cardDao;
 
     @BeforeEach
     void setUp() {
         rulingDao = new RulingDao();
+        cardDao = new CardDao();
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
     }
@@ -26,9 +28,11 @@ class RulingDaoTest {
     @Test
     void getByIdSuccess() {
         Ruling retrievedRuling = rulingDao.getById(1);
+        Card urzaLordHighArtificer = cardDao.getById(3);
         assertNotNull(retrievedRuling);
         assertEquals("If a spell has X in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.", retrievedRuling.getRulingText());
-        assertEquals(3, retrievedRuling.getCard().getId());
+        assertEquals(LocalDate.parse("2022-12-08"), retrievedRuling.getRulingDate());
+        assertEquals(urzaLordHighArtificer, retrievedRuling.getCard());
     }
 
     @Test
