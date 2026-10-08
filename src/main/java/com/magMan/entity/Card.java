@@ -28,7 +28,7 @@ public class Card {
     private String cardType;
     @Column(name="cardQuantity")
     private int cardQuantity;
-    @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
     private List<Ruling> rulings = new ArrayList<>();
 
     /**
