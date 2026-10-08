@@ -1,10 +1,14 @@
 package com.magMan.persistence;
 
+import com.magMan.entity.Card;
 import com.magMan.entity.Ruling;
 import com.magMan.util.Database;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,14 +37,35 @@ class RulingDaoTest {
 
     @Test
     void insert() {
+        // get a Card
+        CardDao cardDao = new CardDao();
+        Card retrievedCard = cardDao.getById(1);
+
+        // create a Ruling with that Card
+        Ruling fakeRuling = new Ruling(LocalDate.parse("2999-12-31"), "This ruling is a fake!", retrievedCard);
+
+        // insert the Ruling
+        int insertedFakeRulingId = rulingDao.insert(fakeRuling);
+
+        // retrieve the Ruling
+        Ruling retrievedFakeRuling = rulingDao.getById(insertedFakeRulingId);
+
+        // verify
+        assertNotNull(retrievedFakeRuling);
+        assertEquals(fakeRuling.getRulingText(), retrievedFakeRuling.getRulingText());
+        assertEquals(fakeRuling.getCard(), retrievedFakeRuling.getCard());
     }
 
     @Test
-    void delete() {
+    void deleteSuccess() {
+        rulingDao.delete(rulingDao.getById(6));
+        assertNull(rulingDao.getById(6));
     }
 
     @Test
-    void getAll() {
+    void getAllSuccess() {
+        List<Ruling> rulings = rulingDao.getAll();
+        assertEquals(6, rulings.size());
     }
 
     @Test

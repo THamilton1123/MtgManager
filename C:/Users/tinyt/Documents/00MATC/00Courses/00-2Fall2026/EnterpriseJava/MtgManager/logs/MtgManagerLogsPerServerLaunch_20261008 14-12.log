@@ -1,0 +1,942 @@
+[DEBUG] 2026-10-08 14:12:11.709 [main] IntegratorServiceImpl - Adding Integrator [org.hibernate.boot.beanvalidation.BeanValidationIntegrator].
+[DEBUG] 2026-10-08 14:12:11.725 [main] IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+[INFO ] 2026-10-08 14:12:11.810 [main] Version - HHH000412: Hibernate ORM core version 6.4.3.Final
+[DEBUG] 2026-10-08 14:12:11.815 [main] Environment - HHH000206: 'hibernate.properties' not found
+[DEBUG] 2026-10-08 14:12:11.985 [main] LocalXmlResourceResolver - Checking public/system identifiers `-//Hibernate/Hibernate Configuration DTD//EN`/`http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd` as DTD references
+[DEBUG] 2026-10-08 14:12:12.002 [main] JaxbCfgProcessor - cfg.xml document did not define namespaces; wrapping in custom event reader to introduce namespace information
+[DEBUG] 2026-10-08 14:12:12.613 [main] factory - Ignoring CDI for resolving IdentifierGenerator instances as extended or delayed CDI support was enabled
+[DEBUG] 2026-10-08 14:12:12.626 [main] factory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+[DEBUG] 2026-10-08 14:12:12.628 [main] factory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+[DEBUG] 2026-10-08 14:12:12.630 [main] factory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+[DEBUG] 2026-10-08 14:12:12.630 [main] factory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+[DEBUG] 2026-10-08 14:12:12.632 [main] factory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+[DEBUG] 2026-10-08 14:12:12.633 [main] factory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+[DEBUG] 2026-10-08 14:12:12.634 [main] factory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+[DEBUG] 2026-10-08 14:12:12.637 [main] factory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[DEBUG] 2026-10-08 14:12:12.639 [main] factory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+[DEBUG] 2026-10-08 14:12:12.639 [main] factory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+[DEBUG] 2026-10-08 14:12:12.639 [main] factory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+[DEBUG] 2026-10-08 14:12:12.642 [main] factory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+[DEBUG] 2026-10-08 14:12:12.668 [main] RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+[INFO ] 2026-10-08 14:12:12.670 [main] RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[DEBUG] 2026-10-08 14:12:12.902 [main] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@3d9fc57a
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@3d9fc57a
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@3d9fc57a
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@d4ab71a
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@d4ab71a
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.BasicTypeReference@3b4ef7
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@3b4ef7
+[DEBUG] 2026-10-08 14:12:12.906 [main] BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@1af05b03
+[DEBUG] 2026-10-08 14:12:12.907 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@1af05b03
+[DEBUG] 2026-10-08 14:12:12.907 [main] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@5987e932
+[DEBUG] 2026-10-08 14:12:12.907 [main] BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@5987e932
+[DEBUG] 2026-10-08 14:12:12.907 [main] BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@5987e932
+[DEBUG] 2026-10-08 14:12:12.908 [main] BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BasicTypeReference@1ad777f
+[DEBUG] 2026-10-08 14:12:12.908 [main] BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@1ad777f
+[DEBUG] 2026-10-08 14:12:12.908 [main] BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BasicTypeReference@1ad777f
+[DEBUG] 2026-10-08 14:12:12.908 [main] BasicTypeRegistry - Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@5bbbdd4b
+[DEBUG] 2026-10-08 14:12:12.908 [main] BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@5bbbdd4b
+[DEBUG] 2026-10-08 14:12:12.908 [main] BasicTypeRegistry - Adding type registration image -> org.hibernate.type.BasicTypeReference@438bad7c
+[DEBUG] 2026-10-08 14:12:12.909 [main] BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BasicTypeReference@25230246
+[DEBUG] 2026-10-08 14:12:12.909 [main] BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@25230246
+[DEBUG] 2026-10-08 14:12:12.909 [main] BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@4fdf8f12
+[DEBUG] 2026-10-08 14:12:12.909 [main] BasicTypeRegistry - Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@4a8b5227
+[DEBUG] 2026-10-08 14:12:12.909 [main] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@54f5f647
+[DEBUG] 2026-10-08 14:12:12.909 [main] BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@54f5f647
+[DEBUG] 2026-10-08 14:12:12.910 [main] BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@54f5f647
+[DEBUG] 2026-10-08 14:12:12.910 [main] BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.BasicTypeReference@6979efad
+[DEBUG] 2026-10-08 14:12:12.910 [main] BasicTypeRegistry - Adding type registration int -> org.hibernate.type.BasicTypeReference@6979efad
+[DEBUG] 2026-10-08 14:12:12.910 [main] BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@6979efad
+[DEBUG] 2026-10-08 14:12:12.910 [main] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@5a6d5a8f
+[DEBUG] 2026-10-08 14:12:12.910 [main] BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@5a6d5a8f
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@5a6d5a8f
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@4a67318f
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@4a67318f
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@4a67318f
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@315ba14a
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@315ba14a
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@315ba14a
+[DEBUG] 2026-10-08 14:12:12.911 [main] BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@17f9344b
+[DEBUG] 2026-10-08 14:12:12.912 [main] BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@17f9344b
+[DEBUG] 2026-10-08 14:12:12.912 [main] BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@27f0ad19
+[DEBUG] 2026-10-08 14:12:12.912 [main] BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@27f0ad19
+[DEBUG] 2026-10-08 14:12:12.912 [main] BasicTypeRegistry - Adding type registration character -> org.hibernate.type.BasicTypeReference@54e81b21
+[DEBUG] 2026-10-08 14:12:12.920 [main] BasicTypeRegistry - Adding type registration char -> org.hibernate.type.BasicTypeReference@54e81b21
+[DEBUG] 2026-10-08 14:12:12.920 [main] BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@54e81b21
+[DEBUG] 2026-10-08 14:12:12.921 [main] BasicTypeRegistry - Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@38d5b107
+[DEBUG] 2026-10-08 14:12:12.921 [main] BasicTypeRegistry - Adding type registration string -> org.hibernate.type.BasicTypeReference@6650813a
+[DEBUG] 2026-10-08 14:12:12.923 [main] BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@6650813a
+[DEBUG] 2026-10-08 14:12:12.923 [main] BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.BasicTypeReference@44ea608c
+[DEBUG] 2026-10-08 14:12:12.923 [main] BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.BasicTypeReference@50cf5a23
+[DEBUG] 2026-10-08 14:12:12.924 [main] BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.BasicTypeReference@50cf5a23
+[DEBUG] 2026-10-08 14:12:12.924 [main] BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.BasicTypeReference@50cf5a23
+[DEBUG] 2026-10-08 14:12:12.925 [main] BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@450794b4
+[DEBUG] 2026-10-08 14:12:12.925 [main] BasicTypeRegistry - Adding type registration text -> org.hibernate.type.BasicTypeReference@273c947f
+[DEBUG] 2026-10-08 14:12:12.925 [main] BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.BasicTypeReference@30457e14
+[DEBUG] 2026-10-08 14:12:12.925 [main] BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.BasicTypeReference@1af1347d
+[DEBUG] 2026-10-08 14:12:12.926 [main] BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@1af1347d
+[DEBUG] 2026-10-08 14:12:12.926 [main] BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.BasicTypeReference@632aa1a3
+[DEBUG] 2026-10-08 14:12:12.926 [main] BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@632aa1a3
+[DEBUG] 2026-10-08 14:12:12.926 [main] BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@20765ed5
+[DEBUG] 2026-10-08 14:12:12.927 [main] BasicTypeRegistry - Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@3b582111
+[DEBUG] 2026-10-08 14:12:12.927 [main] BasicTypeRegistry - Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@2899a8db
+[DEBUG] 2026-10-08 14:12:12.927 [main] BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@1e8823d2
+[DEBUG] 2026-10-08 14:12:12.927 [main] BasicTypeRegistry - Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@c1a4620
+[DEBUG] 2026-10-08 14:12:12.928 [main] BasicTypeRegistry - Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@76b0ae1b
+[DEBUG] 2026-10-08 14:12:12.929 [main] BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.BasicTypeReference@130a0f66
+[DEBUG] 2026-10-08 14:12:12.929 [main] BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@130a0f66
+[DEBUG] 2026-10-08 14:12:12.930 [main] BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@4c432866
+[DEBUG] 2026-10-08 14:12:12.931 [main] BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@4c432866
+[DEBUG] 2026-10-08 14:12:12.932 [main] BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@12365c88
+[DEBUG] 2026-10-08 14:12:12.932 [main] BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@12365c88
+[DEBUG] 2026-10-08 14:12:12.932 [main] BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@6105f8a3
+[DEBUG] 2026-10-08 14:12:12.933 [main] BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@6105f8a3
+[DEBUG] 2026-10-08 14:12:12.933 [main] BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@2237bada
+[DEBUG] 2026-10-08 14:12:12.933 [main] BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@2237bada
+[DEBUG] 2026-10-08 14:12:12.933 [main] BasicTypeRegistry - Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@77e2a6e2
+[DEBUG] 2026-10-08 14:12:12.933 [main] BasicTypeRegistry - Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@5710768a
+[DEBUG] 2026-10-08 14:12:12.936 [main] BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@199e4c2b
+[DEBUG] 2026-10-08 14:12:12.936 [main] BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@199e4c2b
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration OffsetTimeUtc -> org.hibernate.type.BasicTypeReference@6e0d4a8
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration OffsetTimeWithTimezone -> org.hibernate.type.BasicTypeReference@64d7b720
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration OffsetTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@30272916
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@5bb3d42d
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@5bb3d42d
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@5bf61e67
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@2c1dc8e
+[DEBUG] 2026-10-08 14:12:12.937 [main] BasicTypeRegistry - Adding type registration date -> org.hibernate.type.BasicTypeReference@b273a59
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@b273a59
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration time -> org.hibernate.type.BasicTypeReference@4e7095ac
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@4e7095ac
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@251ebf23
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@251ebf23
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@251ebf23
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.BasicTypeReference@29b732a2
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@29b732a2
+[DEBUG] 2026-10-08 14:12:12.938 [main] BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@29b732a2
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@1b70203f
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@51671b08
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration instant -> org.hibernate.type.BasicTypeReference@15051a0
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@15051a0
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration uuid -> org.hibernate.type.BasicTypeReference@1162410a
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@1162410a
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@1162410a
+[DEBUG] 2026-10-08 14:12:12.939 [main] BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@b09fac1
+[DEBUG] 2026-10-08 14:12:12.940 [main] BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@62df0ff3
+[DEBUG] 2026-10-08 14:12:12.940 [main] BasicTypeRegistry - Adding type registration class -> org.hibernate.type.BasicTypeReference@61019f59
+[DEBUG] 2026-10-08 14:12:12.940 [main] BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@61019f59
+[DEBUG] 2026-10-08 14:12:12.941 [main] BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.BasicTypeReference@62e8f862
+[DEBUG] 2026-10-08 14:12:12.942 [main] BasicTypeRegistry - Adding type registration Currency -> org.hibernate.type.BasicTypeReference@62e8f862
+[DEBUG] 2026-10-08 14:12:12.942 [main] BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@62e8f862
+[DEBUG] 2026-10-08 14:12:12.942 [main] BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.BasicTypeReference@26f3d90c
+[DEBUG] 2026-10-08 14:12:12.944 [main] BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@26f3d90c
+[DEBUG] 2026-10-08 14:12:12.945 [main] BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.BasicTypeReference@3c49fab6
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@3c49fab6
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.BasicTypeReference@515f4131
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@515f4131
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@74518890
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@74518890
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration url -> org.hibernate.type.BasicTypeReference@4c5204af
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@4c5204af
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration vector -> org.hibernate.type.BasicTypeReference@3f3ddbd9
+[DEBUG] 2026-10-08 14:12:12.946 [main] BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.BasicTypeReference@14c053c6
+[DEBUG] 2026-10-08 14:12:12.963 [main] BasicTypeRegistry - Adding type registration object -> org.hibernate.type.JavaObjectType@44d70181
+[DEBUG] 2026-10-08 14:12:12.964 [main] BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@44d70181
+[DEBUG] 2026-10-08 14:12:12.965 [main] BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@5f574cc2
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@680bddf5
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@7a9c84a5
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@2d83c5a5
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@48d7ad8b
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@7e053511
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@60222fd8
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@53bf7094
+[DEBUG] 2026-10-08 14:12:12.970 [main] BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@26f1249d
+[INFO ] 2026-10-08 14:12:13.025 [main] c3p0 - HHH010002: C3P0 using driver: com.mysql.cj.jdbc.Driver at URL: jdbc:mysql://localhost:3306/mtg_manager_test
+[INFO ] 2026-10-08 14:12:13.025 [main] c3p0 - HHH10001001: Connection properties: {password=****, user=root}
+[INFO ] 2026-10-08 14:12:13.025 [main] c3p0 - HHH10001003: Autocommit mode: false
+[INFO ] 2026-10-08 14:12:13.273 [main] c3p0 - HHH10001007: JDBC isolation level: <unknown>
+[DEBUG] 2026-10-08 14:12:14.393 [main] JdbcEnvironmentInitiator - Database ->
+       name : MySQL
+    version : 8.0.46-0ubuntu0.22.04.4
+      major : 8
+      minor : 0
+[DEBUG] 2026-10-08 14:12:14.396 [main] JdbcEnvironmentInitiator - Driver ->
+       name : MySQL Connector/J
+    version : mysql-connector-j-8.4.0 (Revision: 1c3f5c149e0bfe31c7fbeb24e2d260cd890972c4)
+      major : 8
+      minor : 4
+[DEBUG] 2026-10-08 14:12:14.396 [main] JdbcEnvironmentInitiator - JDBC version : 4.2
+[DEBUG] 2026-10-08 14:12:14.568 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0
+[DEBUG] 2026-10-08 14:12:14.590 [main] IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in more than one case
+[DEBUG] 2026-10-08 14:12:14.590 [main] IdentifierHelperBuilder - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [MIXED]; that will likely lead to problems in schema update and validation if using quoted identifiers
+[DEBUG] 2026-10-08 14:12:14.635 [main] DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e04ccf8) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@51d143a1)
+[DEBUG] 2026-10-08 14:12:14.637 [main] DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1a28aef1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4647881c)
+[DEBUG] 2026-10-08 14:12:14.637 [main] DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6e0cff20) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@359b650b)
+[DEBUG] 2026-10-08 14:12:14.638 [main] DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6a9b0a6f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@10667848)
+[DEBUG] 2026-10-08 14:12:14.638 [main] DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@191a709b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77c7ed8e)
+[DEBUG] 2026-10-08 14:12:14.638 [main] DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@453d496b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@66bacdbc)
+[DEBUG] 2026-10-08 14:12:14.643 [main] DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2c6ee758) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@640dc4c6)
+[DEBUG] 2026-10-08 14:12:14.646 [main] DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4b54af3d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7bb35cc6)
+[DEBUG] 2026-10-08 14:12:14.648 [main] DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@203c20cf) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2a1debfa)
+[DEBUG] 2026-10-08 14:12:14.653 [main] JdbcTypeRegistry - addDescriptor(NCharTypeDescriptor) replaced previous registration(CharTypeDescriptor)
+[DEBUG] 2026-10-08 14:12:14.654 [main] JdbcTypeRegistry - addDescriptor(NVarcharTypeDescriptor) replaced previous registration(VarcharTypeDescriptor)
+[DEBUG] 2026-10-08 14:12:14.655 [main] JdbcTypeRegistry - addDescriptor(LongNVarcharTypeDescriptor) replaced previous registration(LongVarcharTypeDescriptor)
+[DEBUG] 2026-10-08 14:12:14.659 [main] JdbcTypeRegistry - addDescriptor(NClobTypeDescriptor(DEFAULT)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+[DEBUG] 2026-10-08 14:12:14.659 [main] JdbcTypeRegistry - addDescriptor(2005, ClobTypeDescriptor(STREAM_BINDING)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+[DEBUG] 2026-10-08 14:12:14.670 [main] BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@3cee53dc
+[DEBUG] 2026-10-08 14:12:14.670 [main] BasicTypeRegistry - Type registration key [null] overrode previous entry : `org.hibernate.type.NullType@5f574cc2`
+[DEBUG] 2026-10-08 14:12:14.692 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.DurationType -> basicType@1(java.time.Duration,2)
+[DEBUG] 2026-10-08 14:12:14.693 [main] BasicTypeRegistry - Adding type registration Duration -> basicType@1(java.time.Duration,2)
+[DEBUG] 2026-10-08 14:12:14.693 [main] BasicTypeRegistry - Adding type registration java.time.Duration -> basicType@1(java.time.Duration,2)
+[DEBUG] 2026-10-08 14:12:14.708 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetDateTimeType -> basicType@2(java.time.OffsetDateTime,3003)
+[DEBUG] 2026-10-08 14:12:14.709 [main] BasicTypeRegistry - Adding type registration OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+[DEBUG] 2026-10-08 14:12:14.709 [main] BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+[DEBUG] 2026-10-08 14:12:14.709 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.ZonedDateTimeType -> basicType@3(java.time.ZonedDateTime,3003)
+[DEBUG] 2026-10-08 14:12:14.711 [main] BasicTypeRegistry - Adding type registration ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+[DEBUG] 2026-10-08 14:12:14.711 [main] BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+[DEBUG] 2026-10-08 14:12:14.712 [main] BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetTimeType -> basicType@4(java.time.OffsetTime,3007)
+[DEBUG] 2026-10-08 14:12:14.713 [main] BasicTypeRegistry - Adding type registration OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+[DEBUG] 2026-10-08 14:12:14.713 [main] BasicTypeRegistry - Adding type registration java.time.OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+[DEBUG] 2026-10-08 14:12:14.715 [main] TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@1bd0b0e5] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@dc7b462]
+[DEBUG] 2026-10-08 14:12:14.799 [main] Namespace - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+[DEBUG] 2026-10-08 14:12:14.861 [main] EntityBinder - Binding entity from annotated class: com.magMan.entity.Card
+[DEBUG] 2026-10-08 14:12:14.884 [main] EntityBinder - Import with entity name Card
+[DEBUG] 2026-10-08 14:12:14.910 [main] EntityBinder - Bind entity com.magMan.entity.Card on table cards
+[DEBUG] 2026-10-08 14:12:14.931 [main] AnnotatedColumn - Binding column: AnnotatedDiscriminatorColumn(column='DTYPE')
+[DEBUG] 2026-10-08 14:12:14.977 [main] AnnotatedColumn - Binding column: AnnotatedColumn()
+[DEBUG] 2026-10-08 14:12:14.978 [main] ClassLoaderAccessImpl - Not known whether passed class name [com.magMan.entity.Card] is safe
+[DEBUG] 2026-10-08 14:12:14.982 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.magMan.entity.Card
+[DEBUG] 2026-10-08 14:12:14.986 [main] PropertyBinder - MetadataSourceProcessor property id with lazy=false
+[DEBUG] 2026-10-08 14:12:14.994 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Card:id]
+[DEBUG] 2026-10-08 14:12:14.998 [main] BasicValueBinder - building BasicValue for id
+[DEBUG] 2026-10-08 14:12:15.022 [main] BasicValue - Skipping column re-registration: cards.id
+[DEBUG] 2026-10-08 14:12:15.026 [main] PropertyBinder - Building property id
+[DEBUG] 2026-10-08 14:12:15.037 [main] BinderHelper - #makeIdGenerator(BasicValue([Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, native, ...)
+[DEBUG] 2026-10-08 14:12:15.056 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='cardCmc')
+[DEBUG] 2026-10-08 14:12:15.058 [main] PropertyBinder - MetadataSourceProcessor property cardCmc with lazy=false
+[DEBUG] 2026-10-08 14:12:15.058 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Card:cardCmc]
+[DEBUG] 2026-10-08 14:12:15.061 [main] BasicValueBinder - building BasicValue for cardCmc
+[DEBUG] 2026-10-08 14:12:15.061 [main] BasicValue - Skipping column re-registration: cards.cardCmc
+[DEBUG] 2026-10-08 14:12:15.061 [main] PropertyBinder - Building property cardCmc
+[DEBUG] 2026-10-08 14:12:15.064 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='cardName')
+[DEBUG] 2026-10-08 14:12:15.064 [main] PropertyBinder - MetadataSourceProcessor property cardName with lazy=false
+[DEBUG] 2026-10-08 14:12:15.065 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Card:cardName]
+[DEBUG] 2026-10-08 14:12:15.066 [main] BasicValueBinder - building BasicValue for cardName
+[DEBUG] 2026-10-08 14:12:15.066 [main] BasicValue - Skipping column re-registration: cards.cardName
+[DEBUG] 2026-10-08 14:12:15.066 [main] PropertyBinder - Building property cardName
+[DEBUG] 2026-10-08 14:12:15.066 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='cardQuantity')
+[DEBUG] 2026-10-08 14:12:15.067 [main] PropertyBinder - MetadataSourceProcessor property cardQuantity with lazy=false
+[DEBUG] 2026-10-08 14:12:15.067 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Card:cardQuantity]
+[DEBUG] 2026-10-08 14:12:15.067 [main] BasicValueBinder - building BasicValue for cardQuantity
+[DEBUG] 2026-10-08 14:12:15.068 [main] BasicValue - Skipping column re-registration: cards.cardQuantity
+[DEBUG] 2026-10-08 14:12:15.069 [main] PropertyBinder - Building property cardQuantity
+[DEBUG] 2026-10-08 14:12:15.070 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='cardType')
+[DEBUG] 2026-10-08 14:12:15.070 [main] PropertyBinder - MetadataSourceProcessor property cardType with lazy=false
+[DEBUG] 2026-10-08 14:12:15.071 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Card:cardType]
+[DEBUG] 2026-10-08 14:12:15.071 [main] BasicValueBinder - building BasicValue for cardType
+[DEBUG] 2026-10-08 14:12:15.071 [main] BasicValue - Skipping column re-registration: cards.cardType
+[DEBUG] 2026-10-08 14:12:15.071 [main] PropertyBinder - Building property cardType
+[DEBUG] 2026-10-08 14:12:15.074 [main] AnnotatedColumn - Binding column: AnnotatedJoinColumn()
+[DEBUG] 2026-10-08 14:12:15.076 [main] AnnotatedColumn - Binding column: AnnotatedColumn()
+[DEBUG] 2026-10-08 14:12:15.090 [main] AnnotatedColumn - Binding column: IndexColumn(column='rulings_ORDER')
+[DEBUG] 2026-10-08 14:12:15.105 [main] AnnotatedColumn - Binding column: AnnotatedColumn()
+[DEBUG] 2026-10-08 14:12:15.108 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='rulings_KEY')
+[DEBUG] 2026-10-08 14:12:15.109 [main] AnnotatedColumn - Binding column: AnnotatedJoinColumn(column='rulings_KEY')
+[DEBUG] 2026-10-08 14:12:15.110 [main] AnnotatedColumn - Binding column: AnnotatedJoinColumn()
+[DEBUG] 2026-10-08 14:12:15.111 [main] AnnotatedColumn - Binding column: AnnotatedJoinColumn()
+[DEBUG] 2026-10-08 14:12:15.113 [main] CollectionBinder - Collection role: com.magMan.entity.Card.rulings
+[DEBUG] 2026-10-08 14:12:15.115 [main] PropertyBinder - Building property rulings
+[DEBUG] 2026-10-08 14:12:15.116 [main] ClassLoaderServiceImpl - HHH000194: Package not found or wo package-info.java: com.magMan.entity
+[DEBUG] 2026-10-08 14:12:15.122 [main] EntityBinder - Binding entity from annotated class: com.magMan.entity.Ruling
+[DEBUG] 2026-10-08 14:12:15.124 [main] EntityBinder - Import with entity name Ruling
+[DEBUG] 2026-10-08 14:12:15.124 [main] EntityBinder - Bind entity com.magMan.entity.Ruling on table rulings
+[DEBUG] 2026-10-08 14:12:15.125 [main] AnnotatedColumn - Binding column: AnnotatedDiscriminatorColumn(column='DTYPE')
+[DEBUG] 2026-10-08 14:12:15.129 [main] AnnotatedColumn - Binding column: AnnotatedColumn()
+[DEBUG] 2026-10-08 14:12:15.129 [main] ClassLoaderAccessImpl - Not known whether passed class name [com.magMan.entity.Ruling] is safe
+[DEBUG] 2026-10-08 14:12:15.129 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.magMan.entity.Ruling
+[DEBUG] 2026-10-08 14:12:15.129 [main] PropertyBinder - MetadataSourceProcessor property id with lazy=false
+[DEBUG] 2026-10-08 14:12:15.130 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Ruling:id]
+[DEBUG] 2026-10-08 14:12:15.131 [main] BasicValueBinder - building BasicValue for id
+[DEBUG] 2026-10-08 14:12:15.132 [main] BasicValue - Skipping column re-registration: rulings.id
+[DEBUG] 2026-10-08 14:12:15.133 [main] PropertyBinder - Building property id
+[DEBUG] 2026-10-08 14:12:15.135 [main] BinderHelper - #makeIdGenerator(BasicValue([Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, native, ...)
+[DEBUG] 2026-10-08 14:12:15.135 [main] AnnotatedColumn - Binding column: AnnotatedJoinColumn()
+[DEBUG] 2026-10-08 14:12:15.140 [main] AnnotatedColumn - Binding column: AnnotatedColumn()
+[DEBUG] 2026-10-08 14:12:15.147 [main] PropertyBinder - Building property card
+[DEBUG] 2026-10-08 14:12:15.149 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='ruling_date')
+[DEBUG] 2026-10-08 14:12:15.150 [main] PropertyBinder - MetadataSourceProcessor property rulingDate with lazy=false
+[DEBUG] 2026-10-08 14:12:15.150 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Ruling:rulingDate]
+[DEBUG] 2026-10-08 14:12:15.150 [main] BasicValueBinder - building BasicValue for rulingDate
+[DEBUG] 2026-10-08 14:12:15.150 [main] BasicValue - Skipping column re-registration: rulings.ruling_date
+[DEBUG] 2026-10-08 14:12:15.151 [main] PropertyBinder - Building property rulingDate
+[DEBUG] 2026-10-08 14:12:15.151 [main] AnnotatedColumn - Binding column: AnnotatedColumn(column='ruling_text')
+[DEBUG] 2026-10-08 14:12:15.151 [main] PropertyBinder - MetadataSourceProcessor property rulingText with lazy=false
+[DEBUG] 2026-10-08 14:12:15.152 [main] AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.magMan.entity.Ruling:rulingText]
+[DEBUG] 2026-10-08 14:12:15.152 [main] BasicValueBinder - building BasicValue for rulingText
+[DEBUG] 2026-10-08 14:12:15.152 [main] BasicValue - Skipping column re-registration: rulings.ruling_text
+[DEBUG] 2026-10-08 14:12:15.152 [main] PropertyBinder - Building property rulingText
+[DEBUG] 2026-10-08 14:12:15.153 [main] ClassLoaderServiceImpl - HHH000194: Package not found or wo package-info.java: com.magMan.entity
+[DEBUG] 2026-10-08 14:12:15.157 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for id
+[DEBUG] 2026-10-08 14:12:15.158 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cardCmc
+[DEBUG] 2026-10-08 14:12:15.159 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cardName
+[DEBUG] 2026-10-08 14:12:15.159 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cardQuantity
+[DEBUG] 2026-10-08 14:12:15.160 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cardType
+[DEBUG] 2026-10-08 14:12:15.160 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for id
+[DEBUG] 2026-10-08 14:12:15.160 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for rulingDate
+[DEBUG] 2026-10-08 14:12:15.160 [main] BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for rulingText
+[DEBUG] 2026-10-08 14:12:15.172 [main] PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [cards]
+[DEBUG] 2026-10-08 14:12:15.172 [main] PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [rulings]
+[DEBUG] 2026-10-08 14:12:15.173 [main] CollectionSecondPass - Second pass for collection: com.magMan.entity.Card.rulings
+[DEBUG] 2026-10-08 14:12:15.175 [main] CollectionBinder - Binding a OneToMany: com.magMan.entity.Card.rulings through a foreign key
+[DEBUG] 2026-10-08 14:12:15.177 [main] CollectionBinder - Mapping collection: com.magMan.entity.Card.rulings -> rulings
+[DEBUG] 2026-10-08 14:12:15.180 [main] TableBinder - Retrieving property com.magMan.entity.Ruling.card
+[DEBUG] 2026-10-08 14:12:15.181 [main] CollectionSecondPass - Mapped collection key: card_id, one-to-many: com.magMan.entity.Ruling
+[DEBUG] 2026-10-08 14:12:15.182 [main] InFlightMetadataCollectorImpl - Resolving reference to class: com.magMan.entity.Card
+[DEBUG] 2026-10-08 14:12:15.208 [main] InFlightMetadataCollectorImpl - Resolving reference to class: com.magMan.entity.Card
+[DEBUG] 2026-10-08 14:12:15.972 [main] SessionFactoryImpl - Building session factory
+[DEBUG] 2026-10-08 14:12:16.497 [main] SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+[DEBUG] 2026-10-08 14:12:16.503 [main] SessionFactoryImpl - Instantiating SessionFactory with settings: {sun.desktop=gnome, awt.toolkit=sun.awt.X11.XToolkit, java.specification.version=11, sun.cpu.isalist=, hibernate.c3p0.idle_test_period=3000, sun.jnu.encoding=UTF-8, hibernate.c3p0.min_size=5, java.class.path=/snap/intellij-idea-ultimate/830/lib/idea_rt.jar:/snap/intellij-idea-ultimate/830/plugins/junit/lib/junit5-rt.jar:/snap/intellij-idea-ultimate/830/plugins/junit/lib/junit-rt.jar:/home/student/IdeaProjects/MtgManager/target/test-classes:/home/student/IdeaProjects/MtgManager/target/classes:/home/student/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar:/home/student/.m2/repository/org/glassfish/web/javax.servlet.jsp.jstl/1.2.5/javax.servlet.jsp.jstl-1.2.5.jar:/home/student/.m2/repository/javax/servlet/jsp/jstl/jstl-api/1.2/jstl-api-1.2.jar:/home/student/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/home/student/.m2/repository/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar:/home/student/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/home/student/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/home/student/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar:/home/student/.m2/repository/com/mysql/mysql-connector-j/8.4.0/mysql-connector-j-8.4.0.jar:/home/student/.m2/repository/com/google/protobuf/protobuf-java/3.25.1/protobuf-java-3.25.1.jar:/home/student/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/home/student/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/home/student/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/student/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/student/.m2/repository/org/junit/platform/junit-platform-runner/1.0.0/junit-platform-runner-1.0.0.jar:/home/student/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/student/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.0/junit-platform-launcher-1.0.0.jar:/home/student/.m2/repository/org/junit/platform/junit-platform-suite-api/1.0.0/junit-platform-suite-api-1.0.0.jar:/home/student/.m2/repository/org/junit/platform/junit-platform-commons/1.0.0/junit-platform-commons-1.0.0.jar:/home/student/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.0/junit-vintage-engine-4.12.0.jar:/home/student/.m2/repository/org/junit/platform/junit-platform-engine/1.0.0/junit-platform-engine-1.0.0.jar:/home/student/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/student/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.0/junit-jupiter-engine-5.0.0.jar:/home/student/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.0/junit-jupiter-api-5.0.0.jar:/home/student/.m2/repository/org/hibernate/orm/hibernate-core/6.4.3.Final/hibernate-core-6.4.3.Final.jar:/home/student/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/student/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/student/.m2/repository/org/jboss/logging/jboss-logging/3.5.0.Final/jboss-logging-3.5.0.Final.jar:/home/student/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/home/student/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/home/student/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/home/student/.m2/repository/net/bytebuddy/byte-buddy/1.14.7/byte-buddy-1.14.7.jar:/home/student/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar:/home/student/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar:/home/student/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.2/jaxb-runtime-4.0.2.jar:/home/student/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.2/jaxb-core-4.0.2.jar:/home/student/.m2/repository/org/eclipse/angus/angus-activation/2.0.0/angus-activation-2.0.0.jar:/home/student/.m2/repository/org/glassfish/jaxb/txw2/4.0.2/txw2-4.0.2.jar:/home/student/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.1/istack-commons-runtime-4.1.1.jar:/home/student/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/student/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/student/.m2/repository/org/hibernate/orm/hibernate-c3p0/6.4.3.Final/hibernate-c3p0-6.4.3.Final.jar:/home/student/.m2/repository/com/mchange/c3p0/0.9.5.5/c3p0-0.9.5.5.jar:/home/student/.m2/repository/com/mchange/mchange-commons-java/0.2.19/mchange-commons-java-0.2.19.jar, kotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true, java.vm.vendor=Ubuntu, sun.arch.data.model=64, idea.test.cyclic.buffer.size=1048576, java.vendor.url=https://ubuntu.com/, user.timezone=America/Chicago, os.name=Linux, java.vm.specification.version=11, sun.java.launcher=SUN_STANDARD, user.country=US, sun.boot.library.path=/usr/lib/jvm/java-11-openjdk-amd64/lib, sun.java.command=com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 com.magMan.persistence.RulingDaoTest, jdk.debug=release, sun.cpu.endian=little, user.home=/home/student, hibernate.c3p0.max_statements=50, user.language=en, java.specification.vendor=Oracle Corporation, java.version.date=2026-08-18, java.home=/usr/lib/jvm/java-11-openjdk-amd64, file.separator=/, java.vm.compressedOopsMode=32-bit, line.separator=
+, hibernate.c3p0.timeout=300, java.specification.name=Java Platform API Specification, java.vm.specification.vendor=Oracle Corporation, intellij.debug.agent=true, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, connection.password=student, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, hibernate.c3p0.max_size=20, java.runtime.version=11.0.32.1+1-post-1ubuntu1-22.04-Ubuntu, user.name=student, path.separator=:, kotlinx.coroutines.debug.enable.creation.stack.trace=false, hibernate.connection.username=****, os.version=5.15.0-91-generic, java.runtime.name=OpenJDK Runtime Environment, hibernate.connection.url=jdbc:mysql://localhost:3306/mtg_manager_test, file.encoding=UTF-8, debugger.agent.enable.log.capture=true, java.vm.name=OpenJDK 64-Bit Server VM, hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, java.vendor.url.bug=https://bugs.launchpad.net/ubuntu/+source/openjdk-lts, java.io.tmpdir=/tmp, java.version=11.0.32.1, jboss.modules.system.pkgs=com.intellij.rt, user.dir=/home/student/IdeaProjects/MtgManager, os.arch=amd64, connection.username=root, java.vm.specification.name=Java Virtual Machine Specification, java.awt.printerjob=sun.print.PSPrinterJob, hibernate.connection.password=****, sun.os.patch.level=unknown, connection.driver_class=com.mysql.cj.jdbc.Driver, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@7e9f2c32, kotlinx.coroutines.debug.enable.flows.stack.trace=true, java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib, java.vendor=Ubuntu, java.vm.info=mixed mode, sharing, java.vm.version=11.0.32.1+1-post-1ubuntu1-22.04-Ubuntu, java.specification.maintenance.version=3, debugger.async.stack.trace.for.all.threads=true, java.rmi.server.randomIDs=true, sun.io.unicode.encoding=UnicodeLittle, connection.url=jdbc:mysql://localhost:3306/mtg_manager_test, debugger.agent.enable.coroutines=true, java.class.version=55.0}
+[DEBUG] 2026-10-08 14:12:16.572 [main] SessionFactoryImpl - Session factory constructed with filter configurations : {}
+[DEBUG] 2026-10-08 14:12:16.635 [main] SchemaManagementToolCoordinator - No schema actions specified for contributor `orm`; doing nothing
+[DEBUG] 2026-10-08 14:12:16.907 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(max)] under max; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.909 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(min)] under min; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.912 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sum)] under sum; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.916 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(avg)] under avg; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.924 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CountFunction@3127cb44] under count; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.929 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.EveryAnyEmulation@36b9cb99] under every; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.929 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.EveryAnyEmulation@4130955c] under any; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.933 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(floor)] under floor; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ceiling)] under ceiling; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(mod)] under mod; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(abs)] under abs; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sign)] under sign; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sqrt)] under sqrt; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ln)] under ln; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(exp)] under exp; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.935 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(power)] under power; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.938 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(round)] under round; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.938 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sin)] under sin; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.938 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cos)] under cos; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.938 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(tan)] under tan; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.939 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(asin)] under asin; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.941 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(acos)] under acos; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.941 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(atan)] under atan; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.941 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(atan2)] under atan2; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.955 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6680f714] under sinh; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.956 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@53b1a3f8] under cosh; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.958 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@7d97e06c] under tanh; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.958 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@5a936e64] under pi; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.958 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@3b4a1a75] under log; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.962 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(coalesce)] under coalesce; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.963 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(nullif)] under nullif; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.965 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(left)] under left; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.965 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(right)] under right; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.965 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(replace)] under replace; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.967 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(concat)] under concat; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.969 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lower)] under lower; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.969 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(upper)] under upper; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.971 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substring)] under substring; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.971 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(locate)] under locate; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.972 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(character_length)] under character_length; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.973 [main] SqmFunctionRegistry - Registering alternate key : length -> character_length
+[DEBUG] 2026-10-08 14:12:16.977 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LocatePositionEmulation@1c3259fa] under position; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.988 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.InsertSubstringOverlayEmulation@58b5a2f3] under overlay; prior registration was null
+[DEBUG] 2026-10-08 14:12:16.994 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TrimFunction@67022ea] under trim; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.001 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CastFunction@d70f722] under cast; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.002 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@1e1eeedd] under collate; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.008 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ExtractFunction@1d8b0500] under extract; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.009 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(least)] under least; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.009 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(greatest)] under greatest; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.017 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CoalesceIfnullEmulation@20eaeaf8] under ifnull; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.017 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lpad)] under lpad; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.017 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rpad)] under rpad; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.025 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LpadRpadPadEmulation@1835dc92] under pad; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.028 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CastStrEmulation@46911148] under str; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.030 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.FormatFunction@30c3ae63] under format; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.043 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TimestampaddFunction@4d84049a] under timestampadd; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.045 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TimestampdiffFunction@5c9934da] under timestampdiff; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.051 [main] SqmFunctionRegistry - Registering alternate key : dateadd -> timestampadd
+[DEBUG] 2026-10-08 14:12:17.052 [main] SqmFunctionRegistry - Registering alternate key : datediff -> timestampdiff
+[DEBUG] 2026-10-08 14:12:17.053 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@71ed560f] under current_date; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.053 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@5b88b8e] under current_time; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.059 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@58253c57] under current_timestamp; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.059 [main] SqmFunctionRegistry - Registering alternate key : current date -> current_date
+[DEBUG] 2026-10-08 14:12:17.059 [main] SqmFunctionRegistry - Registering alternate key : current time -> current_time
+[DEBUG] 2026-10-08 14:12:17.059 [main] SqmFunctionRegistry - Registering alternate key : current timestamp -> current_timestamp
+[DEBUG] 2026-10-08 14:12:17.060 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@b73433] under local_date; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.060 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@1bf14704] under local_time; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.060 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@5a545b0f] under local_datetime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.060 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@2be21396] under offset_datetime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.064 [main] SqmFunctionRegistry - Registering alternate key : local date -> local_date
+[DEBUG] 2026-10-08 14:12:17.066 [main] SqmFunctionRegistry - Registering alternate key : local time -> local_time
+[DEBUG] 2026-10-08 14:12:17.066 [main] SqmFunctionRegistry - Registering alternate key : local datetime -> local_datetime
+[DEBUG] 2026-10-08 14:12:17.066 [main] SqmFunctionRegistry - Registering alternate key : offset datetime -> offset_datetime
+[DEBUG] 2026-10-08 14:12:17.066 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@124dac75] under instant; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.066 [main] SqmFunctionRegistry - Registering alternate key : current_instant -> instant
+[DEBUG] 2026-10-08 14:12:17.071 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.SqlFunction@3ff54f3d] under sql; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.074 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(soundex)] under soundex; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.076 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(radians)] under radians; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.080 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(degrees)] under degrees; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.083 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cot)] under cot; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.084 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log)] under log; prior registration was org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@3b4a1a75
+[DEBUG] 2026-10-08 14:12:17.084 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log2)] under log2; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.084 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log10)] under log10; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.086 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ltrim)] under ltrim; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.087 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rtrim)] under rtrim; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.093 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(octet_length)] under octet_length; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.093 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(reverse)] under reverse; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.093 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(space)] under space; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.093 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(repeat)] under repeat; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.095 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.MultipatternSqmFunctionDescriptor@14924f41] under lpad; prior registration was NamedSqmFunctionTemplate(lpad)
+[DEBUG] 2026-10-08 14:12:17.096 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.MultipatternSqmFunctionDescriptor@493da830] under rpad; prior registration was NamedSqmFunctionTemplate(rpad)
+[DEBUG] 2026-10-08 14:12:17.098 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(md5)] under md5; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.098 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(day)] under day; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.098 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(month)] under month; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.099 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(year)] under year; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.100 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(hour)] under hour; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.101 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(minute)] under minute; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.103 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(second)] under second; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.104 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(microsecond)] under microsecond; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.105 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayofweek)] under dayofweek; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.105 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayofmonth)] under dayofmonth; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.106 [main] SqmFunctionRegistry - Registering alternate key : day -> dayofmonth
+[DEBUG] 2026-10-08 14:12:17.108 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayofyear)] under dayofyear; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.109 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(week)] under week; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.109 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(quarter)] under quarter; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.109 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(monthname)] under monthname; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.109 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayname)] under dayname; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.111 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(last_day)] under last_day; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.111 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(date)] under date; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.111 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(timestamp)] under timestamp; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.111 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(time)] under time; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(utc_date)] under utc_date; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(utc_time)] under utc_time; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(utc_timestamp)] under utc_timestamp; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rand)] under rand; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(crc32)] under crc32; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sha1)] under sha1; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sha2)] under sha2; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.113 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sha)] under sha; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.115 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_length)] under bit_length; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.116 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(octet_length)] under octet_length; prior registration was NamedSqmFunctionTemplate(octet_length)
+[DEBUG] 2026-10-08 14:12:17.116 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ascii)] under ascii; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.116 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(instr)] under instr; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.116 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substr)] under substr; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.118 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@1f939a0f] under position; prior registration was org.hibernate.dialect.function.LocatePositionEmulation@1c3259fa
+[DEBUG] 2026-10-08 14:12:17.118 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(curtime)] under curtime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.118 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(curdate)] under curdate; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.118 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(now)] under now; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.132 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TruncFunction@b0fd744] under trunc; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.133 [main] SqmFunctionRegistry - Registering alternate key : truncate -> trunc
+[DEBUG] 2026-10-08 14:12:17.133 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(insert)] under insert; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.133 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@92d1782] under bitand; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.133 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6a1ef65c] under bitor; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.135 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@72976b4] under bitxor; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.135 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@726934e2] under bitnot; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.135 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_and)] under bit_and; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.135 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_or)] under bit_or; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.136 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev)] under stddev; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.136 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev_pop)] under stddev_pop; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.136 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev_samp)] under stddev_samp; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.136 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(variance)] under variance; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.136 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(var_pop)] under var_pop; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.136 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(var_samp)] under var_samp; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.137 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(datediff)] under datediff; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.137 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(adddate)] under adddate; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.139 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(subdate)] under subdate; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.141 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(addtime)] under addtime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.142 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(subtime)] under subtime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.142 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.FormatFunction@1319bc2a] under format; prior registration was org.hibernate.dialect.function.FormatFunction@30c3ae63
+[DEBUG] 2026-10-08 14:12:17.142 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(makedate)] under makedate; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.142 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(maketime)] under maketime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.142 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under localtime; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.143 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtimestamp)] under localtimestamp; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.143 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under local_time; prior registration was org.hibernate.dialect.function.CurrentFunction@1bf14704
+[DEBUG] 2026-10-08 14:12:17.143 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtimestamp)] under local_datetime; prior registration was org.hibernate.dialect.function.CurrentFunction@5a545b0f
+[DEBUG] 2026-10-08 14:12:17.143 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under localtime; prior registration was NamedSqmFunctionTemplate(localtime)
+[DEBUG] 2026-10-08 14:12:17.144 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@e280403] under pi; prior registration was org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@5a936e64
+[DEBUG] 2026-10-08 14:12:17.144 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@42f85fa4] under chr; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.144 [main] SqmFunctionRegistry - Registering alternate key : char -> chr
+[DEBUG] 2026-10-08 14:12:17.144 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@798dad3d] under sysdate; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.145 [main] SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ListaggGroupConcatEmulation@7d986d83] under listagg; prior registration was null
+[DEBUG] 2026-10-08 14:12:17.185 [main] HQL_FUNCTIONS - abs(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.185 [main] HQL_FUNCTIONS - Double acos(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - adddate(DATE datetime, INTEGER days)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - addtime(TIME datetime, TIME time)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Boolean any(BOOLEAN arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Integer ascii(STRING arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Double asin(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Double atan(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Double atan2(NUMERIC arg0, NUMERIC arg1)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - avg(arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - bit_and(arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Integer bit_length(STRING_OR_CLOB arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - bit_or(arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - bitand(arg0, arg1)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - bitnot(arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - bitor(arg0, arg1)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - bitxor(arg0, arg1)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - cast(arg as Type)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - ceiling(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.186 [main] HQL_FUNCTIONS - Character char(INTEGER arg)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Integer character_length(STRING_OR_CLOB arg)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Character chr(INTEGER arg)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - coalesce(arg0[, arg1[, ...]])
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - String collate(STRING string as COLLATION collation)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - String concat(STRING string0[, STRING string1[, ...]])
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Double cos(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Double cosh(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Double cot(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Long count([distinct ]{arg|*})
+[DEBUG] 2026-10-08 14:12:17.187 [main] HQL_FUNCTIONS - Integer crc32(arg)
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Date curdate()
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Date current date
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Time current time
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Timestamp current timestamp
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Date current_date
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Instant current_instant
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Time current_time
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Timestamp current_timestamp
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Time curtime()
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Date date(arg)
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - dateadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Integer datediff(DATE end, DATE start)
+[DEBUG] 2026-10-08 14:12:17.188 [main] HQL_FUNCTIONS - Integer day(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.192 [main] HQL_FUNCTIONS - String dayname(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.193 [main] HQL_FUNCTIONS - Integer dayofmonth(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.193 [main] HQL_FUNCTIONS - Integer dayofweek(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - Integer dayofyear(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - Double degrees(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - Boolean every(BOOLEAN arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - Double exp(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - extract(TEMPORAL_UNIT field from TEMPORAL arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - floor(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - String format(TEMPORAL datetime as STRING pattern)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - greatest(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - Integer hour(TIME arg)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - ifnull(arg0, arg1)
+[DEBUG] 2026-10-08 14:12:17.194 [main] HQL_FUNCTIONS - String insert(STRING string, INTEGER start, INTEGER length, STRING replacement)
+[DEBUG] 2026-10-08 14:12:17.196 [main] HQL_FUNCTIONS - Instant instant
+[DEBUG] 2026-10-08 14:12:17.203 [main] HQL_FUNCTIONS - Integer instr(STRING string, STRING pattern[, INTEGER start[, INTEGER occurrence]])
+[DEBUG] 2026-10-08 14:12:17.205 [main] HQL_FUNCTIONS - Date last_day(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.206 [main] HQL_FUNCTIONS - least(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+[DEBUG] 2026-10-08 14:12:17.206 [main] HQL_FUNCTIONS - String left(STRING string, INTEGER length)
+[DEBUG] 2026-10-08 14:12:17.208 [main] HQL_FUNCTIONS - Integer length(STRING_OR_CLOB arg)
+[DEBUG] 2026-10-08 14:12:17.210 [main] HQL_FUNCTIONS - String listagg(STRING arg0, STRING arg1)
+[DEBUG] 2026-10-08 14:12:17.211 [main] HQL_FUNCTIONS - Double ln(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.211 [main] HQL_FUNCTIONS - LocalDate local date
+[DEBUG] 2026-10-08 14:12:17.211 [main] HQL_FUNCTIONS - LocalDateTime local datetime
+[DEBUG] 2026-10-08 14:12:17.211 [main] HQL_FUNCTIONS - LocalTime local time
+[DEBUG] 2026-10-08 14:12:17.211 [main] HQL_FUNCTIONS - LocalDate local_date
+[DEBUG] 2026-10-08 14:12:17.211 [main] HQL_FUNCTIONS - LocalDateTime local_datetime
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - LocalTime local_time
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Timestamp localtime
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Timestamp localtimestamp
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Integer locate(STRING pattern, STRING string[, INTEGER start])
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Double log(NUMERIC arg0[, NUMERIC arg1])
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Double log10(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Double log2(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - String lower(STRING string)
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - String lpad(string, length[, padding])
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - String ltrim(STRING string[, STRING characters])
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Date makedate(INTEGER year, INTEGER dayofyear)
+[DEBUG] 2026-10-08 14:12:17.212 [main] HQL_FUNCTIONS - Time maketime(INTEGER hour, INTEGER min, INTEGER sec)
+[DEBUG] 2026-10-08 14:12:17.213 [main] HQL_FUNCTIONS - max(COMPARABLE arg)
+[DEBUG] 2026-10-08 14:12:17.213 [main] HQL_FUNCTIONS - String md5(arg)
+[DEBUG] 2026-10-08 14:12:17.213 [main] HQL_FUNCTIONS - Integer microsecond(TIME arg)
+[DEBUG] 2026-10-08 14:12:17.213 [main] HQL_FUNCTIONS - min(COMPARABLE arg)
+[DEBUG] 2026-10-08 14:12:17.213 [main] HQL_FUNCTIONS - Integer minute(TIME arg)
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - Integer mod(INTEGER arg0, INTEGER arg1)
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - Integer month(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - String monthname(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - Timestamp now()
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - nullif(arg0, arg1)
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - Integer octet_length(STRING_OR_CLOB arg)
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - OffsetDateTime offset datetime
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - OffsetDateTime offset_datetime
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - String overlay(STRING string placing STRING replacement from INTEGER start[ for INTEGER length])
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - String pad(STRING string with INTEGER length {leading|trailing}[ STRING character])
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - Double pi
+[DEBUG] 2026-10-08 14:12:17.214 [main] HQL_FUNCTIONS - Integer position(STRING pattern in STRING string)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - Double power(NUMERIC arg0, NUMERIC arg1)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - Integer quarter(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - Double radians(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - Double rand([INTEGER seed])
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - String repeat(STRING string, INTEGER times)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - String replace(STRING string, STRING pattern, STRING replacement)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - String reverse(STRING arg)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - String right(STRING string, INTEGER length)
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - round(NUMERIC number[, INTEGER places])
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - String rpad(string, length[, padding])
+[DEBUG] 2026-10-08 14:12:17.215 [main] HQL_FUNCTIONS - String rtrim(STRING string[, STRING characters])
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Integer second(TIME arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String sha(arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String sha1(arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String sha2(arg0, arg1)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Integer sign(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Double sin(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Double sinh(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String soundex(arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String space(INTEGER arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Object sql
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Double sqrt(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Double stddev(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Double stddev_pop(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Double stddev_samp(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String str(arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - subdate(DATE datetime, INTEGER days)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String substr(STRING string, INTEGER start[, INTEGER length])
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - String substring(STRING string{ from|,} INTEGER start[{ for|,} INTEGER length])
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - subtime(TIME datetime, TIME time)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - sum(arg)
+[DEBUG] 2026-10-08 14:12:17.217 [main] HQL_FUNCTIONS - Timestamp sysdate()
+[DEBUG] 2026-10-08 14:12:17.218 [main] HQL_FUNCTIONS - Double tan(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.218 [main] HQL_FUNCTIONS - Double tanh(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.218 [main] HQL_FUNCTIONS - String time(arg)
+[DEBUG] 2026-10-08 14:12:17.218 [main] HQL_FUNCTIONS - Timestamp timestamp(arg0[, arg1])
+[DEBUG] 2026-10-08 14:12:17.218 [main] HQL_FUNCTIONS - timestampadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+[DEBUG] 2026-10-08 14:12:17.219 [main] HQL_FUNCTIONS - basicType@14(java.lang.Long,-5)|basicType@17(java.lang.Double,8) timestampdiff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - String trim([[{leading|trailing|both} ][STRING arg0 ]from] STRING arg1)
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - trunc( ... )
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - truncate( ... )
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - String upper(STRING string)
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - Date utc_date
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - Time utc_time
+[DEBUG] 2026-10-08 14:12:17.220 [main] HQL_FUNCTIONS - Timestamp utc_timestamp
+[DEBUG] 2026-10-08 14:12:17.221 [main] HQL_FUNCTIONS - Double var_pop(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.221 [main] HQL_FUNCTIONS - Double var_samp(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.221 [main] HQL_FUNCTIONS - Double variance(NUMERIC arg)
+[DEBUG] 2026-10-08 14:12:17.222 [main] HQL_FUNCTIONS - Integer week(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.222 [main] HQL_FUNCTIONS - Integer year(DATE arg)
+[DEBUG] 2026-10-08 14:12:17.236 [main] cache - Starting QueryInterpretationCache(2048)
+[DEBUG] 2026-10-08 14:12:17.430 [main] SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+[DEBUG] 2026-10-08 14:12:17.432 [main] EntityCopyObserverFactoryInitiator - Configured EntityCopyObserver strategy: disallow
+[DEBUG] 2026-10-08 14:12:17.950 [main] ClassLoaderAccessImpl - Not known whether passed class name [com.magMan.entity.Card] is safe
+[DEBUG] 2026-10-08 14:12:17.954 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.magMan.entity.Card
+[DEBUG] 2026-10-08 14:12:18.502 [main] BytecodeProviderImpl - HHH000513: Unable to create the ReflectionOptimizer for [com.magMan.entity.Card]: private accessor [cardCmc]
+[DEBUG] 2026-10-08 14:12:18.561 [main] interceptor - To-one property `com.magMan.entity.Ruling#card` was mapped with LAZY + NO_PROXY but the class was not enhanced
+[DEBUG] 2026-10-08 14:12:18.562 [main] interceptor - To-one property `com.magMan.entity.Ruling#card` was mapped with LAZY + NO_PROXY but the class was not enhanced
+[DEBUG] 2026-10-08 14:12:18.562 [main] ClassLoaderAccessImpl - Not known whether passed class name [com.magMan.entity.Ruling] is safe
+[DEBUG] 2026-10-08 14:12:18.562 [main] ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.magMan.entity.Ruling
+[DEBUG] 2026-10-08 14:12:18.631 [main] BytecodeProviderImpl - HHH000513: Unable to create the ReflectionOptimizer for [com.magMan.entity.Ruling]: private accessor [card]
+[DEBUG] 2026-10-08 14:12:18.632 [main] interceptor - To-one property `com.magMan.entity.Ruling#card` was mapped with LAZY + NO_PROXY but the class was not enhanced
+[DEBUG] 2026-10-08 14:12:18.653 [main] mutation - Skipping collection (re)creation - com.magMan.entity.Card.rulings
+[DEBUG] 2026-10-08 14:12:18.654 [main] mutation - Skipping collection row deletions - com.magMan.entity.Card.rulings
+[DEBUG] 2026-10-08 14:12:18.655 [main] mutation - Skipping collection removals - com.magMan.entity.Card.rulings
+[DEBUG] 2026-10-08 14:12:18.684 [main] creation - Starting post-init callbacks
+[DEBUG] 2026-10-08 14:12:18.684 [main] creation - Starting PostInitCallbackEntry : PluralAttributeMapping( NavigableRole[com.magMan.entity.Card.rulings#{element}]) - element descriptor
+[DEBUG] 2026-10-08 14:12:18.685 [main] creation - Starting PostInitCallbackEntry : PluralAttributeMapping(com.magMan.entity.Card.rulings)#finishInitialization
+[DEBUG] 2026-10-08 14:12:18.685 [main] creation - Starting PostInitCallbackEntry : PluralAttributeMapping(com.magMan.entity.Card.rulings) - key descriptor
+[DEBUG] 2026-10-08 14:12:18.688 [main] creation - Starting PostInitCallbackEntry : Entity(com.magMan.entity.Card) `staticFetchableList` generator
+[DEBUG] 2026-10-08 14:12:18.689 [main] creation - Starting PostInitCallbackEntry : To-one key - NavigableRole[com.magMan.entity.Ruling.card]
+[DEBUG] 2026-10-08 14:12:18.689 [main] creation - Starting PostInitCallbackEntry : Entity(com.magMan.entity.Ruling) `staticFetchableList` generator
+[DEBUG] 2026-10-08 14:12:18.689 [main] creation - Starting PostInitCallbackEntry : PluralAttributeMapping( NavigableRole[com.magMan.entity.Card.rulings#{element}]) - element descriptor
+[DEBUG] 2026-10-08 14:12:18.889 [main] create - Created new SQL alias : c1_0
+[DEBUG] 2026-10-08 14:12:18.894 [main] create - Registration of TableGroup [StandardTableGroup(com.magMan.entity.Card)] with identifierForTableGroup [com.magMan.entity.Card] for NavigablePath [com.magMan.entity.Card] 
+[DEBUG] 2026-10-08 14:12:18.929 [main] AST - DomainResult Graph:
+ \-EntityResultImpl [com.magMan.entity.Card]
+ |  +-BasicFetch [com.magMan.entity.Card.cardCmc]
+ |  +-BasicFetch [com.magMan.entity.Card.cardName]
+ |  +-BasicFetch [com.magMan.entity.Card.cardQuantity]
+ |  +-BasicFetch [com.magMan.entity.Card.cardType]
+ |  \-DelayedCollectionFetch [com.magMan.entity.Card.rulings]
+
+[DEBUG] 2026-10-08 14:12:18.962 [main] tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (c1 : com.magMan.entity.Card) {
+          primaryTableReference : cards as c1_0
+        }
+      }
+    }
+
+[DEBUG] 2026-10-08 14:12:18.985 [main] AbstractEntityPersister - Static SQL for entity: com.magMan.entity.Card
+[DEBUG] 2026-10-08 14:12:18.986 [main] AbstractEntityPersister -  Version select: select id from cards where id=?
+[DEBUG] 2026-10-08 14:12:18.986 [main] AbstractEntityPersister -  Insert (0): insert into cards (cardCmc,cardName,cardQuantity,cardType) values (?,?,?,?)
+[DEBUG] 2026-10-08 14:12:18.986 [main] AbstractEntityPersister -  Update (0): update cards set cardCmc=?,cardName=?,cardQuantity=?,cardType=? where id=?
+[DEBUG] 2026-10-08 14:12:18.986 [main] AbstractEntityPersister -  Delete (0): delete from cards where id=?
+[DEBUG] 2026-10-08 14:12:18.987 [main] create - Created new SQL alias : r1_0
+[DEBUG] 2026-10-08 14:12:18.987 [main] create - Registration of TableGroup [StandardTableGroup(com.magMan.entity.Ruling)] with identifierForTableGroup [com.magMan.entity.Ruling] for NavigablePath [com.magMan.entity.Ruling] 
+[DEBUG] 2026-10-08 14:12:18.995 [main] create - Registration of TableGroup [org.hibernate.sql.ast.tree.from.LazyTableGroup@7ab63838] with identifierForTableGroup [com.magMan.entity.Ruling.card] for NavigablePath [com.magMan.entity.Ruling.card] 
+[DEBUG] 2026-10-08 14:12:18.997 [main] create - Created new SQL alias : c1_0
+[DEBUG] 2026-10-08 14:12:19.002 [main] AST - DomainResult Graph:
+ \-EntityResultImpl [com.magMan.entity.Ruling]
+ |  +-EntityFetchJoinedImpl [com.magMan.entity.Ruling.card]
+ |  +-BasicFetch [com.magMan.entity.Ruling.rulingDate]
+ |  \-BasicFetch [com.magMan.entity.Ruling.rulingText]
+
+[DEBUG] 2026-10-08 14:12:19.004 [main] tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (r1 : com.magMan.entity.Ruling) {
+          primaryTableReference : rulings as r1_0
+          TableGroupJoins {
+            left  join LazyTableGroup (c1 : com.magMan.entity.Ruling.card) {
+              primaryTableReference : cards as c1_0
+            }
+          }
+        }
+      }
+    }
+
+[DEBUG] 2026-10-08 14:12:19.004 [main] AbstractEntityPersister - Static SQL for entity: com.magMan.entity.Ruling
+[DEBUG] 2026-10-08 14:12:19.005 [main] AbstractEntityPersister -  Version select: select id from rulings where id=?
+[DEBUG] 2026-10-08 14:12:19.005 [main] AbstractEntityPersister -  Insert (0): insert into rulings (card_id,ruling_date,ruling_text) values (?,?,?)
+[DEBUG] 2026-10-08 14:12:19.005 [main] AbstractEntityPersister -  Update (0): update rulings set card_id=?,ruling_date=?,ruling_text=? where id=?
+[DEBUG] 2026-10-08 14:12:19.005 [main] AbstractEntityPersister -  Delete (0): delete from rulings where id=?
+[DEBUG] 2026-10-08 14:12:19.007 [main] create - Created new SQL alias : r1_0
+[DEBUG] 2026-10-08 14:12:19.009 [main] create - Registration of TableGroup [org.hibernate.sql.ast.tree.from.OneToManyTableGroup@482ba4b1] with identifierForTableGroup [com.magMan.entity.Card.rulings] for NavigablePath [com.magMan.entity.Card.rulings] 
+[DEBUG] 2026-10-08 14:12:19.010 [main] create - Registration of TableGroup [StandardTableGroup(com.magMan.entity.Card.rulings.{element})] with identifierForTableGroup [com.magMan.entity.Card.rulings.{element}] for NavigablePath [com.magMan.entity.Card.rulings.{element}] 
+[DEBUG] 2026-10-08 14:12:19.027 [main] create - Registration of TableGroup [org.hibernate.sql.ast.tree.from.LazyTableGroup@29170a47] with identifierForTableGroup [com.magMan.entity.Card.rulings.{element}.card] for NavigablePath [com.magMan.entity.Card.rulings.{element}.card] 
+[DEBUG] 2026-10-08 14:12:19.034 [main] AST - DomainResult Graph:
+ \-CollectionDomainResult [com.magMan.entity.Card.rulings]
+
+[DEBUG] 2026-10-08 14:12:19.035 [main] tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        OneToManyTableGroup (r1 : com.magMan.entity.Card.rulings) {
+          primaryTableReference : rulings as r1_0
+          TableGroupJoins {
+            left  join LazyTableGroup (c1 : com.magMan.entity.Card.rulings.{element}.card) {
+            }
+          }
+        }
+      }
+    }
+
+[DEBUG] 2026-10-08 14:12:19.036 [main] mutation - Static SQL for collection: com.magMan.entity.Card.rulings
+[DEBUG] 2026-10-08 14:12:19.137 [main] JtaPlatformInitiator - No JtaPlatform was specified, checking resolver
+[DEBUG] 2026-10-08 14:12:19.139 [main] JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+[DEBUG] 2026-10-08 14:12:19.147 [main] StandardJtaPlatformResolver - Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2026-10-08 14:12:19.147 [main] JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[DEBUG] 2026-10-08 14:12:19.150 [main] TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@1bd0b0e5] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@6735f210]
+[DEBUG] 2026-10-08 14:12:19.152 [main] NamedObjectRepository - Checking 0 named HQL queries
+[DEBUG] 2026-10-08 14:12:19.153 [main] NamedObjectRepository - Checking 0 named SQL queries
+[DEBUG] 2026-10-08 14:12:19.154 [main] SchemaManagementToolCoordinator - No schema actions specified for contributor `orm`; doing nothing
+[DEBUG] 2026-10-08 14:12:19.154 [main] SchemaManagementToolCoordinator - No actions found; doing nothing
+[DEBUG] 2026-10-08 14:12:19.159 [main] SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@2bb31455
+[DEBUG] 2026-10-08 14:12:19.159 [main] SessionFactoryRegistry - Registering SessionFactory: a765269d-ed67-4b48-bd66-51c51991ed9a (<unnamed>)
+[DEBUG] 2026-10-08 14:12:19.159 [main] SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+[DEBUG] 2026-10-08 14:12:19.159 [main] SessionFactoryImpl - Instantiated SessionFactory
+[DEBUG] 2026-10-08 14:12:19.436 [main] StatisticsInitiator - Statistics initialized [enabled=false]
+[DEBUG] 2026-10-08 14:12:19.488 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:19.527 [main] results - Initializer list:
+	  com.magMan.entity.Ruling.card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Ruling.card.rulings)@448843184 (PluralAttribute(com.magMan.entity.Card.rulings))
+	  com.magMan.entity.Ruling -> EntityResultInitializer(com.magMan.entity.Ruling)@1290584410 (SingleTableEntityPersister(com.magMan.entity.Ruling))
+	  com.magMan.entity.Ruling.card -> EntityJoinedFetchInitializer(com.magMan.entity.Ruling.card)@227972178 (ToOneAttributeMapping(NavigableRole[com.magMan.entity.Ruling.card])@1296953588)
+
+[DEBUG] 2026-10-08 14:12:19.542 [main] SQL - select r1_0.id,c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType,r1_0.ruling_date,r1_0.ruling_text from rulings r1_0 left join cards c1_0 on c1_0.id=r1_0.card_id where r1_0.id=?
+[DEBUG] 2026-10-08 14:12:19.570 [main] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2026-10-08 14:12:19.570 [main] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.magMan.entity.Ruling.card): 6
+[DEBUG] 2026-10-08 14:12:19.570 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling): 6
+[DEBUG] 2026-10-08 14:12:19.570 [main] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2026-10-08 14:12:19.574 [main] collection - (DelayedCollectionInitializer) Current row collection key : com.magMan.entity.Ruling.card.rulings#6
+[DEBUG] 2026-10-08 14:12:19.578 [main] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.magMan.entity.Ruling.card#6] : 2016067912
+[DEBUG] 2026-10-08 14:12:19.579 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling#6] : 651431031
+[DEBUG] 2026-10-08 14:12:19.603 [main] results - Extracted JDBC value [2] - [10]
+[DEBUG] 2026-10-08 14:12:19.604 [main] results - Extracted JDBC value [3] - [Omniscience]
+[DEBUG] 2026-10-08 14:12:19.604 [main] results - Extracted JDBC value [4] - [2]
+[DEBUG] 2026-10-08 14:12:19.604 [main] results - Extracted JDBC value [5] - [Enchantment]
+[DEBUG] 2026-10-08 14:12:19.610 [main] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.magMan.entity.Ruling.card#6
+[DEBUG] 2026-10-08 14:12:19.611 [main] results - Extracted JDBC value [6] - [2018-07-13]
+[DEBUG] 2026-10-08 14:12:19.611 [main] results - Extracted JDBC value [7] - [Once you cast Omniscience, if it's your turn, you'll have priority immediately after it resolves.  You can cast another spell before any player can attempt to remove Omniscience with spells or abilities.]
+[DEBUG] 2026-10-08 14:12:19.611 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling#6
+[DEBUG] 2026-10-08 14:12:19.611 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@2ae3235e
+[DEBUG] 2026-10-08 14:12:19.625 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2026-10-08 14:12:19.630 [main] TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+[DEBUG] 2026-10-08 14:12:19.630 [main] TransactionImpl - begin
+[DEBUG] 2026-10-08 14:12:19.662 [main] TransactionImpl - committing
+[DEBUG] 2026-10-08 14:12:19.664 [main] AbstractFlushingEventListener - Processing flush-time cascades
+[DEBUG] 2026-10-08 14:12:19.664 [main] AbstractFlushingEventListener - Dirty checking collections
+[DEBUG] 2026-10-08 14:12:19.673 [main] AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 1 deletions to 1 objects
+[DEBUG] 2026-10-08 14:12:19.674 [main] AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+[DEBUG] 2026-10-08 14:12:19.676 [main] EntityPrinter - Listing entities:
+[DEBUG] 2026-10-08 14:12:19.678 [main] EntityPrinter - com.magMan.entity.Ruling{rulingText=Once you cast Omniscience, if it's your turn, you'll have priority immediately after it resolves.  You can cast another spell before any player can attempt to remove Omniscience with spells or abilities., id=6, card=com.magMan.entity.Card#6, rulingDate=2018-07-13}
+[DEBUG] 2026-10-08 14:12:19.695 [main] SQL - delete from rulings where id=?
+[DEBUG] 2026-10-08 14:12:19.706 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2026-10-08 14:12:19.709 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2026-10-08 14:12:19.710 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:19.711 [main] results - Initializer list:
+	  com.magMan.entity.Ruling.card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Ruling.card.rulings)@2114553545 (PluralAttribute(com.magMan.entity.Card.rulings))
+	  com.magMan.entity.Ruling -> EntityResultInitializer(com.magMan.entity.Ruling)@326611360 (SingleTableEntityPersister(com.magMan.entity.Ruling))
+	  com.magMan.entity.Ruling.card -> EntityJoinedFetchInitializer(com.magMan.entity.Ruling.card)@1221559316 (ToOneAttributeMapping(NavigableRole[com.magMan.entity.Ruling.card])@1296953588)
+
+[DEBUG] 2026-10-08 14:12:19.711 [main] SQL - select r1_0.id,c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType,r1_0.ruling_date,r1_0.ruling_text from rulings r1_0 left join cards c1_0 on c1_0.id=r1_0.card_id where r1_0.id=?
+[DEBUG] 2026-10-08 14:12:19.715 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2026-10-08 14:12:20.178 [main] create - Created new SQL alias : r1_0
+[DEBUG] 2026-10-08 14:12:20.178 [main] create - Registration of TableGroup [StandardTableGroup(com.magMan.entity.Ruling(5211073233058))] with identifierForTableGroup [com.magMan.entity.Ruling] for NavigablePath [com.magMan.entity.Ruling] 
+[DEBUG] 2026-10-08 14:12:20.190 [main] create - Registration of TableGroup [org.hibernate.sql.ast.tree.from.LazyTableGroup@7cd1ec54] with identifierForTableGroup [com.magMan.entity.Ruling.card] for NavigablePath [com.magMan.entity.Ruling.card] 
+[DEBUG] 2026-10-08 14:12:20.192 [main] AST - DomainResult Graph:
+ \-EntityResultImpl [com.magMan.entity.Ruling(5211073233058)]
+ |  +-CircularFetchImpl [com.magMan.entity.Ruling(5211073233058).card]
+ |  +-BasicFetch [com.magMan.entity.Ruling(5211073233058).rulingDate]
+ |  \-BasicFetch [com.magMan.entity.Ruling(5211073233058).rulingText]
+
+[DEBUG] 2026-10-08 14:12:20.204 [main] tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (r1 : com.magMan.entity.Ruling(5211073233058)) {
+          primaryTableReference : rulings as r1_0
+          TableGroupJoins {
+            left  join LazyTableGroup (c1 : com.magMan.entity.Ruling(5211073233058).card) {
+            }
+          }
+        }
+      }
+    }
+
+[DEBUG] 2026-10-08 14:12:20.210 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = NORMAL
+[DEBUG] 2026-10-08 14:12:20.219 [main] results - Initializer list:
+	  com.magMan.entity.Ruling(5211073233058) -> EntityResultInitializer(com.magMan.entity.Ruling(5211073233058))@1487559828 (SingleTableEntityPersister(com.magMan.entity.Ruling))
+	  com.magMan.entity.Ruling(5211073233058).card -> EntitySelectFetchInitializer(com.magMan.entity.Ruling(5211073233058).card)@1562883265 (ToOneAttributeMapping(NavigableRole[com.magMan.entity.Ruling.card])@1296953588)
+
+[DEBUG] 2026-10-08 14:12:20.219 [main] SQL - select r1_0.id,r1_0.card_id,r1_0.ruling_date,r1_0.ruling_text from rulings r1_0
+[DEBUG] 2026-10-08 14:12:20.222 [main] results - Extracted JDBC value [0] - [1]
+[DEBUG] 2026-10-08 14:12:20.225 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling(5211073233058)): 1
+[DEBUG] 2026-10-08 14:12:20.226 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling(5211073233058)#1] : 1182463628
+[DEBUG] 2026-10-08 14:12:20.226 [main] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2026-10-08 14:12:20.226 [main] entity - (EntitySelectFetchInitializer) Invoking session#internalLoad for entity (com.magMan.entity.Ruling(5211073233058).card#3) : 3
+[DEBUG] 2026-10-08 14:12:20.227 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:20.227 [main] results - Initializer list:
+	  com.magMan.entity.Card -> EntityResultInitializer(com.magMan.entity.Card)@1131963943 (SingleTableEntityPersister(com.magMan.entity.Card))
+	  com.magMan.entity.Card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Card.rulings)@493844439 (PluralAttribute(com.magMan.entity.Card.rulings))
+
+[DEBUG] 2026-10-08 14:12:20.227 [main] SQL - select c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType from cards c1_0 where c1_0.id=?
+[DEBUG] 2026-10-08 14:12:20.232 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Card): 3
+[DEBUG] 2026-10-08 14:12:20.232 [main] results - Extracted JDBC value [0] - [3]
+[DEBUG] 2026-10-08 14:12:20.232 [main] collection - (DelayedCollectionInitializer) Current row collection key : com.magMan.entity.Card.rulings#3
+[DEBUG] 2026-10-08 14:12:20.232 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Card#3] : 666596577
+[DEBUG] 2026-10-08 14:12:20.233 [main] results - Extracted JDBC value [1] - [4]
+[DEBUG] 2026-10-08 14:12:20.233 [main] results - Extracted JDBC value [2] - [Urza, Lord High Artificer]
+[DEBUG] 2026-10-08 14:12:20.233 [main] results - Extracted JDBC value [3] - [1]
+[DEBUG] 2026-10-08 14:12:20.233 [main] results - Extracted JDBC value [4] - [Creature]
+[DEBUG] 2026-10-08 14:12:20.233 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Card#3
+[DEBUG] 2026-10-08 14:12:20.233 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@2e3cd732
+[DEBUG] 2026-10-08 14:12:20.234 [main] entity - (EntitySelectFetchInitializer) Entity [com.magMan.entity.Ruling(5211073233058).card#3] : 3 has being loaded by session.internalLoad.
+[DEBUG] 2026-10-08 14:12:20.234 [main] results - Extracted JDBC value [2] - [2022-12-08]
+[DEBUG] 2026-10-08 14:12:20.234 [main] results - Extracted JDBC value [3] - [If a spell has X in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.]
+[DEBUG] 2026-10-08 14:12:20.234 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling(5211073233058)#1
+[DEBUG] 2026-10-08 14:12:20.235 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@56d822dc
+[DEBUG] 2026-10-08 14:12:20.235 [main] results - Extracted JDBC value [0] - [2]
+[DEBUG] 2026-10-08 14:12:20.235 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling(5211073233058)): 2
+[DEBUG] 2026-10-08 14:12:20.235 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling(5211073233058)#2] : 716724378
+[DEBUG] 2026-10-08 14:12:20.235 [main] results - Extracted JDBC value [1] - [5]
+[DEBUG] 2026-10-08 14:12:20.236 [main] entity - (EntitySelectFetchInitializer) Invoking session#internalLoad for entity (com.magMan.entity.Ruling(5211073233058).card#5) : 5
+[DEBUG] 2026-10-08 14:12:20.236 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:20.237 [main] results - Initializer list:
+	  com.magMan.entity.Card -> EntityResultInitializer(com.magMan.entity.Card)@565658860 (SingleTableEntityPersister(com.magMan.entity.Card))
+	  com.magMan.entity.Card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Card.rulings)@1769640623 (PluralAttribute(com.magMan.entity.Card.rulings))
+
+[DEBUG] 2026-10-08 14:12:20.239 [main] SQL - select c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType from cards c1_0 where c1_0.id=?
+[DEBUG] 2026-10-08 14:12:20.242 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Card): 5
+[DEBUG] 2026-10-08 14:12:20.242 [main] results - Extracted JDBC value [0] - [5]
+[DEBUG] 2026-10-08 14:12:20.243 [main] collection - (DelayedCollectionInitializer) Current row collection key : com.magMan.entity.Card.rulings#5
+[DEBUG] 2026-10-08 14:12:20.243 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Card#5] : 2137741298
+[DEBUG] 2026-10-08 14:12:20.243 [main] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2026-10-08 14:12:20.243 [main] results - Extracted JDBC value [2] - [Tinker]
+[DEBUG] 2026-10-08 14:12:20.243 [main] results - Extracted JDBC value [3] - [10]
+[DEBUG] 2026-10-08 14:12:20.243 [main] results - Extracted JDBC value [4] - [Sorcery]
+[DEBUG] 2026-10-08 14:12:20.243 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Card#5
+[DEBUG] 2026-10-08 14:12:20.243 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@52b32b70
+[DEBUG] 2026-10-08 14:12:20.244 [main] entity - (EntitySelectFetchInitializer) Entity [com.magMan.entity.Ruling(5211073233058).card#5] : 5 has being loaded by session.internalLoad.
+[DEBUG] 2026-10-08 14:12:20.245 [main] results - Extracted JDBC value [2] - [2004-10-04]
+[DEBUG] 2026-10-08 14:12:20.245 [main] results - Extracted JDBC value [3] - [Because the "search" requires you to find a card with certain characteristics, you don't have to find the card if you don't want to.]
+[DEBUG] 2026-10-08 14:12:20.245 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling(5211073233058)#2
+[DEBUG] 2026-10-08 14:12:20.245 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@56d822dc
+[DEBUG] 2026-10-08 14:12:20.245 [main] results - Extracted JDBC value [0] - [3]
+[DEBUG] 2026-10-08 14:12:20.245 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling(5211073233058)): 3
+[DEBUG] 2026-10-08 14:12:20.246 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling(5211073233058)#3] : 415768786
+[DEBUG] 2026-10-08 14:12:20.247 [main] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2026-10-08 14:12:20.247 [main] entity - (EntitySelectFetchInitializer) Invoking session#internalLoad for entity (com.magMan.entity.Ruling(5211073233058).card#6) : 6
+[DEBUG] 2026-10-08 14:12:20.247 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:20.248 [main] results - Initializer list:
+	  com.magMan.entity.Card -> EntityResultInitializer(com.magMan.entity.Card)@1027158270 (SingleTableEntityPersister(com.magMan.entity.Card))
+	  com.magMan.entity.Card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Card.rulings)@1582427182 (PluralAttribute(com.magMan.entity.Card.rulings))
+
+[DEBUG] 2026-10-08 14:12:20.248 [main] SQL - select c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType from cards c1_0 where c1_0.id=?
+[DEBUG] 2026-10-08 14:12:20.249 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Card): 6
+[DEBUG] 2026-10-08 14:12:20.249 [main] results - Extracted JDBC value [0] - [6]
+[DEBUG] 2026-10-08 14:12:20.249 [main] collection - (DelayedCollectionInitializer) Current row collection key : com.magMan.entity.Card.rulings#6
+[DEBUG] 2026-10-08 14:12:20.249 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Card#6] : 190704044
+[DEBUG] 2026-10-08 14:12:20.257 [main] results - Extracted JDBC value [1] - [10]
+[DEBUG] 2026-10-08 14:12:20.258 [main] results - Extracted JDBC value [2] - [Omniscience]
+[DEBUG] 2026-10-08 14:12:20.258 [main] results - Extracted JDBC value [3] - [2]
+[DEBUG] 2026-10-08 14:12:20.258 [main] results - Extracted JDBC value [4] - [Enchantment]
+[DEBUG] 2026-10-08 14:12:20.258 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Card#6
+[DEBUG] 2026-10-08 14:12:20.259 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@57bdceaa
+[DEBUG] 2026-10-08 14:12:20.260 [main] entity - (EntitySelectFetchInitializer) Entity [com.magMan.entity.Ruling(5211073233058).card#6] : 6 has being loaded by session.internalLoad.
+[DEBUG] 2026-10-08 14:12:20.260 [main] results - Extracted JDBC value [2] - [2018-07-13]
+[DEBUG] 2026-10-08 14:12:20.260 [main] results - Extracted JDBC value [3] - [If a spell has X in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.]
+[DEBUG] 2026-10-08 14:12:20.260 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling(5211073233058)#3
+[DEBUG] 2026-10-08 14:12:20.260 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@56d822dc
+[DEBUG] 2026-10-08 14:12:20.262 [main] results - Extracted JDBC value [0] - [4]
+[DEBUG] 2026-10-08 14:12:20.262 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling(5211073233058)): 4
+[DEBUG] 2026-10-08 14:12:20.262 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling(5211073233058)#4] : 1385208471
+[DEBUG] 2026-10-08 14:12:20.262 [main] results - Extracted JDBC value [1] - [7]
+[DEBUG] 2026-10-08 14:12:20.262 [main] entity - (EntitySelectFetchInitializer) Invoking session#internalLoad for entity (com.magMan.entity.Ruling(5211073233058).card#7) : 7
+[DEBUG] 2026-10-08 14:12:20.262 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:20.265 [main] results - Initializer list:
+	  com.magMan.entity.Card -> EntityResultInitializer(com.magMan.entity.Card)@920914400 (SingleTableEntityPersister(com.magMan.entity.Card))
+	  com.magMan.entity.Card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Card.rulings)@341742991 (PluralAttribute(com.magMan.entity.Card.rulings))
+
+[DEBUG] 2026-10-08 14:12:20.265 [main] SQL - select c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType from cards c1_0 where c1_0.id=?
+[DEBUG] 2026-10-08 14:12:20.268 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Card): 7
+[DEBUG] 2026-10-08 14:12:20.268 [main] results - Extracted JDBC value [0] - [7]
+[DEBUG] 2026-10-08 14:12:20.268 [main] collection - (DelayedCollectionInitializer) Current row collection key : com.magMan.entity.Card.rulings#7
+[DEBUG] 2026-10-08 14:12:20.269 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Card#7] : 1214115553
+[DEBUG] 2026-10-08 14:12:20.269 [main] results - Extracted JDBC value [1] - [4]
+[DEBUG] 2026-10-08 14:12:20.269 [main] results - Extracted JDBC value [2] - [Jace, Wielder of Mysteries]
+[DEBUG] 2026-10-08 14:12:20.270 [main] results - Extracted JDBC value [3] - [1]
+[DEBUG] 2026-10-08 14:12:20.270 [main] results - Extracted JDBC value [4] - [Planeswalker]
+[DEBUG] 2026-10-08 14:12:20.270 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Card#7
+[DEBUG] 2026-10-08 14:12:20.270 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@38a96593
+[DEBUG] 2026-10-08 14:12:20.271 [main] entity - (EntitySelectFetchInitializer) Entity [com.magMan.entity.Ruling(5211073233058).card#7] : 7 has being loaded by session.internalLoad.
+[DEBUG] 2026-10-08 14:12:20.271 [main] results - Extracted JDBC value [2] - [2019-05-03]
+[DEBUG] 2026-10-08 14:12:20.271 [main] results - Extracted JDBC value [3] - [If for some reason you can't win the game (because your opponent controls Platinum Angel, for example), you won't lose for having tried to draw a card from a library with no cards in it.  The draw was still replaced.]
+[DEBUG] 2026-10-08 14:12:20.271 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling(5211073233058)#4
+[DEBUG] 2026-10-08 14:12:20.271 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@56d822dc
+[DEBUG] 2026-10-08 14:12:20.271 [main] results - Extracted JDBC value [0] - [5]
+[DEBUG] 2026-10-08 14:12:20.272 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling(5211073233058)): 5
+[DEBUG] 2026-10-08 14:12:20.272 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling(5211073233058)#5] : 1576422186
+[DEBUG] 2026-10-08 14:12:20.272 [main] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2026-10-08 14:12:20.272 [main] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.magMan.entity.Ruling(5211073233058).card#3] - using loading instance
+[DEBUG] 2026-10-08 14:12:20.272 [main] results - Extracted JDBC value [2] - [2022-12-08]
+[DEBUG] 2026-10-08 14:12:20.272 [main] results - Extracted JDBC value [3] - [You can tap any untapped artifact you control to pay the cost of the mana ability, including an artifact creature you haven't controlled continuously since the beginning of your most recent turn.  Tapping an Equipment this way won't affect its abilities or the equipped creature.]
+[DEBUG] 2026-10-08 14:12:20.273 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling(5211073233058)#5
+[DEBUG] 2026-10-08 14:12:20.273 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@56d822dc
+[DEBUG] 2026-10-08 14:12:20.273 [main] results - Extracted JDBC value [0] - [6]
+[DEBUG] 2026-10-08 14:12:20.274 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling(5211073233058)): 6
+[DEBUG] 2026-10-08 14:12:20.274 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling(5211073233058)#6] : 2063309971
+[DEBUG] 2026-10-08 14:12:20.274 [main] results - Extracted JDBC value [1] - [6]
+[DEBUG] 2026-10-08 14:12:20.274 [main] entity - (EntitySelectFetchInitializer) Found existing loading entry [com.magMan.entity.Ruling(5211073233058).card#6] - using loading instance
+[DEBUG] 2026-10-08 14:12:20.274 [main] results - Extracted JDBC value [2] - [2018-07-13]
+[DEBUG] 2026-10-08 14:12:20.274 [main] results - Extracted JDBC value [3] - [Once you cast Omniscience, if it's your turn, you'll have priority immediately after it resolves.  You can cast another spell before any player can attempt to remove Omniscience with spells or abilities.]
+[DEBUG] 2026-10-08 14:12:20.274 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling(5211073233058)#6
+[DEBUG] 2026-10-08 14:12:20.274 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@56d822dc
+[DEBUG] 2026-10-08 14:12:20.276 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2026-10-08 14:12:20.278 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+[DEBUG] 2026-10-08 14:12:21.606 [main] exec - Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+[DEBUG] 2026-10-08 14:12:21.609 [main] results - Initializer list:
+	  com.magMan.entity.Ruling.card.rulings -> DelayedCollectionInitializer(com.magMan.entity.Ruling.card.rulings)@1562516256 (PluralAttribute(com.magMan.entity.Card.rulings))
+	  com.magMan.entity.Ruling -> EntityResultInitializer(com.magMan.entity.Ruling)@2044002136 (SingleTableEntityPersister(com.magMan.entity.Ruling))
+	  com.magMan.entity.Ruling.card -> EntityJoinedFetchInitializer(com.magMan.entity.Ruling.card)@2126592388 (ToOneAttributeMapping(NavigableRole[com.magMan.entity.Ruling.card])@1296953588)
+
+[DEBUG] 2026-10-08 14:12:21.609 [main] SQL - select r1_0.id,c1_0.id,c1_0.cardCmc,c1_0.cardName,c1_0.cardQuantity,c1_0.cardType,r1_0.ruling_date,r1_0.ruling_text from rulings r1_0 left join cards c1_0 on c1_0.id=r1_0.card_id where r1_0.id=?
+[DEBUG] 2026-10-08 14:12:21.637 [main] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2026-10-08 14:12:21.638 [main] entity - (EntityJoinedFetchInitializer) Hydrated EntityKey (com.magMan.entity.Ruling.card): 3
+[DEBUG] 2026-10-08 14:12:21.638 [main] entity - (EntityResultInitializer) Hydrated EntityKey (com.magMan.entity.Ruling): 1
+[DEBUG] 2026-10-08 14:12:21.638 [main] results - Extracted JDBC value [1] - [3]
+[DEBUG] 2026-10-08 14:12:21.639 [main] collection - (DelayedCollectionInitializer) Current row collection key : com.magMan.entity.Ruling.card.rulings#3
+[DEBUG] 2026-10-08 14:12:21.640 [main] entity - (EntityJoinedFetchInitializer) Created new entity instance [com.magMan.entity.Ruling.card#3] : 2016200186
+[DEBUG] 2026-10-08 14:12:21.641 [main] entity - (EntityResultInitializer) Created new entity instance [com.magMan.entity.Ruling#1] : 768856989
+[DEBUG] 2026-10-08 14:12:21.643 [main] results - Extracted JDBC value [2] - [4]
+[DEBUG] 2026-10-08 14:12:21.643 [main] results - Extracted JDBC value [3] - [Urza, Lord High Artificer]
+[DEBUG] 2026-10-08 14:12:21.643 [main] results - Extracted JDBC value [4] - [1]
+[DEBUG] 2026-10-08 14:12:21.643 [main] results - Extracted JDBC value [5] - [Creature]
+[DEBUG] 2026-10-08 14:12:21.643 [main] entity - (EntityJoinedFetchInitializer) Done materializing entityInstance : com.magMan.entity.Ruling.card#3
+[DEBUG] 2026-10-08 14:12:21.644 [main] results - Extracted JDBC value [6] - [2022-12-08]
+[DEBUG] 2026-10-08 14:12:21.644 [main] results - Extracted JDBC value [7] - [If a spell has X in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost.]
+[DEBUG] 2026-10-08 14:12:21.644 [main] entity - (EntityResultInitializer) Done materializing entityInstance : com.magMan.entity.Ruling#1
+[DEBUG] 2026-10-08 14:12:21.644 [main] loading - Calling top-level assembler (0 / 1) : org.hibernate.sql.results.graph.entity.internal.EntityAssembler@6f2d3391
+[DEBUG] 2026-10-08 14:12:21.645 [main] LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
