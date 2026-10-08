@@ -42,11 +42,10 @@ class RulingDaoTest {
     @Test
     void insert() {
         // get a Card
-        CardDao cardDao = new CardDao();
-        Card retrievedCard = cardDao.getById(1);
+        Card counterspell = cardDao.getById(1);
 
         // create a Ruling with that Card
-        Ruling fakeRuling = new Ruling(LocalDate.parse("2999-12-31"), "This ruling is a fake!", retrievedCard);
+        Ruling fakeRuling = new Ruling(LocalDate.parse("2999-12-31"), "This ruling is a fake!", counterspell);
 
         // insert the Ruling
         int insertedFakeRulingId = rulingDao.insert(fakeRuling);
