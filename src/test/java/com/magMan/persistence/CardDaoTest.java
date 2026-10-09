@@ -40,7 +40,7 @@ class CardDaoTest {
 
         // retrieve the card and check that the name change worked
         Card actualCard = cardDao.getById(1);
-        assertEquals("FakeCardName", actualCard.getCardName());
+        assertEquals(cardToUpdate, actualCard);
     }
 
     @Test
