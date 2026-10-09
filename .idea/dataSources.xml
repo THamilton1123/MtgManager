@@ -3,7 +3,6 @@
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="mtg_manager@localhost" uuid="1dd51237-1bc8-472e-8d88-5eea97dcf72b">
       <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/mtg_manager</jdbc-url>
       <jdbc-additional-properties>

@@ -87,6 +87,11 @@ class CardDaoTest {
     void getAllSuccess() {
         List<Card> cards = cardDao.getAll();
         assertEquals(8, cards.size());
+
+        for (int i = 1; i <= cards.size(); i++) {
+            Card card = cardDao.getById(i);
+            assertTrue(cards.contains(card));
+        }
     }
 
     @Test
