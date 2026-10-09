@@ -42,7 +42,7 @@ class RulingDaoTest {
         rulingDao.update(ruling);
 
         Ruling updatedRuling = rulingDao.getById(2);
-        assertEquals(LocalDate.parse("9999-12-31"), updatedRuling.getRulingDate());
+        assertEquals(ruling, updatedRuling);
     }
 
     @Test
