@@ -29,7 +29,10 @@ class CardDaoTest {
     void getByIdSuccess() {
         Card retrievedCard = cardDao.getById(1);
         assertNotNull(retrievedCard);
+        assertEquals(1, retrievedCard.getId());
         assertEquals("Counterspell", retrievedCard.getCardName());
+        assertEquals(2, (int) retrievedCard.getCardCmc());
+        assertEquals("Instant", retrievedCard.getCardType());
     }
 
     @Test
