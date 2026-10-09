@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * The type Ruling.
@@ -132,12 +133,15 @@ public class Ruling {
         }
 
         Ruling other = (Ruling) o;
-        return this.id != 0 && this.id == other.getId();
+        return this.id != 0 &&
+                Objects.equals(this.id, other.id) &&
+                Objects.equals(this.rulingDate, other.rulingDate) &&
+                Objects.equals(this.rulingText, other.rulingText);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id, rulingDate, rulingText);
     }
 
 }

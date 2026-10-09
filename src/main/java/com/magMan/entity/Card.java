@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A class to represent a MTG card.
@@ -201,12 +202,16 @@ public class Card {
         }
 
         Card other = (Card) o;
-        return this.id != 0 && this.id == other.getId();
+        return this.id != 0 &&
+                Objects.equals(this.id, other.id) &&
+                Objects.equals(this.cardName, other.cardName) &&
+                Objects.equals(this.cardCmc, other.cardCmc) &&
+                Objects.equals(this.cardType, other.cardType);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id, cardName, cardCmc, cardType);
     }
 
 }
