@@ -75,6 +75,11 @@ class RulingDaoTest {
     void getAllSuccess() {
         List<Ruling> rulings = rulingDao.getAll();
         assertEquals(6, rulings.size());
+
+        for (int i = 1; i <= rulings.size(); i++) {
+            Ruling ruling = rulingDao.getById(i);
+            assertTrue(rulings.contains(ruling));
+        }
     }
 
     @Test
