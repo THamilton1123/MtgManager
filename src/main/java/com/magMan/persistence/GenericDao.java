@@ -207,7 +207,7 @@ public class GenericDao<T> {
             Method method = entity.getClass().getMethod("getId");
 
             // Invoke returns an Object (Integer), but Java automatically
-            // unboxes it down to a primitive 'int' to match our return type.
+            // unboxes it down to a primitive 'int' to match this method's return type.
             return (Integer) method.invoke(entity);
 
         } catch (NoSuchMethodException e) {
