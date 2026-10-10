@@ -53,7 +53,7 @@ public class GenericDao<T> {
      * @param ruling  Ruling to be updated
      */
     public void update(Ruling ruling) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.merge(ruling);
         transaction.commit();
@@ -66,7 +66,7 @@ public class GenericDao<T> {
      */
     public int insert(Ruling ruling) {
         int id = 0;
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.persist(ruling);
         transaction.commit();
@@ -132,7 +132,7 @@ public class GenericDao<T> {
      * sample usage: getByPropertyEqual("rulingDate", "12/8/2022")
      */
     public List<Ruling> getByPropertyEqual(String propertyRulingDate, LocalDate value) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
 
         logger.debug("Searching for rulings for " + propertyRulingDate + " = " + value);
 
@@ -151,7 +151,7 @@ public class GenericDao<T> {
      * sample usage: getByPropertyLike("rulingText", "win the game")
      */
     public List<Ruling> getByPropertyLike(String propertyRulingText, String value) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
 
         logger.debug("Searching for ruling with {} = {}",  propertyRulingText, value);
 

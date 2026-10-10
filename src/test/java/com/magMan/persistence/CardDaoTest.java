@@ -16,18 +16,20 @@ class CardDaoTest {
 
     CardDao cardDao;
     RulingDao rulingDao;
+    GenericDao genericDao;
 
     @BeforeEach
     void setUp() {
         cardDao = new CardDao();
         rulingDao = new RulingDao();
+        genericDao = new GenericDao(Card.class);
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
     }
 
     @Test
     void getByIdSuccess() {
-        Card retrievedCard = cardDao.getById(1);
+        Card retrievedCard = (Card) genericDao.getById(1);
         assertNotNull(retrievedCard);
         assertEquals(1, retrievedCard.getId());
         assertEquals("Counterspell", retrievedCard.getCardName());
