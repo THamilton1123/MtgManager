@@ -1,6 +1,7 @@
 package com.magMan.persistence;
 
 import com.magMan.entity.Ruling;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
@@ -75,35 +76,55 @@ public class GenericDao<T> {
     }
 
     /**
-     * Delete a ruling
-     * @param ruling Ruling to be deleted
+     * Delete an Entity
+     * @param entity Entity to be deleted
      */
-    public void delete(Ruling ruling) {
-        Session session = sessionFactory.openSession();
+    /*
+    public void delete(T entity) {
+        Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(ruling);
+        session.delete(entity);
         transaction.commit();
         session.close();
     }
+    */
+    public void delete(T entity) {
+        try (Session session = getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.remove(entity);
+            transaction.commit();
+        }
+    }
 
 
-    /** Return a list of all rulings
+    /**
+     * Gets all Entities
      *
-     * @return All rulings
+     * @return all Entities
      */
-    public List<Ruling> getAll() {
+    /*
+    public List<T> getAll() {
+        Session session = getSession();
 
-        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
 
-        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Ruling> query = builder.createQuery(Ruling.class);
-        Root<Ruling> root = query.from(Ruling.class);
-        List<Ruling> rulings = session.createSelectionQuery( query ).getResultList();
-
-        logger.debug("The list of rulings " + rulings);
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        List<T> list = session.createQuery(query).getResultList();
+        logger.debug("The list of {} " + list, type);
         session.close();
-
-        return rulings;
+        return list;
+    }
+    */
+    public List<T> getAll() {
+        try (Session session = getSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> query = builder.createQuery(type);
+            Root<T> root = query.from(type);
+            List<T> list = session.createQuery(query).getResultList();
+            logger.debug("The list of {} " + list, type);
+            return list;
+        }
     }
 
     /**
