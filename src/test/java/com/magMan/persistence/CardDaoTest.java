@@ -14,22 +14,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardDaoTest {
 
-    CardDao cardDao;
-    RulingDao rulingDao;
-    GenericDao<Card> genericDao;
+    GenericDao<Card> cardDao;
+    GenericDao<Ruling> rulingDao;
 
     @BeforeEach
     void setUp() {
-        cardDao = new CardDao();
-        rulingDao = new RulingDao();
-        genericDao = new GenericDao<>(Card.class);
+        cardDao = new GenericDao<>(Card.class);
+        rulingDao = new GenericDao<>(Ruling.class);
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
     }
 
     @Test
     void getByIdSuccess() {
-        Card retrievedCard = genericDao.getById(1);
+        Card retrievedCard = cardDao.getById(1);
         assertNotNull(retrievedCard);
         assertEquals(1, retrievedCard.getId());
         assertEquals("Counterspell", retrievedCard.getCardName());
@@ -39,21 +37,21 @@ class CardDaoTest {
 
     @Test
     void updateSuccess() {
-        Card cardToUpdate = genericDao.getById(1);
+        Card cardToUpdate = cardDao.getById(1);
         cardToUpdate.setCardName("FakeCardName");
-        genericDao.update(cardToUpdate);
+        cardDao.update(cardToUpdate);
 
         // retrieve the card and check that the name change worked
-        Card actualCard = genericDao.getById(1);
+        Card actualCard = cardDao.getById(1);
         assertEquals(cardToUpdate, actualCard);
     }
 
     @Test
     void insertSuccess() {
         Card cardToInsert = new Card("Static Orb", 3, "Artifact", 1);
-        int insertedCardId = genericDao.insert(cardToInsert);
+        int insertedCardId = cardDao.insert(cardToInsert);
         assertNotEquals(0, insertedCardId);
-        Card insertedCard = genericDao.getById(insertedCardId);
+        Card insertedCard = cardDao.getById(insertedCardId);
         assertEquals("Static Orb", insertedCard.getCardName());
         assertEquals(cardToInsert, insertedCard);
     }
@@ -98,18 +96,18 @@ class CardDaoTest {
 
     @Test
     void getByPropertyEqualSuccess() {
-        Card jaceWielderOfMysteries = genericDao.getById(7);
-        List<Card> cards = genericDao.getByPropertyEqual("cardName", "Jace, Wielder of Mysteries");
+        Card jaceWielderOfMysteries = cardDao.getById(7);
+        List<Card> cards = cardDao.getByPropertyEqual("cardName", "Jace, Wielder of Mysteries");
         assertEquals(1, cards.size());
         assertEquals(jaceWielderOfMysteries, cards.get(0));
     }
 
     @Test
     void getByPropertyLikeSuccess() {
-        Card solRing = genericDao.getById(2);
-        Card tinker = genericDao.getById(5);
-        Card weldingJar = genericDao.getById(8);
-        List<Card> cards = genericDao.getByPropertyLike("cardName", "in");
+        Card solRing = cardDao.getById(2);
+        Card tinker = cardDao.getById(5);
+        Card weldingJar = cardDao.getById(8);
+        List<Card> cards = cardDao.getByPropertyLike("cardName", "in");
         assertEquals(3, cards.size());
         assertTrue(cards.containsAll(List.of(solRing, tinker, weldingJar)));
     }
