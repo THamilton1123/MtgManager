@@ -142,28 +142,40 @@ public class GenericDao<T> {
             CriteriaQuery<T> query = builder.createQuery(type);
             Root<T> root = query.from(type);
             List<T> list = session.createQuery(query).getResultList();
-            logger.debug("The list of {} " + list, type);
+            logger.debug("The list of {}: {} ", type, list);
             return list;
         }
     }
 
     /**
-     * Get ruling by property (exact match)
-     * sample usage: getByPropertyEqual("rulingDate", "12/8/2022")
+     * Get Entity by property (exact match)
+     * sample usage: getByPropertyEqual("rulingDate", "2022-12-8")
      */
-    public List<Ruling> getByPropertyEqual(String propertyRulingDate, LocalDate value) {
+    /*
+    public List<T> getByPropertyEqual(String property, Object value) {
         Session session = getSession();
 
-        logger.debug("Searching for rulings for " + propertyRulingDate + " = " + value);
+        logger.debug("Searching for {}s for " + propertyRulingDate + " = " + value, type);
 
-        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Ruling> query = builder.createQuery(Ruling.class);
-        Root<Ruling> root = query.from(Ruling.class);
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get(propertyRulingDate), value));
-        List<Ruling> rulings = session.createSelectionQuery( query ).getResultList();
+        List<T> list = session.createSelectionQuery(query).getResultList();
 
         session.close();
-        return rulings;
+        return list;
+    }
+    */
+    public List<T> getByPropertyEqual(String property, Object value) {
+        try (Session session = getSession()) {
+            logger.debug("Searching for {}s by {} == {}", type, property, value);
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> query = builder.createQuery(type);
+            Root<T> root = query.from(type);
+            query.select(root).where(builder.equal(root.get(property), value));
+            return session.createQuery(query).getResultList();
+        }
     }
 
     /**
