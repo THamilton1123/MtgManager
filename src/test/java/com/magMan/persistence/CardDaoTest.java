@@ -39,12 +39,12 @@ class CardDaoTest {
 
     @Test
     void updateSuccess() {
-        Card cardToUpdate = cardDao.getById(1);
+        Card cardToUpdate = (Card) genericDao.getById(1);
         cardToUpdate.setCardName("FakeCardName");
-        cardDao.update(cardToUpdate);
+        genericDao.update(cardToUpdate);
 
         // retrieve the card and check that the name change worked
-        Card actualCard = cardDao.getById(1);
+        Card actualCard = (Card) genericDao.getById(1);
         assertEquals(cardToUpdate, actualCard);
     }
 

@@ -49,15 +49,22 @@ public class GenericDao<T> {
     }
 
     /**
-     * update ruling
-     * @param ruling  Ruling to be updated
+     * update Entity
+     * @param entity  Entity to be updated
      */
-    public void update(Ruling ruling) {
+    public void update(T entity) {
+        /*
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(ruling);
+        session.merge(entity);
         transaction.commit();
         session.close();
+        */
+        try (Session session = getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.merge(entity);
+            transaction.commit();
+        }
     }
 
     /**
