@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RulingDaoTest {
 
-    RulingDao rulingDao;
-    CardDao cardDao;
+    GenericDao<Card> cardDao;
+    GenericDao<Ruling> rulingDao;
 
     @BeforeEach
     void setUp() {
-        rulingDao = new RulingDao();
-        cardDao = new CardDao();
+        cardDao = new GenericDao<>(Card.class);
+        rulingDao = new GenericDao<>(Ruling.class);
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
     }
