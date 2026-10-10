@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
+import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -68,18 +69,30 @@ public class GenericDao<T> {
     }
 
     /**
-     * insert a new ruling
-     * @param ruling  Ruling to be inserted
+     * insert a new Entity
+     * @param entity  Entity to be inserted
      */
-    public int insert(Ruling ruling) {
+    /*
+    public int insert(T entity) {
         int id = 0;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(ruling);
+        session.persist(entity);
         transaction.commit();
-        id = ruling.getId();
+        id = getEntityId(entity);
         session.close();
         return id;
+    }
+    */
+    public int insert(T entity) {
+        int id;
+        try (Session session = getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.persist(entity);
+            transaction.commit();
+            id = getEntityId(entity);
+            return id;
+        }
     }
 
     /**
@@ -180,6 +193,28 @@ public class GenericDao<T> {
      */
     private Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
+    }
+
+    /**
+     * Gets entity id.
+     *
+     * @param entity the entity
+     * @return the entity id
+     */
+    public int getEntityId(T entity) {
+        try {
+            // Find the 'public int getId()' method on whatever entity is passed in
+            Method method = entity.getClass().getMethod("getId");
+
+            // Invoke returns an Object (Integer), but Java automatically
+            // unboxes it down to a primitive 'int' to match our return type.
+            return (Integer) method.invoke(entity);
+
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException("Error: " + entity.getClass().getSimpleName() + " is missing a getId() method!", e);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to fetch ID via reflection", e);
+        }
     }
 
 }

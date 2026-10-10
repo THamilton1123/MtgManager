@@ -16,20 +16,20 @@ class CardDaoTest {
 
     CardDao cardDao;
     RulingDao rulingDao;
-    GenericDao genericDao;
+    GenericDao<Card> genericDao;
 
     @BeforeEach
     void setUp() {
         cardDao = new CardDao();
         rulingDao = new RulingDao();
-        genericDao = new GenericDao(Card.class);
+        genericDao = new GenericDao<>(Card.class);
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
     }
 
     @Test
     void getByIdSuccess() {
-        Card retrievedCard = (Card) genericDao.getById(1);
+        Card retrievedCard = genericDao.getById(1);
         assertNotNull(retrievedCard);
         assertEquals(1, retrievedCard.getId());
         assertEquals("Counterspell", retrievedCard.getCardName());
@@ -39,21 +39,21 @@ class CardDaoTest {
 
     @Test
     void updateSuccess() {
-        Card cardToUpdate = (Card) genericDao.getById(1);
+        Card cardToUpdate = genericDao.getById(1);
         cardToUpdate.setCardName("FakeCardName");
         genericDao.update(cardToUpdate);
 
         // retrieve the card and check that the name change worked
-        Card actualCard = (Card) genericDao.getById(1);
+        Card actualCard = genericDao.getById(1);
         assertEquals(cardToUpdate, actualCard);
     }
 
     @Test
     void insertSuccess() {
         Card cardToInsert = new Card("Static Orb", 3, "Artifact", 1);
-        int insertedCardId = cardDao.insert(cardToInsert);
+        int insertedCardId = genericDao.insert(cardToInsert);
         assertNotEquals(0, insertedCardId);
-        Card insertedCard = cardDao.getById(insertedCardId);
+        Card insertedCard = genericDao.getById(insertedCardId);
         assertEquals("Static Orb", insertedCard.getCardName());
         assertEquals(cardToInsert, insertedCard);
     }
