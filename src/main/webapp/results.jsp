@@ -35,8 +35,7 @@
                 <td>
                     <ul>
                         <c:forEach items="${card.rulings}" var="ruling">
-                            <li>${ruling.rulingDate}:</li>
-                            <li>${ruling.rulingText}</li>
+                            <li>${ruling.rulingDate}:<br/>${ruling.rulingText}</li>
                         </c:forEach>
                     </ul>
                 </td>
