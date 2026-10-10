@@ -150,6 +150,7 @@ public class GenericDao<T> {
     /**
      * Get Entity by property (exact match)
      * sample usage: getByPropertyEqual("rulingDate", "2022-12-8")
+     * sample usage: getByPropertyEqual("cardName", "Counterspell")
      */
     /*
     public List<T> getByPropertyEqual(String property, Object value) {
@@ -179,24 +180,38 @@ public class GenericDao<T> {
     }
 
     /**
-     * Get ruling by property (like)
+     * Get entity by property (like)
+     * sample usage: getByPropertyLike("cardName", "in")
      * sample usage: getByPropertyLike("rulingText", "win the game")
      */
-    public List<Ruling> getByPropertyLike(String propertyRulingText, String value) {
+    /*
+    public List<T> getByPropertyLike(String property, Object value) {
         Session session = getSession();
 
-        logger.debug("Searching for ruling with {} = {}",  propertyRulingText, value);
+        logger.debug("Searching for  with {} = {}",  property, value);
 
-        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Ruling> query = builder.createQuery(Ruling.class);
-        Root<Ruling> root = query.from(Ruling.class);
-        Expression<String> propertyPath = root.get(propertyRulingText);
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        Expression<String> propertyPath = root.get(property);
 
         query.where(builder.like(propertyPath, "%" + value + "%"));
 
-        List<Ruling> rulings = session.createQuery( query ).getResultList();
+        List<T> list = session.createQuery( query ).getResultList();
         session.close();
-        return rulings;
+        return list;
+    }
+    */
+    public List<T> getByPropertyLike(String property, Object value) {
+        try (Session session = getSession()) {
+            logger.debug("Searching for {}s by {} like {}", type, property, value);
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> query = builder.createQuery(type);
+            Root<T> root = query.from(type);
+            Expression<String> propertyPath = root.get(property);
+            query.where(builder.like(propertyPath, "%" + value + "%"));
+            return session.createQuery(query).getResultList();
+        }
     }
 
     /**
