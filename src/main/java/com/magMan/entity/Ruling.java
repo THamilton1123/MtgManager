@@ -133,15 +133,13 @@ public class Ruling {
         }
 
         Ruling other = (Ruling) o;
-        return this.id != 0 &&
-                Objects.equals(this.id, other.id) &&
-                Objects.equals(this.rulingDate, other.rulingDate) &&
-                Objects.equals(this.rulingText, other.rulingText);
+        return Objects.equals(this.getRulingDate(), other.getRulingDate()) &&
+                Objects.equals(this.getRulingText(), other.getRulingText());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, rulingDate, rulingText);
+        return Objects.hash(this.getRulingDate(), this.getRulingText());
     }
 
 }
