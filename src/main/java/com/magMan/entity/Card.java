@@ -3,9 +3,7 @@ package com.magMan.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A class to represent a MTG card.
@@ -31,6 +29,8 @@ public class Card {
     private int cardQuantity;
     @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
     private List<Ruling> rulings = new ArrayList<>();
+    @OneToMany(mappedBy="card", fetch=FetchType.EAGER)
+    private Set<CardColor> colors = new HashSet<CardColor>();
 
     /**
      * Instantiates a new Card.
@@ -71,6 +71,37 @@ public class Card {
     public void removeRuling(Ruling ruling) {
         rulings.remove(ruling);
         ruling.setCard(null);
+    }
+
+    /**
+     * Add color.
+     *
+     * @param color the color to add to the card
+     */
+    public void addColor(Color color) {
+        CardColor cardColor = new CardColor(this, color);
+        colors.add(cardColor);
+        color.getCards().add(cardColor);
+    }
+
+    /**
+     * Remove color.
+     *
+     * @param color the color to be removed from the card
+     */
+    public void removeColor(Color color) {
+        for (Iterator<CardColor> iterator = colors.iterator();
+             iterator.hasNext();) {
+            CardColor cardColor = iterator.next();
+
+            if (cardColor.getCard().equals(this) &&
+                    cardColor.getColor().equals(color)) {
+                iterator.remove();
+                cardColor.getColor().getCards().remove(cardColor);
+                cardColor.setColor(null);
+                cardColor.setCard(null);
+            }
+        }
     }
 
     /**
@@ -181,6 +212,24 @@ public class Card {
         this.rulings = rulings;
     }
 
+    /**
+     * Gets colors.
+     *
+     * @return the colors
+     */
+    public Set<CardColor> getColors() {
+        return colors;
+    }
+
+    /**
+     * Sets colors.
+     *
+     * @param colors the colors
+     */
+    public void setColors(Set<CardColor> colors) {
+        this.colors = colors;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
@@ -202,16 +251,14 @@ public class Card {
         }
 
         Card other = (Card) o;
-        return this.id != 0 &&
-                Objects.equals(this.id, other.id) &&
-                Objects.equals(this.cardName, other.cardName) &&
-                Objects.equals(this.cardCmc, other.cardCmc) &&
-                Objects.equals(this.cardType, other.cardType);
+        return Objects.equals(this.getCardName(), other.getCardName()) &&
+                Objects.equals(this.getCardCmc(), other.getCardCmc()) &&
+                Objects.equals(this.getCardType(), other.getCardType());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cardName, cardCmc, cardType);
+        return Objects.hash(this.getCardName(), this.getCardCmc(), this.getCardType());
     }
 
 }
