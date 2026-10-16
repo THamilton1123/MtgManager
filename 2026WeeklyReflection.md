@@ -75,3 +75,19 @@ Tasks Completed:
 
 I'm happy to have set up the environment so I don't have to write any actual SQL, but have Hibernate take care of that for me.  All I gotta do is make sure to feed it the information pertinent to the query.  I realized at some point that I know I'm gonna want to access a certain api for the purposes of my project, and so I'm really looking forward to learning how to do that with Java.  Having typed that now makes me concerned that that's already been covered in adv java(?), and I just don't remember.  Oh well, I'll figure something out.  In any case, I feel pretty good about the state of my webapp, currently.  And I'm looking forward to where this will go from here.
 
+### Week 4
+10/04/2026 - 10 hours
+10/05/2026 - 10 hours
+10/06/2026 - 11 hours
+10/07/2026 - 7 hours
+10/08/2026 - 9 hours
+
+Tasks Completed:
+* Created Rulings Table in the database
+* Generated Ruling Entity with annotations configured to associate it with the Rulings Table
+* Created Ruling DAO based on Card DAO, reconfigured the methods to be appropriate for Rulings
+* Generated Ruling DAO Test class, based setUp() and cleanUp() methods on Card DAO Test class
+* Coded each CRUD method and searchBy() method
+* Implemented Hibernate's overriding equals() and hashCode() methods in both Card and Ruling classes
+* Altered code in both CardDaoTest and RulingDaoTest after implementing equals() and hashCode()
+* 

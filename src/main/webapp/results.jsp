@@ -21,6 +21,7 @@
             <th>Card CMC</th>
             <th>Card Type</th>
             <th>Card Quantity</th>
+            <th>Card Rulings</th>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +32,13 @@
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>
                 <td>${card.cardQuantity}</td>
+                <td>
+                    <ul>
+                        <c:forEach items="${card.rulings}" var="ruling">
+                            <li>${ruling.rulingDate}:<br/>${ruling.rulingText}</li>
+                        </c:forEach>
+                    </ul>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

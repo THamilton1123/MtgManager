@@ -3,6 +3,10 @@ package com.magMan.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 /**
  * A class to represent a MTG card.
  *
@@ -25,6 +29,8 @@ public class Card {
     private String cardType;
     @Column(name="cardQuantity")
     private int cardQuantity;
+    @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
+    private List<Ruling> rulings = new ArrayList<>();
 
     /**
      * Instantiates a new Card.
@@ -45,6 +51,26 @@ public class Card {
         this.cardCmc = cardCmc;
         this.cardType = cardType;
         this.cardQuantity = cardQuantity;
+    }
+
+    /**
+     * Add ruling.
+     *
+     * @param ruling the ruling
+     */
+    public void addRuling(Ruling ruling) {
+        rulings.add(ruling);
+        ruling.setCard(this);
+    }
+
+    /**
+     * Remove ruling.
+     *
+     * @param ruling the ruling
+     */
+    public void removeRuling(Ruling ruling) {
+        rulings.remove(ruling);
+        ruling.setCard(null);
     }
 
     /**
@@ -137,6 +163,24 @@ public class Card {
         this.cardQuantity = cardQuantity;
     }
 
+    /**
+     * Gets rulings.
+     *
+     * @return the rulings
+     */
+    public List<Ruling> getRulings() {
+        return rulings;
+    }
+
+    /**
+     * Sets rulings.
+     *
+     * @param rulings the rulings
+     */
+    public void setRulings(List<Ruling> rulings) {
+        this.rulings = rulings;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
@@ -147,4 +191,27 @@ public class Card {
                 ", cardQuantity=" + cardQuantity +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Card)) {
+            return false;
+        }
+
+        Card other = (Card) o;
+        return this.id != 0 &&
+                Objects.equals(this.id, other.id) &&
+                Objects.equals(this.cardName, other.cardName) &&
+                Objects.equals(this.cardCmc, other.cardCmc) &&
+                Objects.equals(this.cardType, other.cardType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, cardName, cardCmc, cardType);
+    }
+
 }
