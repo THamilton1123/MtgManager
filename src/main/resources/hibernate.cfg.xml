@@ -5,7 +5,7 @@
 <!--suppress ALL -->
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/mtg_manager</property>
+        <property name="connection.url">jdbc:mysql://awseb-e-hpvytx43b5-stack-awsebrdsdatabase-imxm9ddhp8bm.c3me0yomyuzd.us-east-2.rds.amazonaws.com:3306/mtg_manager</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="connection.username">root</property>
