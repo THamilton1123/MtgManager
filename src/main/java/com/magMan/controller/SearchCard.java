@@ -1,6 +1,8 @@
 package com.magMan.controller;
 
+import com.magMan.entity.Card;
 import com.magMan.persistence.CardDao;
+import com.magMan.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +25,7 @@ public class SearchCard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CardDao cardDao = new CardDao();
+        GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
         if (req.getParameter("submit").equals("search")) {
             req.setAttribute("cards", cardDao.getByPropertyLike("cardName", req.getParameter("searchTerm")));
