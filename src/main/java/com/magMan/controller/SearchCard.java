@@ -1,7 +1,6 @@
 package com.magMan.controller;
 
 import com.magMan.entity.Card;
-import com.magMan.persistence.CardDao;
 import com.magMan.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
