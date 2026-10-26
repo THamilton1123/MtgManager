@@ -160,6 +160,29 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <!-- the rest below is for enabling Maven Resources Filtering,
+    telling Maven to read the gitignored local database.properties file
+    and use it to populate the ${db.*} variables in either/both
+    hibernate.cfg.xml file/s automatically when building the app or running
+    unit tests -->
+    <filters>
+      <filter>src/main/resources/database.properties</filter>
+    </filters>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
   </build>
 
 </project>
