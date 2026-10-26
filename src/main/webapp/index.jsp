@@ -9,7 +9,7 @@
         <h2><a href="logIn">Log In</a></h2>
     </c:when>
     <c:otherwise>
-        <h2>Welcome ${userName} to your Personal MTG Manager</h2>
+        <h2>Welcome, ${userName}, to your Personal MTG Manager</h2>
         <form action="searchCard" class="form-inline">
             <div class="form-group">
                 <label for="searchTerm">Search</label>
