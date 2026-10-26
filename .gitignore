@@ -40,3 +40,5 @@ build/
 
 ### TODO Remember to git ignore sensitive files and log files ###
 logs/*
+cognito.properties
+database.properties
