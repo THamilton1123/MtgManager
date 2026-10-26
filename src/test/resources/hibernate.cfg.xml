@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">${test.db.url}</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.driver_class">${test.db.driver}</property>
 
         <property name="connection.username">${test.db.username}</property>
         <property name="connection.password">${test.db.password}</property>
