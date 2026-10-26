@@ -4,15 +4,22 @@
 <c:import url="/head.jsp" />
 <body>
 
-<h2>Personal MTG Manager</h2>
-<form action="searchCard" class="form-inline">
-    <div class="form-group">
-        <label for="searchTerm">Search</label>
-        <input type="text" class="form-control" id="searchTerm" name="searchTerm" aria-describedby="searchTermHelp" placeholder="Enter card name">
-    </div>
-    <button type="submit" name="submit" value="search" class="btn btn-primary">Search</button>
-    <button type="submit" name="submit" value="viewAll" class="btn btn-primary">View all cards</button>
-</form>
+<c:choose>
+    <c:when test="${empty userName}">
+        <h2><a href="logIn">Log In</a></h2>
+    </c:when>
+    <c:otherwise>
+        <h2>Welcome ${userName} to your Personal MTG Manager</h2>
+        <form action="searchCard" class="form-inline">
+            <div class="form-group">
+                <label for="searchTerm">Search</label>
+                <input type="text" class="form-control" id="searchTerm" name="searchTerm" aria-describedby="searchTermHelp" placeholder="Enter card name">
+            </div>
+            <button type="submit" name="submit" value="search" class="btn btn-primary">Search</button>
+            <button type="submit" name="submit" value="viewAll" class="btn btn-primary">View all cards</button>
+        </form>
+    </c:otherwise>
+</c:choose>
 
 </body>
 </html>
