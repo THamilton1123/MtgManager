@@ -18,6 +18,7 @@ public class ScryfallDao {
 
     JsonCard getJsonCard() {
         Client client = ClientBuilder.newClient();
+        // TODO read in the uri from a properties file
         WebTarget target =
                 client.target("https://api.scryfall.com/cards/named")
                         .queryParam("exact", "shahrazad");
