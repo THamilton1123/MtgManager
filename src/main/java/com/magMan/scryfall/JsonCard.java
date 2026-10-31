@@ -1,6 +1,8 @@
 package com.magMan.scryfall;
 
 import java.util.List;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class JsonCard {
@@ -719,4 +721,17 @@ public class JsonCard {
 			",textless = '" + textless + '\'' + 
 			"}";
 		}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof JsonCard)) return false;
+		JsonCard jsonCard = (JsonCard) o;
+		return Objects.equals(getId(), jsonCard.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(getId());
+	}
 }
