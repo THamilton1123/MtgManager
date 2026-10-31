@@ -3,7 +3,7 @@ package com.magMan.scryfall;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Card {
+public class JsonCard {
 
 	@JsonProperty("keywords")
 	private List<Object> keywords;
@@ -657,7 +657,7 @@ public class Card {
 	@Override
  	public String toString(){
 		return 
-			"Card{" +
+			"JsonCard{" +
 			"keywords = '" + keywords + '\'' + 
 			",oracle_text = '" + oracleText + '\'' + 
 			",tcgplayer_id = '" + tcgplayerId + '\'' + 
