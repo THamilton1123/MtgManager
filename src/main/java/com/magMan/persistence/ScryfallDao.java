@@ -35,6 +35,6 @@ public class ScryfallDao implements PropertiesLoader {
             logger.error("ScryfallDao getPrintingByNameLike() JsonProcessingException", e);
         }
 
-        return card;
+        return printing;
     }
 }
