@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class JsonCard {
+public class Printing {
 
 	@JsonProperty("keywords")
 	private List<Object> keywords;
@@ -659,7 +659,7 @@ public class JsonCard {
 	@Override
  	public String toString(){
 		return 
-			"JsonCard{" +
+			"Printing{" +
 			"keywords = '" + keywords + '\'' + 
 			",oracle_text = '" + oracleText + '\'' + 
 			",tcgplayer_id = '" + tcgplayerId + '\'' + 
@@ -725,9 +725,9 @@ public class JsonCard {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (!(o instanceof JsonCard)) return false;
-		JsonCard jsonCard = (JsonCard) o;
-		return Objects.equals(getId(), jsonCard.getId());
+		if (!(o instanceof Printing)) return false;
+		Printing printing = (Printing) o;
+		return Objects.equals(getId(), printing.getId());
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package com.magMan.persistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.magMan.scryfall.JsonCard;
+import com.magMan.scryfall.Printing;
 import com.magMan.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,19 +20,19 @@ public class ScryfallDao implements PropertiesLoader {
     private final Properties scryProps = loadProperties("/scryfall.properties");
     private final String SCRY_URI = scryProps.getProperty("uri");
 
-    JsonCard getJsonCardByNameLike(String cardName) {
+    Printing getPrintingByNameLike(String cardName) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target(SCRY_URI + "/named")
                         .queryParam("fuzzy", cardName);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
-        JsonCard card = null;
+        Printing printing = null;
         try {
-            card = mapper.readValue(response, JsonCard.class);
+            printing = mapper.readValue(response, Printing.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            logger.error("ScryfallDao getJsonCard() JsonProcessingException", e);
+            logger.error("ScryfallDao getPrintingByNameLike() JsonProcessingException", e);
         }
 
         return card;

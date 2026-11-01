@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ScryfallDaoTest {
 
     @Test
-    void getJsonCardByNameLike() {
+    void getPrintingByNameLike() {
         ScryfallDao dao = new ScryfallDao();
         assertEquals("0014def3-4063-4929-ac51-76aef1bb2a68",
-                dao.getJsonCardByNameLike("Shahrazad").getId());
+                dao.getPrintingByNameLike("Shahrazad").getId());
     }
 }
