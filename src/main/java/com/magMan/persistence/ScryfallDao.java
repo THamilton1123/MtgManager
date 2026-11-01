@@ -16,16 +16,17 @@ import java.util.Properties;
 public class ScryfallDao implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private Properties scryProps = loadProperties("/scryfall.properties");
+    private final ObjectMapper mapper = new ObjectMapper();
+    private final Properties scryProps = loadProperties("/scryfall.properties");
+    private final String SCRY_URI = scryProps.getProperty("uri");
 
     JsonCard getJsonCardByNameLike(String cardName) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
-                client.target(scryProps.getProperty("uri") + "/named")
+                client.target(SCRY_URI + "/named")
                         .queryParam("fuzzy", cardName);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
-        ObjectMapper mapper = new ObjectMapper();
         JsonCard card = null;
         try {
             card = mapper.readValue(response, JsonCard.class);
