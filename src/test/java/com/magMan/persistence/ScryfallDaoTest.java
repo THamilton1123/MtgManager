@@ -9,6 +9,7 @@ class ScryfallDaoTest {
     @Test
     void getJsonCardByNameLike() {
         ScryfallDao dao = new ScryfallDao();
-        assertEquals("0014def3-4063-4929-ac51-76aef1bb2a68", dao.getJsonCardByNameLike("Shahrazad").getId());
+        assertEquals("0014def3-4063-4929-ac51-76aef1bb2a68",
+                dao.getJsonCardByNameLike("Shahrazad").getId());
     }
 }
