@@ -1,6 +1,5 @@
 package com.magMan.persistence;
 
-import com.magMan.scryfall.JsonCard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
