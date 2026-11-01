@@ -1,5 +1,6 @@
 package com.magMan.persistence;
 
+import com.magMan.scryfall.Printing;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ScryfallDaoTest {
 
     @Test
-    void getPrintingByNameLike() {
+    void getPrintingByNameExact() {
         ScryfallDao dao = new ScryfallDao();
         assertEquals("0014def3-4063-4929-ac51-76aef1bb2a68",
-                dao.getPrintingByNameLike("Shahrazad").getId());
+                dao.getPrintingByNameExact("Shahrazad").getId());
     }
 }
