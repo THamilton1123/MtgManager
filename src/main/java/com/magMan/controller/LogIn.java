@@ -23,11 +23,12 @@ public class LogIn extends HttpServlet {
     private String clientId;
     private String loginUrl;
     private String redirectUrl;
+    private ServletContext context;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        ServletContext context = getServletContext();
+        context = getServletContext();
         this.clientId = (String) context.getAttribute("cognito.client.id");
         this.loginUrl = (String) context.getAttribute("cognito.loginURL");
 
@@ -62,7 +63,13 @@ public class LogIn extends HttpServlet {
             return;
         }
 
-        String url = loginUrl + "?response_type=code&client_id=" + clientId + "&redirect_uri=" + redirectUrl;
+        String url;
+        if (clientId.equals(context.getAttribute("cognito.client.id"))) {
+            url = loginUrl + "?response_type=code&client_id=[CorrectClientId]&redirect_uri=" + redirectUrl;
+        } else {
+            url = loginUrl + "?response_type=code&client_id=" + clientId + "&redirect_uri=" + redirectUrl;
+        }
+
         logger.info("Redirecting user to Cognito login: {}", url);
         resp.sendRedirect(url);
     }
