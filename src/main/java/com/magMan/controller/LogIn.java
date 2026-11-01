@@ -30,7 +30,20 @@ public class LogIn extends HttpServlet {
         ServletContext context = getServletContext();
         this.clientId = (String) context.getAttribute("cognito.client.id");
         this.loginUrl = (String) context.getAttribute("cognito.loginURL");
-        this.redirectUrl = (String) context.getAttribute("cognito.redirectURL");
+
+        // Someday, maybe I'll be able to make this webapp httpS capable.
+        // On that day, I can use that url as the COGNITO_REDIRECT_URL.
+        // This way, I won't need my own local tomcat server running in order to
+        // use this webapp, I'll be able to just navigate to the webapp on any
+        // device, at any time, and it'll work.  At least, that's my understanding
+        // right now (11/1/26).  So, I'm keeping the 'if' check below, even though
+        // there currently is no COGNITO_REDIRECT_URL property in my
+        // ElasticBeanstalk environment.
+        String redirectUrl = System.getenv("COGNITO_REDIRECT_URL");
+        if (redirectUrl == null || redirectUrl.trim().isEmpty()) {
+            redirectUrl = (String) context.getAttribute("cognito.redirectURL");
+        }
+        this.redirectUrl = redirectUrl;
     }
 
     /**
