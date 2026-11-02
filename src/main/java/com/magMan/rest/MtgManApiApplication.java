@@ -15,7 +15,7 @@ public class MtgManApiApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet<Class<?>> h = new HashSet<>();
-        h.add(HelloWorld.class);
+        h.add(MtgManApi.class);
         return h;
     }
 }
