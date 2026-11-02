@@ -1,5 +1,8 @@
 package com.magMan.rest;
 
+import com.magMan.entity.Card;
+import com.magMan.persistence.GenericDao;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,8 +21,7 @@ public class MtgManApi {
     @Produces({"text/plain", "application/json", "text/html"})
     public Response getOneOfMyCards(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
         List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
-        String baseMessage = "Hello, " + cardName + "!";
-        String output = baseMessage;
+        GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
         for (MediaType type : acceptableMediaTypes) {
             if (type.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
