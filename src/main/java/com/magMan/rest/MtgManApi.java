@@ -16,9 +16,9 @@ public class MtgManApi {
     @GET
     // The Java method will produce content identified by the MIME Media types "text/plain", "application/json", or "text/html"
     @Produces({"text/plain", "application/json", "text/html"})
-    public Response getMyCards(@PathParam("name") String name, @Context HttpHeaders headers) {
+    public Response getMyCards(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
         List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
-        String baseMessage = "Hello, " + name + "!";
+        String baseMessage = "Hello, " + cardName + "!";
         String output = baseMessage;
 
         for (MediaType type : acceptableMediaTypes) {
