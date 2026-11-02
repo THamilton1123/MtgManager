@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/mycards/{name}")
+@Path("/mycards/{cardName}")
 public class MtgManApi {
     // The Java method will process HTTP GET requests
     @GET
