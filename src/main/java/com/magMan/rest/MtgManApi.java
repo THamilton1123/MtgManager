@@ -22,6 +22,7 @@ public class MtgManApi {
     public Response getOneOfMyCards(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
         List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
         GenericDao<Card> cardDao = new GenericDao<>(Card.class);
+        List<Card> allMyCards = cardDao.getAll();
 
         for (MediaType type : acceptableMediaTypes) {
             if (type.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
