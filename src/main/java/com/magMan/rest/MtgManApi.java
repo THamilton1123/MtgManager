@@ -37,7 +37,7 @@ public class MtgManApi {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        String jsonOutput;
+        String jsonOutput = null;
         try {
             jsonOutput = mapper.writeValueAsString(retrievedCards);
         } catch (Exception e) {
