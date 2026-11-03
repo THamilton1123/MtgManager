@@ -57,9 +57,11 @@ public class MtgManApi {
                 String htmlOutput = convertListToHtmlPage(retrievedCards);
                 return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
             }
+            if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
+                return Response.status(200).type(MediaType.TEXT_PLAIN).entity(output).build();
+            }
         }
-
-        return Response.status(200).type(MediaType.TEXT_PLAIN).entity(output).build();
+        return Response.status(406).entity("Unsupported media type requested.  This endpoint supports text/plain, application/json, and text/html.").type("text/plain").build();
     }
 
     /**
