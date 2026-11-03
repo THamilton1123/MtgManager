@@ -22,6 +22,7 @@ public class Ruling {
     @Column(name="ruling_text")
     private String rulingText;
     @ManyToOne
+    @com.fasterxml.jackson.annotation.JsonBackReference
     private Card card;
 
     /**
