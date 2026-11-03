@@ -58,7 +58,8 @@ public class MtgManApi {
                 return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
-                return Response.status(200).type(MediaType.TEXT_PLAIN).entity(output).build();
+                String textOutput = convertListToPlainText(retrievedCards);
+                return Response.status(200).type(MediaType.TEXT_PLAIN).entity(textOutput).build();
             }
         }
         return Response.status(406).entity("Unsupported media type requested.  This endpoint supports text/plain, application/json, and text/html.").type("text/plain").build();
@@ -162,5 +163,46 @@ public class MtgManApi {
                 .append("</html>\n");
 
         return page.toString();
+    }
+
+    /**
+     * Converts a full list of Cards into plain text.
+     * I admit, Google wrote the code for this method for me.
+     */
+    public static String convertListToPlainText(List<Card> cardList) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("==================================================\n");
+        sb.append("MAGIC: THE GATHERING COLLECTION REPORT\n");
+        sb.append("==================================================\n\n");
+
+        for (Card card : cardList) {
+            sb.append("Card Name: ").append(card.getCardName()).append("\n");
+
+            int cmc = card.getCardCmc() != null ? card.getCardCmc() : 0;
+            sb.append("CMC:       ").append(cmc).append("\n");
+            sb.append("Type:      ").append(card.getCardType()).append("\n");
+            sb.append("Quantity:  ").append(card.getCardQuantity()).append("\n");
+            sb.append("DB ID:     #").append(card.getId()).append("\n");
+
+            // Handle Nested Rulings
+            List<Ruling> rulings = card.getRulings();
+            if (rulings != null && !rulings.isEmpty()) {
+                sb.append("Official Rulings:\n");
+                for (Ruling ruling : rulings) {
+                    sb.append("  - ");
+                    if (ruling.getRulingDate() != null) {
+                        sb.append("[").append(ruling.getRulingDate().format(DATE_FORMATTER)).append("] ");
+                    }
+                    sb.append(ruling.getRulingText() != null ? ruling.getRulingText() : "").append("\n");
+                }
+            } else {
+                sb.append("Rulings:   None available.\n");
+            }
+
+            sb.append("--------------------------------------------------\n\n");
+        }
+
+        return sb.toString();
     }
 }
