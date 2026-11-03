@@ -30,6 +30,7 @@ public class Card {
     @Column(name="cardQuantity")
     private int cardQuantity;
     @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
+    @com.fasterxml.jackson.annotation.JsonManagedReference
     private List<Ruling> rulings = new ArrayList<>();
 
     /**
