@@ -34,8 +34,10 @@ public class MtgManApi {
         GenericDao<Card> cardDao = new GenericDao<>(Card.class);
         List<Card> allMyCards = cardDao.getAll();
         List<Card> retrievedCards = new ArrayList<>();
+        String sanitizedParam = sanitizeForMatching(cardName);
         for  (Card card : allMyCards) {
-            if(card.getCardName().equals(cardName)) {
+            String sanitizedCardName = sanitizeForMatching(card.getCardName());
+            if(sanitizedCardName.equals(sanitizedParam)) {
                 retrievedCards.add(card);
             }
         }
@@ -205,5 +207,14 @@ public class MtgManApi {
         }
 
         return sb.toString();
+    }
+
+    private String sanitizeForMatching(String input) {
+        if (input == null) {
+            return "";
+        }
+        // 1. Convert to lowercase
+        // 2. [^a-zA-Z0-9] matches anything that is NOT a letter or a number and removes it
+        return input.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
     }
 }
