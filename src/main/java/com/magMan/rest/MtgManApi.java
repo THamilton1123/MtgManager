@@ -39,19 +39,18 @@ public class MtgManApi {
             }
         }
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        String jsonOutput = null;
-        try {
-            jsonOutput = mapper.writeValueAsString(retrievedCards);
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.error("Error while creating json output.  Cards being converted: {}", retrievedCards);
-        }
-
         List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
         for (MediaType type : acceptableMediaTypes) {
             if (type.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
+                ObjectMapper mapper = new ObjectMapper();
+                mapper.enable(SerializationFeature.INDENT_OUTPUT);
+                String jsonOutput = null;
+                try {
+                    jsonOutput = mapper.writeValueAsString(retrievedCards);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    logger.error("Error while creating json output.  Cards being converted: {}", retrievedCards);
+                }
                 return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
