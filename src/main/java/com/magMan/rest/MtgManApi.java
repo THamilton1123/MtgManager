@@ -64,6 +64,7 @@ public class MtgManApi {
 
     /**
      * Converts a single Card object and its nested Rulings into an HTML snippet.
+     * I admit, Google wrote the code for this method for me.
      */
     public static String convertCardToHtml(Card card) {
         StringBuilder html = new StringBuilder();
@@ -113,6 +114,7 @@ public class MtgManApi {
 
     /**
      * Converts a full list of Cards into a complete, responsive HTML webpage template.
+     * I admit, Google wrote the code for this method for me.
      */
     public static String convertListToHtmlPage(List<Card> cardList) {
         StringBuilder page = new StringBuilder();
