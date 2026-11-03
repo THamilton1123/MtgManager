@@ -54,8 +54,8 @@ public class MtgManApi {
                 return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
-                output = "<h3>" + baseMessage + "</h3>";
-                return Response.status(200).type(MediaType.TEXT_HTML).entity(output).build();
+                String htmlOutput = convertListToHtmlPage(retrievedCards);
+                return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
             }
         }
 
