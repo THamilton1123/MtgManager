@@ -209,6 +209,14 @@ public class MtgManApi {
         return sb.toString();
     }
 
+    /**
+     * Removes all punctuation and spaces from a String (like a card name or PathParam)
+     * and replaces all capital letters with lower case counterparts, making the Strings
+     * (cardNames) fit for comparison.
+     * I admit, Google wrote the code for this method for me.
+     * @param input
+     * @return card name fit for comparison
+     */
     private String sanitizeForMatching(String input) {
         if (input == null) {
             return "";
