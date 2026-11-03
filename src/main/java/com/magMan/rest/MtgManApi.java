@@ -20,13 +20,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Path("/mycards/{cardname}")
+@Path("/mycards")
 public class MtgManApi {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMM dd, yyyy");
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     // The Java method will process HTTP GET requests
     @GET
+    // The java method will only process if a value for cardname is provided in the url
+    @Path("/{cardname}")
     // The Java method will produce content identified by the MIME Media types "text/plain", "application/json", or "text/html"
     @Produces({"text/plain", "application/json", "text/html"})
     public Response getMyCardsByNameExact(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
