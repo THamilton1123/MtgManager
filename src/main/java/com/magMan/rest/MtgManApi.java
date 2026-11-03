@@ -29,7 +29,7 @@ public class MtgManApi {
     @GET
     // The Java method will produce content identified by the MIME Media types "text/plain", "application/json", or "text/html"
     @Produces({"text/plain", "application/json", "text/html"})
-    public Response getOneOfMyCards(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
+    public Response getMyCardsByNameExact(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
         GenericDao<Card> cardDao = new GenericDao<>(Card.class);
         List<Card> allMyCards = cardDao.getAll();
         List<Card> retrievedCards = new ArrayList<>();
