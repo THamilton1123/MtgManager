@@ -45,17 +45,26 @@ public class MtgManApi {
                 try {
                     jsonOutput = mapper.writeValueAsString(allMyCards);
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    logger.error("Error while creating json output.  Cards being converted: {}", allMyCards);
+                    logger.error("Error while creating json output.  Cards being converted: {}", allMyCards, e);
                 }
                 return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
-                String htmlOutput = convertListToHtmlPage(allMyCards);
+                String htmlOutput = null;
+                try {
+                    htmlOutput = convertListToHtmlPage(allMyCards);
+                } catch (Exception e) {
+                    logger.error("Error while creating html output.  Cards being converted: {}", allMyCards, e);
+                }
                 return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
-                String textOutput = convertListToPlainText(allMyCards);
+                String textOutput = null;
+                try {
+                    textOutput = convertListToPlainText(allMyCards);
+                } catch (Exception e) {
+                    logger.error("Error while creating text output.  Cards being converted: {}", allMyCards, e);
+                }
                 return Response.status(200).type(MediaType.TEXT_PLAIN).entity(textOutput).build();
             }
         }
@@ -94,11 +103,21 @@ public class MtgManApi {
                 return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
-                String htmlOutput = convertListToHtmlPage(retrievedCards);
+                String htmlOutput = null;
+                try {
+                    htmlOutput = convertListToHtmlPage(retrievedCards);
+                } catch (Exception e) {
+                    logger.error("Error while creating html output.  Cards being converted: {}", retrievedCards, e);
+                }
                 return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
-                String textOutput = convertListToPlainText(retrievedCards);
+                String textOutput = null;
+                try {
+                    textOutput = convertListToPlainText(retrievedCards);
+                } catch (Exception e) {
+                    logger.error("Error while creating text output.  Cards being converted: {}", retrievedCards, e);
+                }
                 return Response.status(200).type(MediaType.TEXT_PLAIN).entity(textOutput).build();
             }
         }
