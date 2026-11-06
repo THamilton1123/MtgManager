@@ -89,8 +89,7 @@ public class MtgManApi {
                 try {
                     jsonOutput = mapper.writeValueAsString(retrievedCards);
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    logger.error("Error while creating json output.  Cards being converted: {}", retrievedCards);
+                    logger.error("Error while creating json output.  Cards being converted: {}", retrievedCards, e);
                 }
                 return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
             }
