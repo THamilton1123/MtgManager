@@ -24,7 +24,7 @@ import java.util.List;
 public class MtgManApi {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMM dd, yyyy");
     private final Logger logger = LogManager.getLogger(this.getClass());
-    GenericDao<Card> cardDao = new GenericDao<>(Card.class);
+    private final GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
     // The Java method will process HTTP GET requests
     @GET
@@ -36,39 +36,7 @@ public class MtgManApi {
 
         List<Card> allMyCards = cardDao.getAll();
 
-        List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
-        for (MediaType type : acceptableMediaTypes) {
-            if (type.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.enable(SerializationFeature.INDENT_OUTPUT);
-                String jsonOutput = null;
-                try {
-                    jsonOutput = mapper.writeValueAsString(allMyCards);
-                } catch (Exception e) {
-                    logger.error("Error while creating json output.  Cards being converted: {}", allMyCards, e);
-                }
-                return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
-            }
-            if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
-                String htmlOutput = null;
-                try {
-                    htmlOutput = convertListToHtmlPage(allMyCards);
-                } catch (Exception e) {
-                    logger.error("Error while creating html output.  Cards being converted: {}", allMyCards, e);
-                }
-                return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
-            }
-            if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
-                String textOutput = null;
-                try {
-                    textOutput = convertListToPlainText(allMyCards);
-                } catch (Exception e) {
-                    logger.error("Error while creating text output.  Cards being converted: {}", allMyCards, e);
-                }
-                return Response.status(200).type(MediaType.TEXT_PLAIN).entity(textOutput).build();
-            }
-        }
-        return Response.status(406).entity("Unsupported media type requested.  This endpoint supports text/plain, application/json, and text/html.").type("text/plain").build();
+        return formatResponse(allMyCards, headers);
     }
 
     // The Java method will process HTTP GET requests
@@ -89,6 +57,16 @@ public class MtgManApi {
             }
         }
 
+        return formatResponse(retrievedCards, headers);
+    }
+
+    /**
+     * Formats cards returned by search to Client's preferred media type
+     * @param cards List of cards returned by search
+     * @param headers headers from Client's request
+     * @return Response formatted to Client's preferred media type
+     */
+    private Response formatResponse(List<Card> cards, HttpHeaders headers) {
         List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
         for (MediaType type : acceptableMediaTypes) {
             if (type.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
@@ -96,27 +74,27 @@ public class MtgManApi {
                 mapper.enable(SerializationFeature.INDENT_OUTPUT);
                 String jsonOutput = null;
                 try {
-                    jsonOutput = mapper.writeValueAsString(retrievedCards);
+                    jsonOutput = mapper.writeValueAsString(cards);
                 } catch (Exception e) {
-                    logger.error("Error while creating json output.  Cards being converted: {}", retrievedCards, e);
+                    logger.error("Error while creating json output.  Cards being converted: {}", cards, e);
                 }
                 return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
                 String htmlOutput = null;
                 try {
-                    htmlOutput = convertListToHtmlPage(retrievedCards);
+                    htmlOutput = convertListToHtmlPage(cards);
                 } catch (Exception e) {
-                    logger.error("Error while creating html output.  Cards being converted: {}", retrievedCards, e);
+                    logger.error("Error while creating html output.  Cards being converted: {}", cards, e);
                 }
                 return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
             }
             if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
                 String textOutput = null;
                 try {
-                    textOutput = convertListToPlainText(retrievedCards);
+                    textOutput = convertListToPlainText(cards);
                 } catch (Exception e) {
-                    logger.error("Error while creating text output.  Cards being converted: {}", retrievedCards, e);
+                    logger.error("Error while creating text output.  Cards being converted: {}", cards, e);
                 }
                 return Response.status(200).type(MediaType.TEXT_PLAIN).entity(textOutput).build();
             }
@@ -270,7 +248,7 @@ public class MtgManApi {
      * and replaces all capital letters with lower case counterparts, making the Strings
      * (cardNames) fit for comparison.
      * I admit, Google wrote the code for this method for me.
-     * @param input
+     * @param input Card name
      * @return card name fit for comparison
      */
     private String sanitizeForMatching(String input) {
