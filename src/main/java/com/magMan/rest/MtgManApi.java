@@ -20,12 +20,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * API Web Service for a user to access either all cards in my database, or just the one's named as a Parameter in the url
+ * @author thamilton12
+ */
 @Path("/mycards")
 public class MtgManApi {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMM dd, yyyy");
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
+    /**
+     * API Endpoint method for displaying all cards in my database
+     * @param headers client's headers for Response media type preferences
+     * @return Response formatted to Client's preferred media type
+     */
     // The Java method will process HTTP GET requests
     @GET
     // The java method will process if no value for cardname is provided in the url
@@ -39,6 +48,11 @@ public class MtgManApi {
         return formatResponse(allMyCards, headers);
     }
 
+    /**
+     * API Endpoint method for displaying a named card from my database
+     * @param headers client's headers for Response media type preferences
+     * @return Response formatted to Client's preferred media type
+     */
     // The Java method will process HTTP GET requests
     @GET
     // The java method will only process if a value for cardname is provided in the url
@@ -105,6 +119,8 @@ public class MtgManApi {
     /**
      * Converts a single Card object and its nested Rulings into an HTML snippet.
      * I admit, Google wrote the code for this method for me.
+     * @param card Card object to be converted to HTML
+     * @return String of HTML representing a Card object
      */
     public static String convertCardToHtml(Card card) {
         StringBuilder html = new StringBuilder();
@@ -113,7 +129,7 @@ public class MtgManApi {
         html.append("  <div class=\"card-header\">\n");
         html.append("    <span class=\"card-name\">").append(card.getCardName()).append("</span>\n");
 
-        int cmc = card.getCardCmc() != null ? card.getCardCmc() : 0;
+        String cmc = card.getCardCmc() != null ? String.valueOf(card.getCardCmc()) : "-";
         html.append("    <span class=\"card-cmc\">CMC: ").append(cmc).append("</span>\n");
         html.append("  </div>\n");
 
@@ -155,6 +171,8 @@ public class MtgManApi {
     /**
      * Converts a full list of Cards into a complete, responsive HTML webpage template.
      * I admit, Google wrote the code for this method for me.
+     * @param cardList List of Card objects returned from a search
+     * @return String of HTML representing a complete page including each Card object's HTML String
      */
     public static String convertListToHtmlPage(List<Card> cardList) {
         StringBuilder page = new StringBuilder();
@@ -205,6 +223,8 @@ public class MtgManApi {
     /**
      * Converts a full list of Cards into plain text.
      * I admit, Google wrote the code for this method for me.
+     * @param cardList List of Card objects returned from search
+     * @return String of plain text representing each Card object from cardList
      */
     public static String convertListToPlainText(List<Card> cardList) {
         StringBuilder sb = new StringBuilder();
@@ -216,7 +236,7 @@ public class MtgManApi {
         for (Card card : cardList) {
             sb.append("Card Name: ").append(card.getCardName()).append("\n");
 
-            int cmc = card.getCardCmc() != null ? card.getCardCmc() : 0;
+            String cmc = card.getCardCmc() != null ? String.valueOf(card.getCardCmc()) : "-";
             sb.append("CMC:       ").append(cmc).append("\n");
             sb.append("Type:      ").append(card.getCardType()).append("\n");
             sb.append("Quantity:  ").append(card.getCardQuantity()).append("\n");
