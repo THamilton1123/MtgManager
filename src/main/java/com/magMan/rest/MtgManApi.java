@@ -27,6 +27,43 @@ public class MtgManApi {
 
     // The Java method will process HTTP GET requests
     @GET
+    // The java method will process if no value for cardname is provided in the url
+    @Path("/")
+    // The Java method will produce content identified by the MIME Media types "text/plain", "application/json", or "text/html"
+    @Produces({"text/plain", "application/json", "text/html"})
+    public Response getAllMyCards(@Context HttpHeaders headers) {
+
+        GenericDao<Card> cardDao = new GenericDao<>(Card.class);
+        List<Card> allMyCards = cardDao.getAll();
+
+        List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
+        for (MediaType type : acceptableMediaTypes) {
+            if (type.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
+                ObjectMapper mapper = new ObjectMapper();
+                mapper.enable(SerializationFeature.INDENT_OUTPUT);
+                String jsonOutput = null;
+                try {
+                    jsonOutput = mapper.writeValueAsString(allMyCards);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    logger.error("Error while creating json output.  Cards being converted: {}", allMyCards);
+                }
+                return Response.status(200).type(MediaType.APPLICATION_JSON).entity(jsonOutput).build();
+            }
+            if (type.isCompatible(MediaType.TEXT_HTML_TYPE)) {
+                String htmlOutput = convertListToHtmlPage(allMyCards);
+                return Response.status(200).type(MediaType.TEXT_HTML).entity(htmlOutput).build();
+            }
+            if (type.isCompatible(MediaType.TEXT_PLAIN_TYPE)) {
+                String textOutput = convertListToPlainText(allMyCards);
+                return Response.status(200).type(MediaType.TEXT_PLAIN).entity(textOutput).build();
+            }
+        }
+        return Response.status(406).entity("Unsupported media type requested.  This endpoint supports text/plain, application/json, and text/html.").type("text/plain").build();
+    }
+
+    // The Java method will process HTTP GET requests
+    @GET
     // The java method will only process if a value for cardname is provided in the url
     @Path("/{cardname}")
     // The Java method will produce content identified by the MIME Media types "text/plain", "application/json", or "text/html"
