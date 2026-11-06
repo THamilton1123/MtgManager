@@ -24,6 +24,7 @@ import java.util.List;
 public class MtgManApi {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMM dd, yyyy");
     private final Logger logger = LogManager.getLogger(this.getClass());
+    GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
     // The Java method will process HTTP GET requests
     @GET
@@ -33,7 +34,6 @@ public class MtgManApi {
     @Produces({"text/plain", "application/json", "text/html"})
     public Response getAllMyCards(@Context HttpHeaders headers) {
 
-        GenericDao<Card> cardDao = new GenericDao<>(Card.class);
         List<Card> allMyCards = cardDao.getAll();
 
         List<MediaType> acceptableMediaTypes = headers.getAcceptableMediaTypes();
@@ -70,7 +70,6 @@ public class MtgManApi {
     @Produces({"text/plain", "application/json", "text/html"})
     public Response getMyCardsByNameExact(@PathParam("cardname") String cardName, @Context HttpHeaders headers) {
 
-        GenericDao<Card> cardDao = new GenericDao<>(Card.class);
         List<Card> allMyCards = cardDao.getAll();
         List<Card> retrievedCards = new ArrayList<>();
         String sanitizedParam = sanitizeForMatching(cardName);
