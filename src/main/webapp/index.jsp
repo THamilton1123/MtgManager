@@ -12,7 +12,7 @@
         <h2>Welcome, ${userName}, to your Personal MTG Manager</h2>
         <form action="searchCard" class="form-inline">
             <div class="form-group">
-                <label for="searchTerm">Search</label>
+                <label for="searchTerm">Search Your Collection</label>
                 <input type="text" class="form-control" id="searchTerm" name="searchTerm" aria-describedby="searchTermHelp" placeholder="Enter card name">
             </div>
             <button type="submit" name="submit" value="search" class="btn btn-primary">Search</button>
