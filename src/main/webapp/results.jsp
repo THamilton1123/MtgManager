@@ -17,6 +17,7 @@
         <thead>
         <tr>
             <th>DB ID</th>
+            <th>Card Image</th>
             <th>Card Name</th>
             <th>Card CMC</th>
             <th>Card Type</th>
@@ -28,6 +29,7 @@
         <c:forEach items="${cards}" var="card">
             <tr>
                 <td>${card.id}</td>
+                <td><img src="${card.imageUrl}" alt="${card.cardName}" width="250"></td>
                 <td>${card.cardName}</td>
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>
