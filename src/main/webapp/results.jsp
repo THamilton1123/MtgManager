@@ -12,7 +12,7 @@
 <body>
 
 <div class="container-fluid">
-    <h2>Search Results: </h2>
+    <h2>${searchType} Search Results: </h2>
     <table id="cardTable" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
