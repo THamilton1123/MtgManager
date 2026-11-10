@@ -15,7 +15,9 @@
 
 <script type="text/javascript" class="init">
     $(document).ready( function () {
-        $('#cardTable').DataTable();
+        $('#cardTable').DataTable({
+            "dom": '<"top"lp>rt<"bottom"lp><"clear">'
+        });
     } );
 </script>
 
