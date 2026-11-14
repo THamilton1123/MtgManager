@@ -25,7 +25,7 @@
 <body>
 
 <div class="container-fluid">
-    <h2>${searchLocation} Search Results: </h2>
+    <h2>${searchLocation} Search Results (${cards.size()}: </h2>
     <table id="cardTable" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
@@ -48,7 +48,41 @@
                 <c:if test="${searchLocation == 'Your Collection'}">
                     <td>${card.id}</td>
                 </c:if>
-                <td><img src="${card.imageUrl}" alt="${card.cardName}" width="250"></td>
+                <td>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="${card.imageUrl}" alt="${card.cardName}" width="225">
+
+                        <div style="display: flex; flex-direction: column; gap: 25px;">
+                            <form action="addCard" method="post"
+                                  onsubmit="return confirm('Add ' + this.quantity.value + ' copy/copies of ' + this.cardName.value + ' to your collection?');"
+                                  style="display: flex; flex-direction: column; gap: 5px; margin: 0;">
+                                <input type="hidden" name="cardName" value="${card.cardName}">
+                                <input type="hidden" name="cardCmc" value="${card.cardCmc}">
+                                <input type="hidden" name="cardType" value="${card.cardType}">
+                                <input type="hidden" name="imageUrl" value="${card.imageUrl}">
+
+                                <label for="add-qty-${card.cardName}" style="margin: 0; font-size: 0.9em;">Add Qty:</label>
+                                <input type="number" id="add-qty-${card.cardName}" name="quantity" value="1" min="1" style="width: 65px;" required>
+
+                                <button type="submit">Add</button>
+                            </form>
+
+                            <c:if test="${searchLocation == 'Your Collection'}">
+                                <form action="removeCard" method="post"
+                                      onsubmit="return confirm('Are you sure you want to remove ' + this.quantity.value + ' copy/copies of ' + this.cardName.value + '?');"
+                                      style="display: flex; flex-direction: column; gap: 5px; margin: 0; padding-top: 15px; border-top: 1px solid #ccc;">
+                                    <input type="hidden" name="cardId" value="${card.id}">
+                                    <input type="hidden" name="cardName" value="${card.cardName}">
+
+                                    <label for="remove-qty-${card.id}" style="margin: 0; font-size: 0.9em;">Remove Qty:</label>
+                                    <input type="number" id="remove-qty-${card.id}" name="quantity" value="1" min="1" max="${card.cardQuantity}" style="width: 65px;" required>
+
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </c:if>
+                        </div>
+                    </div>
+                </td>
                 <td>${card.cardName}</td>
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>
