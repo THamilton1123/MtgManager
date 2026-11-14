@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 @WebServlet(
-        urlPatterns = {"/updateCollection"}
+        urlPatterns = {"/UpdateCollection"}
 )
 
 public class UpdateCollection extends HttpServlet {
