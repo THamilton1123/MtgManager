@@ -25,7 +25,7 @@
 <body>
 
 <div class="container-fluid">
-    <h2>${searchLocation} Search Results (${cards.size()}: </h2>
+    <h2>${searchLocation} Search Results (${cards.size()}): </h2>
     <table id="cardTable" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
