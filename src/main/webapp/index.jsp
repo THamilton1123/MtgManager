@@ -17,6 +17,13 @@
             </div>
             <button type="submit" name="submit" value="search" class="btn btn-primary">Search</button>
             <button type="submit" name="submit" value="viewAll" class="btn btn-primary">View all cards</button>
+        </form><br>
+        <form action="searchScryfall" class="form-inline">
+            <div class="form-group">
+                <label for="searchTermCardName">Search Scryfall</label>
+                <input type="text" class="form-control" id="searchTermCardName" name="searchTermCardName" aria-describedby="searchTermHelp" placeholder="Enter exact card name">
+            </div>
+            <button type="submit" name="submit" value="searchByNameExact" class="btn btn-primary">Search</button>
         </form>
     </c:otherwise>
 </c:choose>

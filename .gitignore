@@ -43,3 +43,4 @@ logs/*
 cognito.properties
 database.properties
 scryfall.properties
+testSearchesForScryfall.txt

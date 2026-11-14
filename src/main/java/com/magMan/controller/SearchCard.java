@@ -31,6 +31,7 @@ public class SearchCard extends HttpServlet {
         } else {
             req.setAttribute("cards", cardDao.getAll());
         }
+        req.setAttribute("searchLocation", "Your Collection");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);

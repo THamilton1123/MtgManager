@@ -29,6 +29,8 @@ public class Card {
     private String cardType;
     @Column(name="cardQuantity")
     private int cardQuantity;
+    @Column(name="imageUrl")
+    private String imageUrl;
     @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
     @com.fasterxml.jackson.annotation.JsonManagedReference
     private List<Ruling> rulings = new ArrayList<>();
@@ -165,6 +167,24 @@ public class Card {
     }
 
     /**
+     * Gets image url.
+     *
+     * @return the image url
+     */
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    /**
+     * Sets image url.
+     *
+     * @param imageUrl the image url
+     */
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    /**
      * Gets rulings.
      *
      * @return the rulings
@@ -190,6 +210,7 @@ public class Card {
                 ", cardCmc=" + cardCmc +
                 ", cardType='" + cardType + '\'' +
                 ", cardQuantity=" + cardQuantity +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 
