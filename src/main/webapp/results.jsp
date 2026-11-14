@@ -53,7 +53,7 @@
                         <img src="${card.imageUrl}" alt="${card.cardName}" width="225">
 
                         <div style="display: flex; flex-direction: column; gap: 25px;">
-                            <form action="addCard" method="post"
+                            <form action="updateCollection" method="post"
                                   onsubmit="return confirm('Add ' + this.quantity.value + ' copy/copies of ' + this.cardName.value + ' to your collection?');"
                                   style="display: flex; flex-direction: column; gap: 5px; margin: 0;">
                                 <input type="hidden" name="cardName" value="${card.cardName}">
@@ -68,7 +68,7 @@
                             </form>
 
                             <c:if test="${searchLocation == 'Your Collection'}">
-                                <form action="removeCard" method="post"
+                                <form action="updateCollection" method="post"
                                       onsubmit="return confirm('Are you sure you want to remove ' + this.quantity.value + ' copy/copies of ' + this.cardName.value + '?');"
                                       style="display: flex; flex-direction: column; gap: 5px; margin: 0; padding-top: 15px; border-top: 1px solid #ccc;">
                                     <input type="hidden" name="cardId" value="${card.id}">
