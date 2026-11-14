@@ -64,7 +64,7 @@
                                 <label for="add-qty-${card.cardName}" style="margin: 0; font-size: 0.9em;">Add Qty:</label>
                                 <input type="number" id="add-qty-${card.cardName}" name="quantity" value="1" min="1" style="width: 65px;" required>
 
-                                <button type="submit">Add</button>
+                                <button type="submit" name="action" value="add">Add</button>
                             </form>
 
                             <c:if test="${searchLocation == 'Your Collection'}">
@@ -77,7 +77,7 @@
                                     <label for="remove-qty-${card.id}" style="margin: 0; font-size: 0.9em;">Remove Qty:</label>
                                     <input type="number" id="remove-qty-${card.id}" name="quantity" value="1" min="1" max="${card.cardQuantity}" style="width: 65px;" required>
 
-                                    <button type="submit">Remove</button>
+                                    <button type="submit" name="action" value="remove">Remove</button>
                                 </form>
                             </c:if>
                         </div>
