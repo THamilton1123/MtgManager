@@ -45,7 +45,7 @@
 <div class="container-fluid">
     <header class="results-header">
         <h2>${searchLocation} Search Results (${cards.size()}): </h2>
-        <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/">Home</a>
         <a class="nav-link" href="${pageContext.request.contextPath}/logOut">Log Out</a>
     </header>
     <table id="cardTable" class="display" cellspacing="0" width="100%">
