@@ -9,7 +9,10 @@
         <h2><a href="logIn">Log In</a></h2>
     </c:when>
     <c:otherwise>
-        <h2>Welcome, ${userName}, to your Personal MTG Manager</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 250px; margin-top: 15px; margin-bottom: 15px;">
+            <h2>Welcome, ${userName}, to your Personal MTG Manager</h2>
+            <a href="${pageContext.request.contextPath}/logOut" style="font-size: 1.1em; font-weight: bold;">Log Out</a>
+        </div>
         <form action="searchCard" class="form-inline">
             <div class="form-group">
                 <label for="searchTerm">Search Your Collection</label>
