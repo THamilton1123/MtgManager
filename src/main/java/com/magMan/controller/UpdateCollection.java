@@ -11,7 +11,7 @@ import java.io.IOException;
         urlPatterns = {"/updateCollection"}
 )
 
-public class updateCollection extends HttpServlet {
+public class UpdateCollection extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
