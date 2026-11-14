@@ -27,8 +27,10 @@
 <div class="container-fluid">
     <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 250px; margin-top: 15px; margin-bottom: 15px;">
         <h2 style="margin: 0;">${searchLocation} Search Results (${cards.size()}): </h2>
-        <a href="${pageContext.request.contextPath}/index.jsp" style="font-size: 1.1em; font-weight: bold;">Home</a>
-        <a href="${pageContext.request.contextPath}/logOut" style="font-size: 1.1em; font-weight: bold;">Log Out</a>
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <a href="${pageContext.request.contextPath}/index.jsp" style="font-size: 1.1em; font-weight: bold;">Home</a>
+            <a href="${pageContext.request.contextPath}/logOut" style="font-size: 1.1em; font-weight: bold;">Log Out</a>
+        </div>
     </div>
     <table id="cardTable" class="display" cellspacing="0" width="100%">
         <thead>
