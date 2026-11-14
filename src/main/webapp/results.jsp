@@ -11,6 +11,24 @@
         z-index: 100;              /* Forces headers to float over images while scrolling */
         box-shadow: 0 2px 2px -1px rgba(0,0,0,0.15); /* Adds a subtle shadow separating it from scrolling rows */
     }
+
+    .results-header {
+        display: flex;
+        align-items: center;
+        gap: 30px;              /* Controls the space between Home and Log Out */
+        padding-right: 250px;   /* Keeps your reserved space on the right */
+        margin: 15px 0;
+    }
+
+    .results-header h2 {
+        margin: 0 auto 0 0;     /* Pushes the links all the way to the right */
+    }
+
+    .nav-link {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
 </style>
 
 <script type="text/javascript" class="init">
@@ -25,13 +43,11 @@
 <body>
 
 <div class="container-fluid">
-    <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 250px; margin-top: 15px; margin-bottom: 15px;">
-        <h2 style="margin: 0;">${searchLocation} Search Results (${cards.size()}): </h2>
-        <div style="display: flex; align-items: center; gap: 30px;">
-            <a href="${pageContext.request.contextPath}/index.jsp" style="font-size: 1.1em; font-weight: bold;">Home</a>
-            <a href="${pageContext.request.contextPath}/logOut" style="font-size: 1.1em; font-weight: bold;">Log Out</a>
-        </div>
-    </div>
+    <header class="results-header">
+        <h2>${searchLocation} Search Results (${cards.size()}): </h2>
+        <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/logOut">Log Out</a>
+    </header>
     <table id="cardTable" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
