@@ -28,6 +28,8 @@ public class SearchCard extends HttpServlet {
 
         if (req.getParameter("submit").equals("search")) {
             req.setAttribute("cards", cardDao.getByPropertyLike("cardName", req.getParameter("searchTerm")));
+        } else if (req.getParameter("submit").equals("update")) {
+            req.setAttribute("cards", cardDao.getByPropertyEqual("scryfallUuid", req.getParameter("searchTerm")));
         } else {
             req.setAttribute("cards", cardDao.getAll());
         }
