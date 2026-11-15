@@ -128,9 +128,11 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
                 Integer cmcValue = sanitizeCmcValue(printings, printing, dataArrayNode);
                 String cleanTypeLine = sanitizeTypeLine(printing);
                 String imageUrl = retrieveImageUrl(printings, printing, dataArrayNode);
+                String scryfallUuid = printing.getId();
 
                 Card card = new Card(cleanName, cmcValue, cleanTypeLine, 1);
                 card.setImageUrl(imageUrl);
+                card.setScryfallUuid(scryfallUuid);
 
                 cardList.add(card);
             }
