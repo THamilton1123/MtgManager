@@ -55,6 +55,7 @@
                 <th>DB ID</th>
             </c:if>
             <th>Card Image</th>
+            <th>ScryFall UUID</th>
             <th>Card Name</th>
             <th>Card CMC</th>
             <th>Card Type</th>
@@ -105,6 +106,7 @@
                         </div>
                     </div>
                 </td>
+                <td>${card.scryfallUuid}</td>
                 <td>${card.cardName}</td>
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>
