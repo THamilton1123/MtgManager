@@ -44,5 +44,5 @@ cognito.properties
 database.properties
 scryfall.properties
 testSearchesForScryfall.txt
-com.magMan.tools/*
-OmniCards/*
+src/test/java/com/magMan/tools/
+DesignDocuments/OmniCards/
