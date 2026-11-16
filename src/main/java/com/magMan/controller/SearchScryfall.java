@@ -53,19 +53,15 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String cardName = req.getParameter("searchTermCardName");
-        if (cardName == null || cardName.trim().isEmpty()) {
-            resp.sendRedirect("index.jsp");
+        String requestUri = assembleRequestUri(req, resp);
+        if (requestUri.isEmpty() || resp.isCommitted()) {
             return;
         }
 
         HttpResponse<String> scryfallResponse;
         try {
-            String encodedCardName = URLEncoder.encode(cardName, StandardCharsets.UTF_8);
-            String uri = properties.getProperty("uri") + "search?q=" + encodedCardName + "+not:digital+include:extras&unique=prints";
-
             HttpRequest scryfallRequest = HttpRequest.newBuilder()
-                    .uri(URI.create(uri))
+                    .uri(URI.create(requestUri))
                     .header("Accept", "application/json")
                     .header("User-Agent", "magMan/1.0 (thamilton12; simple collection browser)")
                     .GET()
@@ -91,13 +87,49 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         dispatcher.forward(req, resp);
     }
 
+    public String assembleRequestUri(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+        String scryfallUri = properties.getProperty("uri");
+        String requestUri = "";
+
+        try {
+            if ("searchScryfallByNameExact".equals(req.getParameter("submit"))) {
+                String cardName = req.getParameter("exactCardName");
+                if (cardName == null || cardName.trim().isEmpty()) {
+                    resp.sendRedirect("index.jsp");
+                    return "";
+                }
+                String rawQuery = "!\"" + cardName.trim() + "\" not:digital";
+                String encodedQuery = URLEncoder.encode(rawQuery, StandardCharsets.UTF_8);
+                requestUri = scryfallUri + "search?q=" + encodedQuery + "&include_extras=true&unique=prints";
+            } else if ("searchScryfallByUuid".equals(req.getParameter("submit"))) {
+                String uuid = req.getParameter("scryfallUuid");
+                if (uuid == null || uuid.trim().isEmpty()) {
+                    resp.sendRedirect("index.jsp");
+                    return "";
+                }
+                String encodedUuid = URLEncoder.encode(uuid.trim(), StandardCharsets.UTF_8);
+                requestUri = scryfallUri + encodedUuid;
+            }
+        } catch (Exception e) {
+            logger.error("Failed to assemble ScryFall request uri. {}", e.getMessage());
+            throw new ServletException("Failed to assemble ScryFall request uri.", e);
+        }
+        return requestUri;
+    }
+
     public JsonNode convertScryfallResponseToDataNode(HttpResponse<String> scryfallResponse) {
         try {
             if (scryfallResponse.statusCode() == 200 && scryfallResponse.body() != null && !scryfallResponse.body().trim().isEmpty()) {
                 JsonNode rootNode = mapper.readTree(scryfallResponse.body());
-                JsonNode dataArrayNode =  rootNode.get("data");
-                if (dataArrayNode != null &&  dataArrayNode.isArray()) {
-                    return dataArrayNode;
+                String objectType = rootNode.path("object").asText();
+
+                if("list".equals(objectType)) {
+                    JsonNode dataArrayNode = rootNode.get("data");
+                    if (dataArrayNode != null && dataArrayNode.isArray()) {
+                        return dataArrayNode;
+                    }
+                } else if ("card".equals(objectType)) {
+                    return mapper.createArrayNode().add(rootNode);
                 }
             }
         } catch (Exception e) {
@@ -156,7 +188,10 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
             if (index >= 0 && index < dataArrayNode.size()) {
                 JsonNode rawPrintingNode = dataArrayNode.get(index);
                 if (rawPrintingNode != null && rawPrintingNode.has("card_faces")) {
-                    rawCost = rawPrintingNode.get("card_faces").get(0).path("mana_cost").asText(null);
+                    JsonNode cardFaces = rawPrintingNode.path("card_faces");
+                    if (cardFaces.isArray() && !cardFaces.isEmpty()) {
+                        rawCost = cardFaces.get(0).path("mana_cost").asText(null);
+                    }
                 }
             }
         }
@@ -182,13 +217,16 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         String imageUrl = null;
         if (printing.getImageUris() != null) {
             imageUrl = printing.getImageUris().getNormal();
-        } else {
+        } else if (dataArrayNode != null && printings != null) {
             try {
-                JsonNode rawPrintingNode = dataArrayNode.get(printings.indexOf(printing));
-                if (rawPrintingNode != null && rawPrintingNode.has("card_faces")) {
-                    JsonNode cardFaces = rawPrintingNode.path("card_faces");
-                    if (cardFaces.isArray() && !cardFaces.isEmpty()) {
-                        imageUrl = cardFaces.get(0).path("image_uris").path("normal").asText(null);
+                int index = printings.indexOf(printing);
+                if (index >= 0 && index < dataArrayNode.size()) {
+                    JsonNode rawPrintingNode = dataArrayNode.get(index);
+                    if (rawPrintingNode != null && rawPrintingNode.has("card_faces")) {
+                        JsonNode cardFaces = rawPrintingNode.path("card_faces");
+                        if (cardFaces.isArray() && !cardFaces.isEmpty()) {
+                            imageUrl = cardFaces.get(0).path("image_uris").path("normal").asText(null);
+                        }
                     }
                 }
             } catch (Exception e) {
