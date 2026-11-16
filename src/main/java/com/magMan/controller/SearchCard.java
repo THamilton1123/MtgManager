@@ -26,11 +26,11 @@ public class SearchCard extends HttpServlet {
 
         GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
-        if (req.getParameter("submit").equals("search")) {
+        if (req.getParameter("submit").equals("searchCollectionByNameLike")) {
             req.setAttribute("cards", cardDao.getByPropertyLike("cardName", req.getParameter("searchTerm")));
         } else if (req.getParameter("submit").equals("update")) {
             req.setAttribute("cards", cardDao.getByPropertyEqual("scryfallUuid", req.getParameter("searchTerm")));
-        } else {
+        } else if (req.getParameter("submit").equals("viewAllCollection")) {
             req.setAttribute("cards", cardDao.getAll());
         }
         req.setAttribute("searchLocation", "Your Collection");
