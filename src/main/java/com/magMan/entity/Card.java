@@ -31,6 +31,8 @@ public class Card {
     private int cardQuantity;
     @Column(name="imageUrl")
     private String imageUrl;
+    @Column(name="scryfallUuid")
+    private String scryfallUuid;
     @OneToMany(mappedBy="card", cascade = CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
     @com.fasterxml.jackson.annotation.JsonManagedReference
     private List<Ruling> rulings = new ArrayList<>();
@@ -91,7 +93,7 @@ public class Card {
      * @param id the card id
      */
     public void setId(int id) {
-        this.id = Card.this.id;
+        this.id = id;
     }
 
     /**
@@ -185,6 +187,24 @@ public class Card {
     }
 
     /**
+     * Gets scryfallUuid.
+     *
+     * @return the scryfallUuid
+     */
+    public String getScryfallUuid() {
+        return scryfallUuid;
+    }
+
+    /**
+     * Sets scryfallUuid.
+     *
+     * @param scryfallUuid the scryfallUuid
+     */
+    public void setScryfallUuid(String scryfallUuid) {
+        this.scryfallUuid = scryfallUuid;
+    }
+
+    /**
      * Gets rulings.
      *
      * @return the rulings
@@ -211,6 +231,7 @@ public class Card {
                 ", cardType='" + cardType + '\'' +
                 ", cardQuantity=" + cardQuantity +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", scryfallUuid='" + scryfallUuid + '\'' +
                 '}';
     }
 
@@ -224,16 +245,12 @@ public class Card {
         }
 
         Card other = (Card) o;
-        return this.id != 0 &&
-                Objects.equals(this.id, other.id) &&
-                Objects.equals(this.cardName, other.cardName) &&
-                Objects.equals(this.cardCmc, other.cardCmc) &&
-                Objects.equals(this.cardType, other.cardType);
+        return scryfallUuid != null && Objects.equals(scryfallUuid, other.scryfallUuid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cardName, cardCmc, cardType);
+        return Objects.hash(scryfallUuid);
     }
 
 }

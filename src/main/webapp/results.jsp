@@ -55,6 +55,7 @@
                 <th>DB ID</th>
             </c:if>
             <th>Card Image</th>
+            <th>ScryFall UUID</th>
             <th>Card Name</th>
             <th>Card CMC</th>
             <th>Card Type</th>
@@ -82,6 +83,7 @@
                                 <input type="hidden" name="cardCmc" value="${card.cardCmc}">
                                 <input type="hidden" name="cardType" value="${card.cardType}">
                                 <input type="hidden" name="imageUrl" value="${card.imageUrl}">
+                                <input type="hidden" name="scryfallUuid" value="${card.scryfallUuid}">
 
                                 <label for="add-qty-${card.cardName}" style="margin: 0; font-size: 0.9em;">Add Qty:</label>
                                 <input type="number" id="add-qty-${card.cardName}" name="quantity" value="1" min="1" style="width: 65px;" required>
@@ -95,6 +97,7 @@
                                       style="display: flex; flex-direction: column; gap: 5px; margin: 0; padding-top: 15px; border-top: 1px solid #ccc;">
                                     <input type="hidden" name="cardId" value="${card.id}">
                                     <input type="hidden" name="cardName" value="${card.cardName}">
+                                    <input type="hidden" name="scryfallUuid" value="${card.scryfallUuid}">
 
                                     <label for="remove-qty-${card.id}" style="margin: 0; font-size: 0.9em;">Remove Qty:</label>
                                     <input type="number" id="remove-qty-${card.id}" name="quantity" value="1" min="1" max="${card.cardQuantity}" style="width: 65px;" required>
@@ -105,6 +108,7 @@
                         </div>
                     </div>
                 </td>
+                <td>${card.scryfallUuid}</td>
                 <td>${card.cardName}</td>
                 <td>${card.cardCmc}</td>
                 <td>${card.cardType}</td>

@@ -49,6 +49,7 @@ class CardDaoTest {
     @Test
     void insertSuccess() {
         Card cardToInsert = new Card("Static Orb", 3, "Artifact", 1);
+        cardToInsert.setScryfallUuid("FakeScryfallUuid");
         int insertedCardId = cardDao.insert(cardToInsert);
         assertNotEquals(0, insertedCardId);
         Card insertedCard = cardDao.getById(insertedCardId);

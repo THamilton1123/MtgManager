@@ -13,20 +13,29 @@
             <h2>Welcome, ${userName}, to your Personal MTG Manager</h2>
             <a href="${pageContext.request.contextPath}/logOut" style="font-size: 1.1em; font-weight: bold;">Log Out</a>
         </div>
+        <h3>Search Your Collection</h3>
         <form action="searchCard" class="form-inline">
             <div class="form-group">
-                <label for="searchTerm">Search Your Collection</label>
+                <label for="searchTerm">By Name:</label>
                 <input type="text" class="form-control" id="searchTerm" name="searchTerm" aria-describedby="searchTermHelp" placeholder="Enter card name">
             </div>
-            <button type="submit" name="submit" value="search" class="btn btn-primary">Search</button>
-            <button type="submit" name="submit" value="viewAll" class="btn btn-primary">View all cards</button>
+            <button type="submit" name="submit" value="searchCollectionByNameLike" class="btn btn-primary">Search</button>
+            <button type="submit" name="submit" value="viewAllCollection" class="btn btn-primary">View all cards</button>
         </form><br>
+        <h3>Search ScryFall</h3>
         <form action="searchScryfall" class="form-inline">
             <div class="form-group">
-                <label for="searchTermCardName">Search Scryfall</label>
-                <input type="text" class="form-control" id="searchTermCardName" name="searchTermCardName" aria-describedby="searchTermHelp" placeholder="Enter exact card name">
+                <label for="exactCardName">By Name:</label>
+                <input type="text" class="form-control" id="exactCardName" name="exactCardName" aria-describedby="searchTermHelp" placeholder="Enter exact card name">
             </div>
-            <button type="submit" name="submit" value="searchByNameExact" class="btn btn-primary">Search</button>
+            <button type="submit" name="submit" value="searchScryfallByNameExact" class="btn btn-primary">Search</button>
+        </form>
+        <form action="searchScryfall" class="form-inline">
+            <div class="form-group">
+                <label for="scryfallUuid">By UUID (Universally Unique Identifier):</label>
+                <input type="text" class="form-control" id="scryfallUuid" name="scryfallUuid" aria-describedby="searchTermHelp" placeholder="Enter card uuid">
+            </div>
+            <button type="submit" name="submit" value="searchScryfallByUuid" class="btn btn-primary">Search</button>
         </form>
     </c:otherwise>
 </c:choose>

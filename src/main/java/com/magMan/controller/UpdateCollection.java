@@ -26,33 +26,34 @@ public class UpdateCollection extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action =  req.getParameter("action");
-        String cardName = req.getParameter("cardName");
+        String scryfallUuid = req.getParameter("scryfallUuid");
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         GenericDao<Card> cardDao = new GenericDao<>(Card.class);
 
         if ("add".equals(action)) {
-            addCard(req, cardDao, cardName, quantity);
+            addCard(req, cardDao, scryfallUuid, quantity);
         } else if ("remove".equals(action)) {
             removeCard(req, cardDao, quantity);
         }
 
-        String encodedCardName = URLEncoder.encode(cardName, StandardCharsets.UTF_8);
-        resp.sendRedirect("searchCard?searchTerm=" + encodedCardName + "&submit=search");
+        String encodedScryfallUuid = URLEncoder.encode(scryfallUuid, StandardCharsets.UTF_8);
+        resp.sendRedirect("searchCard?searchTerm=" + encodedScryfallUuid + "&submit=update");
     }
 
     /**
      * Logic for adding the user's selected card, by the user's entered quantity, to their collection
-     * @param req      the http request
-     * @param cardDao  the card data access object
-     * @param cardName the name of the user's selected card
-     * @param quantity the quantity of the user's selected card that the user has chosen to add
+     * @param req          the http request
+     * @param cardDao      the card data access object
+     * @param scryfallUuid the uuid assigned by ScryFall to the user's selected card
+     * @param quantity     the quantity of the user's selected card that the user has chosen to add
      */
-    private void addCard(HttpServletRequest req, GenericDao<Card> cardDao, String cardName, int quantity) {
+    private void addCard(HttpServletRequest req, GenericDao<Card> cardDao, String scryfallUuid, int quantity) {
+        String cardName = req.getParameter("cardName");
         String cardType = req.getParameter("cardType");
         String imageUrl = req.getParameter("imageUrl");
         int cardCmc = Integer.parseInt(req.getParameter("cardCmc"));
 
-        List<Card> existingCards = cardDao.getByPropertyEqual("cardName", cardName);
+        List<Card> existingCards = cardDao.getByPropertyEqual("scryfallUuid", scryfallUuid);
         if (!existingCards.isEmpty()) {
             Card existingCard = existingCards.get(0);
             existingCard.setCardQuantity(existingCard.getCardQuantity() + quantity);
@@ -60,6 +61,7 @@ public class UpdateCollection extends HttpServlet {
         } else {
             Card newCard = new Card(cardName, cardCmc, cardType, quantity);
             newCard.setImageUrl(imageUrl);
+            newCard.setScryfallUuid(scryfallUuid);
             cardDao.insert(newCard);
         }
     }
