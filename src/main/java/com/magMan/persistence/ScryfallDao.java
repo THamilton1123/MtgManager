@@ -20,7 +20,7 @@ public class ScryfallDao implements PropertiesLoader {
     private final Properties scryProps = loadProperties("/scryfall.properties");
     private final String SCRY_URI = scryProps.getProperty("uri");
 
-    Printing getPrintingByNameExact(String cardName) {
+    public Printing getPrintingByNameExact(String cardName) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target(SCRY_URI + "/named")
