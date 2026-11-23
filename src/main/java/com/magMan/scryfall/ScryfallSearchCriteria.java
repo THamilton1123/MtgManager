@@ -69,6 +69,12 @@ public class ScryfallSearchCriteria {
             criteria.setSetCode(setCode.trim());
         }
 
+        // Query filter: Rarity
+        String rarity = req.getParameter("rarity");
+        if (rarity != null && !rarity.trim().isEmpty()) {
+            criteria.setRarity(rarity.trim());
+        }
+
         // Query parameter: unique mode ("cards", "art", or "prints")
         String uniqueMode = req.getParameter("uniqueMode");
         if (uniqueMode != null && !uniqueMode.trim().isEmpty()) {
