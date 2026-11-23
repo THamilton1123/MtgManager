@@ -3,7 +3,9 @@ package com.magMan.persistence;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.magMan.scryfall.ScryfallSearchCriteria;
+import com.magMan.scryfall.ScryfallSet;
 import com.magMan.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,9 +15,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class ScryfallDao implements PropertiesLoader {
 
@@ -25,7 +25,8 @@ public class ScryfallDao implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final ObjectMapper mapper;
     private final Properties scryProps = loadProperties("/scryfall.properties");
-    private final String SCRY_URI = scryProps.getProperty("uri");
+    private final String SCRY_CARDS_URI = scryProps.getProperty("uri");
+    private final String SCRY_SETS_URI = scryProps.getProperty("setsUri");
 
     public ScryfallDao() {
         this.mapper = new ObjectMapper();
@@ -44,15 +45,46 @@ public class ScryfallDao implements PropertiesLoader {
             return null;
         }
 
-        String uniqueMode = criteria.isAllPrintings() ? "prints" : "cards";
+        String uniqueMode = isPresent(criteria.getUniqueMode())
+                ? criteria.getUniqueMode().trim().toLowerCase()
+                : "cards";
 
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(SCRY_URI + "search")
+        WebTarget target = client.target(SCRY_CARDS_URI + "search")
                 .queryParam("q", query.replace("{", "%7B").replace("}", "%7D"))
+                .queryParam("unique", uniqueMode)
                 .queryParam("include_extras", criteria.isIncludeExtras())
-                .queryParam("unique", uniqueMode);
+                .queryParam("include_variations", criteria.isIncludeVariations())
+                .queryParam("include_multilingual", criteria.isIncludeMultilingual())
+                .queryParam("order", "name");
 
         return executeAndExtractDataNode(target);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<ScryfallSet> getAllSets() {
+        List<ScryfallSet> sets = new ArrayList<>();
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(SCRY_SETS_URI);
+
+        JsonNode dataNode = executeAndExtractDataNode(target);
+        if (dataNode != null && dataNode.isArray()) {
+            for (JsonNode node: dataNode) {
+                try {
+                    ScryfallSet set = mapper.treeToValue(node, ScryfallSet.class);
+                    if (!set.isSetDigital()) {
+                        sets.add(set);
+                    }
+                } catch (Exception e) {
+                    logger.error("Failed to parse ScryfallSet: {}", e.getMessage(), e);
+                }
+            }
+        }
+        sets.sort(Comparator.comparing(ScryfallSet::getSetName, String.CASE_INSENSITIVE_ORDER));
+        return sets;
     }
 
     /**
@@ -65,7 +97,7 @@ public class ScryfallDao implements PropertiesLoader {
             return null;
         }
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(SCRY_URI + uuid.trim());
+        WebTarget target = client.target(SCRY_CARDS_URI + uuid.trim());
         return executeAndExtractDataNode(target);
     }
 
@@ -202,35 +234,55 @@ public class ScryfallDao implements PropertiesLoader {
 
     /**
      *
-     * @param target
+     * @param initialTarget
      * @return
      */
-    private JsonNode executeAndExtractDataNode(WebTarget target) {
-        enforceRateLimit();
+    private JsonNode executeAndExtractDataNode(WebTarget initialTarget) {
+        Client client = ClientBuilder.newClient();
+        ArrayNode combinedData = mapper.createArrayNode();
+        String nextUrl = initialTarget.getUri().toString();
+
         try {
-            Response response = target.request(MediaType.APPLICATION_JSON)
-                    .header("User-Agent", "magMan/1.0 (thamilton12; simple collection browser)")
-                    .get();
+            while (nextUrl != null) {
+                enforceRateLimit();
+                WebTarget currentTarget = client.target(nextUrl);
+                Response response = currentTarget.request(MediaType.APPLICATION_JSON)
+                        .header("User-Agent", "magMan/1.0 (thamilton12; simple collection browser)")
+                        .get();
 
-            if (response.getStatus() == 200) {
-                String body = response.readEntity(String.class);
-                JsonNode rootNode = mapper.readTree(body);
-                String objectType = rootNode.path("object").asText();
+                if (response.getStatus() == 200) {
+                    String body = response.readEntity(String.class);
+                    JsonNode rootNode = mapper.readTree(body);
+                    String objectType = rootNode.path("object").asText();
 
-                if ("list".equals(objectType)) {
-                    JsonNode dataArrayNode = rootNode.get("data");
-                    if (dataArrayNode != null && dataArrayNode.isArray()) {
-                        return dataArrayNode;
+                    if ("list".equals(objectType)) {
+                        JsonNode dataArrayNode = rootNode.get("data");
+                        if (dataArrayNode != null && dataArrayNode.isArray()) {
+                            combinedData.addAll((ArrayNode) dataArrayNode);
+                        }
+
+                        if (rootNode.path("has_more").asBoolean(false) && rootNode.hasNonNull("next_page")) {
+                            nextUrl = rootNode.get("next_page").asText();
+                        } else {
+                            nextUrl = null;
+                        }
+                    } else if ("card".equals(objectType)) {
+                        combinedData.add(rootNode);
+                        nextUrl = null;
+                    } else {
+                        nextUrl = null;
                     }
-                } else if ("card".equals(objectType)) {
-                    return mapper.createArrayNode().add(rootNode);
+                } else {
+                    nextUrl = null;
                 }
             }
         } catch (Exception e) {
             logger.error("Failed to retrieve or parse data from Scryfall: {}", e.getMessage(), e);
         }
-        return null;
+
+        return combinedData.isEmpty() ? null : combinedData;
     }
+
 
     /**
      *
