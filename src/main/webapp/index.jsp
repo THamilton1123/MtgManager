@@ -105,17 +105,19 @@
                 </div>
             </div>
 
-            <div class="form-group" style="margin-left: 15px;">
-                <label for="rarity">Rarity:</label>
-                <select class="form-control" id="rarity" name="rarity">
-                    <option value="">-- Any Rarity --</option>
-                    <option value="common">Common</option>
-                    <option value="uncommon">Uncommon</option>
-                    <option value="rare">Rare</option>
-                    <option value="mythic">Mythic Rare</option>
-                    <option value="special">Special</option>
-                    <option value="bonus">Bonus</option>
-                </select>
+            <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="form-group">
+                    <label for="rarity">Rarity:</label>
+                    <select class="form-control" id="rarity" name="rarity" style="width: 150px; display: inline-block;">
+                        <option value="">-- Any Rarity --</option>
+                        <option value="common">Common</option>
+                        <option value="uncommon">Uncommon</option>
+                        <option value="rare">Rare</option>
+                        <option value="mythic">Mythic Rare</option>
+                        <option value="special">Special</option>
+                        <option value="bonus">Bonus</option>
+                    </select>
+                </div>
             </div>
 
                     <button type="submit" name="submit" value="search" class="btn btn-primary" style="margin-top: 24px;">Search</button>
