@@ -119,7 +119,7 @@ class ScryfallDaoTest {
         ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
         criteria.setName("Propaganda");
         criteria.setExactName(true);
-        criteria.setAllPrintings(true);
+        criteria.setUniqueMode("prints");
 
         JsonNode results = dao.searchScryfall(criteria);
 
@@ -134,7 +134,7 @@ class ScryfallDaoTest {
         ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
         criteria.setName("Propaganda");
         criteria.setExactName(true);
-        criteria.setAllPrintings(false); // unique=cards
+        criteria.setUniqueMode("cards"); // unique=cards
 
         JsonNode results = dao.searchScryfall(criteria);
 
@@ -147,7 +147,7 @@ class ScryfallDaoTest {
         ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
         criteria.setName("Propaganda");
         criteria.setManaCost("{2}{U}");
-        criteria.setAllPrintings(false);
+        criteria.setUniqueMode("cards");
 
         JsonNode results = dao.searchScryfall(criteria);
 
@@ -162,7 +162,7 @@ class ScryfallDaoTest {
         ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
         criteria.setName("Propaganda");
         criteria.setExactName(true);
-        criteria.setAllPrintings(false);
+        criteria.setUniqueMode("cards");
 
         JsonNode searchResults = dao.searchScryfall(criteria);
         assertNotNull(searchResults);
