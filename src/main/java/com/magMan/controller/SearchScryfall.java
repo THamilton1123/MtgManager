@@ -49,7 +49,7 @@ public class SearchScryfall extends HttpServlet {
         JsonNode dataArrayNode = null;
 
         if ("search".equals(submitAction)) {
-            ScryfallSearchCriteria criteria = buildCriteriaFromRequest(req);
+            ScryfallSearchCriteria criteria = ScryfallSearchCriteria.buildCriteriaFromRequest(req);
             if (scryfallDao.buildQueryString(criteria).isEmpty()) {
                 resp.sendRedirect("index.jsp");
                 return;
@@ -73,34 +73,6 @@ public class SearchScryfall extends HttpServlet {
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
-    }
-
-    /**
-     *
-     * @param req
-     * @return
-     */
-    private ScryfallSearchCriteria buildCriteriaFromRequest(HttpServletRequest req) {
-        ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
-
-        String searchName = req.getParameter("searchName");
-        if (searchName != null && !searchName.trim().isEmpty()) {
-            criteria.setName(searchName);
-        }
-
-        boolean isExact = "true".equals(req.getParameter("exactName"));
-        criteria.setExactName(isExact);
-
-        // Show all printings when looking up an exact card name (or when explicitly requested)
-        if (isExact || "true".equals(req.getParameter("allPrintings"))) {
-            criteria.setAllPrintings(true);
-        }
-
-        if ("true".equals(req.getParameter("includeExtras"))) {
-            criteria.setIncludeExtras(true);
-        }
-
-        return criteria;
     }
 
     /**
