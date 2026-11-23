@@ -134,7 +134,7 @@ public class ScryfallDao implements PropertiesLoader {
 
         // 3. Oracle Text, Flavor Text, Artist, Language
         if (isPresent(criteria.getOracleText())) {
-            terms.add("o:\"" + escapeQuotes(criteria.getOracleText()) + "\"");
+            terms.add("fo:\"" + escapeQuotes(criteria.getOracleText()) + "\"");
         }
         if (isPresent(criteria.getFlavorText())) {
             terms.add("ft:\"" + escapeQuotes(criteria.getFlavorText()) + "\"");
