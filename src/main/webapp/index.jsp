@@ -105,7 +105,20 @@
                 </div>
             </div>
 
-            <button type="submit" name="submit" value="search" class="btn btn-primary" style="margin-top: 24px;">Search</button>
+            <div class="form-group" style="margin-left: 15px;">
+                <label for="rarity">Rarity:</label>
+                <select class="form-control" id="rarity" name="rarity">
+                    <option value="">-- Any Rarity --</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="mythic">Mythic Rare</option>
+                    <option value="special">Special</option>
+                    <option value="bonus">Bonus</option>
+                </select>
+            </div>
+
+                    <button type="submit" name="submit" value="search" class="btn btn-primary" style="margin-top: 24px;">Search</button>
             <button type="submit" name="submit" value="viewAllCollection" class="btn btn-default" style="margin-top: 24px;"
                     onclick="document.getElementById('searchForm').action='searchCard';">
                 View All Collection
