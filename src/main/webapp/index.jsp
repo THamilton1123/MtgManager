@@ -16,10 +16,10 @@
         <h3>Search Cards</h3>
         <form id="searchForm" action="searchCard">
 
-                <%-- Top Control Bar: Search Target (Left) & Unique/Inclusion Options (Right) --%>
+                <!-- Top Control Bar: Search Target (Left) & Unique/Inclusion Options (Right) -->
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 16px;">
 
-                    <%-- Left Box: Search In --%>
+                    <!-- Left Box: Search In -->
                 <div class="form-group" style="background-color: #f4f6f9; border: 2px solid #337ab7; border-radius: 6px; padding: 10px 18px; margin-bottom: 0;">
                     <span style="font-weight: bold; font-size: 1.15em; margin-right: 15px;">Search In:</span>
                     <label class="radio-inline" style="font-size: 1.15em; font-weight: bold; cursor: pointer; margin-right: 18px;">
@@ -36,7 +36,7 @@
                     </label>
                 </div>
 
-                    <%-- Right Box: Unique 3-Way Toggle & Inclusion Checkboxes --%>
+                    <!-- Right Box: Unique 3-Way Toggle & Inclusion Checkboxes -->
                 <div class="form-group" style="background-color: #f4f6f9; border: 2px solid #337ab7; border-radius: 6px; padding: 10px 18px; margin-bottom: 0;">
                     <span style="font-weight: bold; font-size: 1.15em; margin-right: 12px;">Unique:</span>
                     <label class="radio-inline" style="font-size: 1.1em; font-weight: bold; cursor: pointer; margin-right: 12px;">
@@ -75,7 +75,7 @@
 
             </div>
 
-
+            <!-- Row 1: Card Name -->
             <div class="form-inline">
                 <div class="form-group">
                     <label for="searchName">Name:</label>
@@ -83,13 +83,13 @@
                            placeholder="Enter card name" style="width: 450px;">
                 </div>
             </div>
-
             <div class="checkbox" style="margin: 0 10px;">
                 <label>
                     <input type="checkbox" name="exactName" value="true"> Exact name?
                 </label>
             </div>
 
+            <!-- Row 2: Set -->
             <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
                 <div class="form-group">
                     <label for="setCode">Set:</label>
@@ -105,6 +105,7 @@
                 </div>
             </div>
 
+            <!-- Row 3: Rarity -->
             <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
                 <div class="form-group">
                     <label for="rarity">Rarity:</label>
@@ -120,7 +121,17 @@
                 </div>
             </div>
 
-                    <button type="submit" name="submit" value="search" class="btn btn-primary" style="margin-top: 24px;">Search</button>
+            <!-- Row 4: Rules (Oracle) Text -->
+            <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="form-group">
+                    <label for="oracleText">Rules Text:</label>
+                    <input type="text" class="form-control" id="oracleText" name="oracleText"
+                           placeholder='e.g. "draw a card" or {T}: Add {G}'
+                           style="width: 450px; display: inline-block;">
+                </div>
+            </div>
+
+            <button type="submit" name="submit" value="search" class="btn btn-primary" style="margin-top: 24px;">Search</button>
             <button type="submit" name="submit" value="viewAllCollection" class="btn btn-default" style="margin-top: 24px;"
                     onclick="document.getElementById('searchForm').action='searchCard';">
                 View All Collection
