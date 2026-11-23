@@ -1,5 +1,6 @@
 package com.magMan.controller;
 
+import com.magMan.persistence.ScryfallDao;
 import com.magMan.util.PropertiesLoader;
 
 import javax.servlet.ServletContext;
@@ -31,17 +32,24 @@ public class ApplicationStartup extends HttpServlet implements PropertiesLoader 
      * Init method
      */
     public void init() {
+        // Get cognito.properties
         try {
             properties = loadProperties("/cognito.properties");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
+        // Get Servlet Context
         ServletContext context = getServletContext();
 
+        // Add each Cognito property to context as attribute
         for (String key : properties.stringPropertyNames()) {
             String value = properties.getProperty(key);
             context.setAttribute("cognito." + key, value);
         }
+
+        // Add all MTG sets as context attribute for dropdown search field in index.jsp
+        ScryfallDao scryfallDao = new ScryfallDao();
+        context.setAttribute("scryfallSets", scryfallDao.getAllSets());
     }
 }
