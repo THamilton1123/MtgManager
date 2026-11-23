@@ -75,6 +75,12 @@ public class ScryfallSearchCriteria {
             criteria.setRarity(rarity.trim());
         }
 
+        // Query filter: Rules (Oracle) Text
+        String oracleText = req.getParameter("oracleText");
+        if (oracleText != null && !oracleText.trim().isEmpty()) {
+            criteria.setOracleText(oracleText.trim());
+        }
+
         // Query parameter: unique mode ("cards", "art", or "prints")
         String uniqueMode = req.getParameter("uniqueMode");
         if (uniqueMode != null && !uniqueMode.trim().isEmpty()) {
