@@ -5,8 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.magMan.entity.Card;
+import com.magMan.persistence.ScryfallDao;
 import com.magMan.scryfall.Printing;
-import com.magMan.util.PropertiesLoader;
+import com.magMan.scryfall.ScryfallSearchCriteria;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,15 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URLEncoder;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * A simple servlet to browse an MTG card collection.
@@ -36,47 +30,41 @@ import java.util.Properties;
         urlPatterns = {"/searchScryfall"}
 )
 
-public class SearchScryfall extends HttpServlet implements PropertiesLoader {
+public class SearchScryfall extends HttpServlet {
     private final Logger logger;
-    private final Properties properties;
-    private final HttpClient client;
     private final ObjectMapper mapper;
+    private final ScryfallDao scryfallDao;
 
     public SearchScryfall() {
         this.logger = LogManager.getLogger(this.getClass());
-        this.properties = loadProperties("/scryfall.properties");
-        this.client = HttpClient.newHttpClient();
         this.mapper = new ObjectMapper();
         this.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        this.scryfallDao = new ScryfallDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String requestUri = assembleRequestUri(req, resp);
-        if (requestUri.isEmpty() || resp.isCommitted()) {
-            return;
+        String submitAction = req.getParameter("submit");
+        JsonNode dataArrayNode = null;
+
+        if ("search".equals(submitAction)) {
+            ScryfallSearchCriteria criteria = buildCriteriaFromRequest(req);
+            if (scryfallDao.buildQueryString(criteria).isEmpty()) {
+                resp.sendRedirect("index.jsp");
+                return;
+            }
+            dataArrayNode = scryfallDao.searchScryfall(criteria);
+
+        } else if ("searchByUuid".equals(submitAction)) {
+            String uuid = req.getParameter("scryfallUuid");
+            if (uuid == null ||  uuid.trim().isEmpty()) {
+                resp.sendRedirect("index.jsp");
+                return;
+            }
+            dataArrayNode = scryfallDao.getPrintingByUuid(uuid);
         }
 
-        HttpResponse<String> scryfallResponse;
-        try {
-            HttpRequest scryfallRequest = HttpRequest.newBuilder()
-                    .uri(URI.create(requestUri))
-                    .header("Accept", "application/json")
-                    .header("User-Agent", "magMan/1.0 (thamilton12; simple collection browser)")
-                    .GET()
-                    .build();
-            scryfallResponse = client.send(scryfallRequest, HttpResponse.BodyHandlers.ofString());
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            logger.error("API request was interrupted. {}", e.getMessage());
-            throw new ServletException("API request was interrupted", e);
-        } catch (Exception e) {
-            logger.error("Failed to retrieve or parse data from Scryfall. {}", e.getMessage());
-            throw new ServletException("Failed to retrieve or parse data from Scryfall", e);
-        }
-
-        JsonNode dataArrayNode = convertScryfallResponseToDataNode(scryfallResponse);
         List<Printing> returnedPrintings = convertDataNodeToPrintingList(dataArrayNode);
         List<Card> returnedCards = convertPrintingListToCardList(returnedPrintings, dataArrayNode);
 
@@ -87,59 +75,40 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         dispatcher.forward(req, resp);
     }
 
-    public String assembleRequestUri(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
-        String scryfallUri = properties.getProperty("uri");
-        String requestUri = "";
+    /**
+     *
+     * @param req
+     * @return
+     */
+    private ScryfallSearchCriteria buildCriteriaFromRequest(HttpServletRequest req) {
+        ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
 
-        try {
-            if ("searchScryfallByNameExact".equals(req.getParameter("submit"))) {
-                String cardName = req.getParameter("exactCardName");
-                if (cardName == null || cardName.trim().isEmpty()) {
-                    resp.sendRedirect("index.jsp");
-                    return "";
-                }
-                String rawQuery = "!\"" + cardName.trim() + "\" not:digital";
-                String encodedQuery = URLEncoder.encode(rawQuery, StandardCharsets.UTF_8);
-                requestUri = scryfallUri + "search?q=" + encodedQuery + "&include_extras=true&unique=prints";
-            } else if ("searchScryfallByUuid".equals(req.getParameter("submit"))) {
-                String uuid = req.getParameter("scryfallUuid");
-                if (uuid == null || uuid.trim().isEmpty()) {
-                    resp.sendRedirect("index.jsp");
-                    return "";
-                }
-                String encodedUuid = URLEncoder.encode(uuid.trim(), StandardCharsets.UTF_8);
-                requestUri = scryfallUri + encodedUuid;
-            }
-        } catch (Exception e) {
-            logger.error("Failed to assemble ScryFall request uri. {}", e.getMessage());
-            throw new ServletException("Failed to assemble ScryFall request uri.", e);
+        String searchName = req.getParameter("searchName");
+        if (searchName != null && !searchName.trim().isEmpty()) {
+            criteria.setName(searchName);
         }
-        return requestUri;
+
+        boolean isExact = "true".equals(req.getParameter("exactName"));
+        criteria.setExactName(isExact);
+
+        // Show all printings when looking up an exact card name (or when explicitly requested)
+        if (isExact || "true".equals(req.getParameter("allPrintings"))) {
+            criteria.setAllPrintings(true);
+        }
+
+        if ("true".equals(req.getParameter("includeExtras"))) {
+            criteria.setIncludeExtras(true);
+        }
+
+        return criteria;
     }
 
-    public JsonNode convertScryfallResponseToDataNode(HttpResponse<String> scryfallResponse) {
-        try {
-            if (scryfallResponse.statusCode() == 200 && scryfallResponse.body() != null && !scryfallResponse.body().trim().isEmpty()) {
-                JsonNode rootNode = mapper.readTree(scryfallResponse.body());
-                String objectType = rootNode.path("object").asText();
-
-                if("list".equals(objectType)) {
-                    JsonNode dataArrayNode = rootNode.get("data");
-                    if (dataArrayNode != null && dataArrayNode.isArray()) {
-                        return dataArrayNode;
-                    }
-                } else if ("card".equals(objectType)) {
-                    return mapper.createArrayNode().add(rootNode);
-                }
-            }
-        } catch (Exception e) {
-            logger.error("Failed to parse JSON tree structure: {}", e.getMessage());
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public List<Printing> convertDataNodeToPrintingList(JsonNode dataArrayNode) {
+    /**
+     *
+     * @param dataArrayNode
+     * @return
+     */
+    private List<Printing> convertDataNodeToPrintingList(JsonNode dataArrayNode) {
         if (dataArrayNode == null) {
             return new ArrayList<>();
         }
@@ -152,7 +121,13 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         }
     }
 
-    public List<Card> convertPrintingListToCardList(List<Printing> printings, JsonNode dataArrayNode) {
+    /**
+     *
+     * @param printings
+     * @param dataArrayNode
+     * @return
+     */
+    private List<Card> convertPrintingListToCardList(List<Printing> printings, JsonNode dataArrayNode) {
         List<Card> cardList = new ArrayList<>();
         if (printings != null) {
             for (Printing printing : printings) {
@@ -172,7 +147,12 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         return cardList;
     }
 
-    public String sanitizeCardName(Printing printing) {
+    /**
+     *
+     * @param printing
+     * @return
+     */
+    private String sanitizeCardName(Printing printing) {
         String cleanName = printing.getName();
         if (cleanName == null || cleanName.trim().isEmpty()) {
             cleanName = "Unnamed Object / Token";
@@ -180,7 +160,14 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         return cleanName;
     }
 
-    public Integer sanitizeCmcValue(List<Printing> printings, Printing printing, JsonNode dataArrayNode) {
+    /**
+     *
+     * @param printings
+     * @param printing
+     * @param dataArrayNode
+     * @return
+     */
+    private Integer sanitizeCmcValue(List<Printing> printings, Printing printing, JsonNode dataArrayNode) {
         Integer cmcValue = null;
         String rawCost = printing.getManaCost();
         if (rawCost == null && dataArrayNode != null && printings != null) {
@@ -203,7 +190,12 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         return cmcValue;
     }
 
-    public String sanitizeTypeLine(Printing printing) {
+    /**
+     *
+     * @param printing
+     * @return
+     */
+    private String sanitizeTypeLine(Printing printing) {
         String cleanTypeLine = printing.getTypeLine();
         if (cleanTypeLine != null) {
             cleanTypeLine = cleanTypeLine.replace("—", "-");
@@ -213,7 +205,14 @@ public class SearchScryfall extends HttpServlet implements PropertiesLoader {
         return cleanTypeLine;
     }
 
-    public String retrieveImageUrl(List<Printing> printings, Printing printing, JsonNode dataArrayNode) {
+    /**
+     *
+     * @param printings
+     * @param printing
+     * @param dataArrayNode
+     * @return
+     */
+    private String retrieveImageUrl(List<Printing> printings, Printing printing, JsonNode dataArrayNode) {
         String imageUrl = null;
         if (printing.getImageUris() != null) {
             imageUrl = printing.getImageUris().getNormal();
