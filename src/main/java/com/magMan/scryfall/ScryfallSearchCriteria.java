@@ -1,5 +1,6 @@
 package com.magMan.scryfall;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,10 +41,47 @@ public class ScryfallSearchCriteria {
     private String powerOperator; // "=", "<", "<=", ">", ">="
     private String toughnessOperator; // "=", "<", "<=", ">", ">="
     private String loyaltyOperator; // "=", "<", "<=", ">", ">="
-    private boolean allPrintings = false; // true -> unique=prints, false -> unique=cards
-    private boolean includeExtras = false; // true -> include_extras=true, false -> include_extras=false
+    private String uniqueMode = "cards"; // "cards", "art", or "prints"
+    private boolean includeExtras = false;
+    private boolean includeVariations = false;
+    private boolean includeMultilingual = false;
 
     public ScryfallSearchCriteria() {}
+
+    /**
+     *
+     * @param req
+     * @return
+     */
+    public static ScryfallSearchCriteria buildCriteriaFromRequest(HttpServletRequest req) {
+        ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
+
+        // Query filter: Card Name
+        String searchName = req.getParameter("searchName");
+        if (searchName != null && !searchName.trim().isEmpty()) {
+            criteria.setName(searchName);
+        }
+        criteria.setExactName("true".equals(req.getParameter("exactName")));
+
+        // Query filter: Set
+        String setCode = req.getParameter("setCode");
+        if (setCode != null && !setCode.trim().isEmpty()) {
+            criteria.setSetCode(setCode.trim());
+        }
+
+        // Query parameter: unique mode ("cards", "art", or "prints")
+        String uniqueMode = req.getParameter("uniqueMode");
+        if (uniqueMode != null && !uniqueMode.trim().isEmpty()) {
+            criteria.setUniqueMode(uniqueMode.trim());
+        }
+
+        // Query parameters: include extras, variations, and/or multilingual
+        criteria.setIncludeExtras("true".equals(req.getParameter("includeExtras")));
+        criteria.setIncludeVariations("true".equals(req.getParameter("includeVariations")));
+        criteria.setIncludeMultilingual("true".equals(req.getParameter("includeMultilingual")));
+
+        return criteria;
+    }
 
     public String getName() {
         return name;
@@ -261,12 +299,12 @@ public class ScryfallSearchCriteria {
         this.loyaltyOperator = loyaltyOperator;
     }
 
-    public boolean isAllPrintings() {
-        return allPrintings;
+    public String getUniqueMode() {
+        return uniqueMode;
     }
 
-    public void setAllPrintings(boolean allPrintings) {
-        this.allPrintings = allPrintings;
+    public void setUniqueMode(String uniqueMode) {
+        this.uniqueMode = uniqueMode;
     }
 
     public boolean isIncludeExtras() {
@@ -275,5 +313,21 @@ public class ScryfallSearchCriteria {
 
     public void setIncludeExtras(boolean includeExtras) {
         this.includeExtras = includeExtras;
+    }
+
+    public boolean isIncludeVariations() {
+        return includeVariations;
+    }
+
+    public void setIncludeVariations(boolean includeVariations) {
+        this.includeVariations = includeVariations;
+    }
+
+    public boolean isIncludeMultilingual() {
+        return includeMultilingual;
+    }
+
+    public void setIncludeMultilingual(boolean includeMultilingual) {
+        this.includeMultilingual = includeMultilingual;
     }
 }
