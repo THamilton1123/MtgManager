@@ -38,7 +38,7 @@ class ScryfallDaoTest {
         criteria.setExactName(false);
         criteria.setOracleText("Draw \"two\" cards");
 
-        assertEquals("Urza o:\"Draw \\\"two\\\" cards\" not:digital", dao.buildQueryString(criteria));
+        assertEquals("Urza fo:\"Draw \\\"two\\\" cards\" not:digital", dao.buildQueryString(criteria));
     }
 
     @Test
