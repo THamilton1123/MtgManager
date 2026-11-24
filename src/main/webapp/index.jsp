@@ -131,6 +131,31 @@
                 </div>
             </div>
 
+            <!-- Row 5: Supertype Multi-Select Dropdown -->
+            <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="form-group">
+                    <label for="superTypeDropdownBtn">Supertype:</label>
+                    <div class="dropdown" style="display: inline-block;">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="superTypeDropdownBtn"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="width: 220px; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                            <span id="superTypeBtnText">-- Any Supertype --</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu multi-select-menu" aria-labelledby="superTypeDropdownBtn"
+                            style="padding: 8px 14px; min-width: 220px;">
+                            <c:forEach var="st" items="${superTypes}">
+                                <li>
+                                    <label style="font-weight: normal; cursor: pointer; display: block; margin-bottom: 4px;">
+                                        <input type="checkbox" name="superType" value="${st.toLowerCase()}" onchange="updateSuperTypeLabel()"> ${st}
+                                    </label>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <button type="submit" name="submit" value="search" class="btn btn-primary" style="margin-top: 24px;">Search</button>
             <button type="submit" name="submit" value="viewAllCollection" class="btn btn-default" style="margin-top: 24px;"
                     onclick="document.getElementById('searchForm').action='searchCard';">
@@ -159,6 +184,19 @@
         } else {
             img.style.display = 'none';
         }
+    }
+
+    document.querySelectorAll('.multi-select-menu').forEach(function(menu) {
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    function updateSuperTypeLabel() {
+        const checked = Array.from(document.querySelectorAll('input[name="superType"]:checked'))
+            .map(cb => cb.parentElement.textContent.trim());
+        document.getElementById('superTypeBtnText').textContent =
+            checked.length > 0 ? checked.join(', ') : '-- Any Supertype --';
     }
 </script>
 
