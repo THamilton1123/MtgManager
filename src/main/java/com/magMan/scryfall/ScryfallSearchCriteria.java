@@ -2,6 +2,7 @@ package com.magMan.scryfall;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,8 +11,8 @@ import java.util.List;
 public class ScryfallSearchCriteria {
     private String name;          // Card name
     private boolean exactName = false; // true -> !"name", false -> name
-    private String setCode;       // Set abbreviation (s:lea)
-    private String rarity;        // common, uncommon, rare, mythic (r:...)
+    private List<String> setCodes = new ArrayList<>(); // Set abbreviations (s:lea)
+    private List<String> rarities = new ArrayList<>(); // common, uncommon, rare, mythic (r:...)
     private String oracleText;    // Rules text (o:...)
     private String superType;     // Supertype (t:...)
     private String type;          // Type (t:...)
@@ -63,16 +64,16 @@ public class ScryfallSearchCriteria {
         }
         criteria.setExactName("true".equals(req.getParameter("exactName")));
 
-        // Query filter: Set
-        String setCode = req.getParameter("setCode");
-        if (setCode != null && !setCode.trim().isEmpty()) {
-            criteria.setSetCode(setCode.trim());
+        // Query filter: Set (supports multiple selections)
+        String[] setCodes = req.getParameterValues("setCode");
+        if (setCodes != null && setCodes.length > 0) {
+            criteria.setSetCodes(Arrays.asList(setCodes));
         }
 
-        // Query filter: Rarity
-        String rarity = req.getParameter("rarity");
-        if (rarity != null && !rarity.trim().isEmpty()) {
-            criteria.setRarity(rarity.trim());
+        // Query filter: Rarity (supports multiple selections)
+        String[] rarities = req.getParameterValues("rarity");
+        if (rarities != null && rarities.length > 0) {
+            criteria.setRarities(Arrays.asList(rarities));
         }
 
         // Query filter: Rules (Oracle) Text
@@ -120,20 +121,20 @@ public class ScryfallSearchCriteria {
         this.exactName = exactName;
     }
 
-    public String getSetCode() {
-        return setCode;
+    public List<String> getSetCodes() {
+        return setCodes;
     }
 
-    public void setSetCode(String setCode) {
-        this.setCode = setCode;
+    public void setSetCodes(List<String> setCodes) {
+        this.setCodes = setCodes;
     }
 
-    public String getRarity() {
-        return rarity;
+    public List<String> getRarities() {
+        return rarities;
     }
 
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
+    public void setRarities(List<String> rarities) {
+        this.rarities = rarities;
     }
 
     public String getOracleText() {
