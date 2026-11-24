@@ -81,6 +81,15 @@ public class ScryfallSearchCriteria {
             criteria.setOracleText(oracleText.trim());
         }
 
+        // Query filter: Supertype (supports multiple selections)
+        String[] superTypes = req.getParameterValues("superType");
+        if (superTypes != null && superTypes.length > 0) {
+            String joinedSuperTypes = String.join(" ", superTypes).trim();
+            if (!joinedSuperTypes.isEmpty()) {
+                criteria.setSuperType(joinedSuperTypes);
+            }
+        }
+
         // Query parameter: unique mode ("cards", "art", or "prints")
         String uniqueMode = req.getParameter("uniqueMode");
         if (uniqueMode != null && !uniqueMode.trim().isEmpty()) {
