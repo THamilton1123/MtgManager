@@ -53,6 +53,10 @@ public class ApplicationStartup extends HttpServlet implements PropertiesLoader 
         ScryfallDao scryfallDao = new ScryfallDao();
         context.setAttribute("scryfallSets", scryfallDao.getAllSets());
 
+        // Add all six rarities as a context attribute for dropdown search field in index.jsp
+        context.setAttribute("rarities",
+                List.of("Common", "Uncommon", "Rare", "Mythic", "Special", "Bonus"));
+
         // Add all six Super Types as a context attribute for dropdown search field in index.jsp
         context.setAttribute("superTypes",
                 List.of("Basic", "Legendary", "Snow", "World", "Ongoing", "Host"));
