@@ -89,35 +89,59 @@
                 </label>
             </div>
 
-            <!-- Row 2: Set -->
+            <!-- Row 2: Set Multi-Select Dropdown -->
             <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
                 <div class="form-group">
-                    <label for="setCode">Set:</label>
-                    <select class="form-control" id="setCode" name="setCode" onchange="updateSetIcon(this)">
-                        <option value="" data-icon="">-- Any Set --</option>
-                        <c:forEach var="set" items="${scryfallSets}">
-                            <option value="${set.setCode}" data-icon="${set.setIconUri}">
-                                    ${set.setName} (${set.setCode.toUpperCase()})
-                            </option>
-                        </c:forEach>
-                    </select>
-                    <img id="selectedSetIcon" src="" alt="" style="display: none; width: 22px; height: 22px; margin-left: 8px; vertical-align: middle;">
+                    <label for="setCodeDropdownBtn">Set:</label>
+                    <div class="dropdown" style="display: inline-block;">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="setCodeDropdownBtn"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="width: 350px; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                            <span id="setCodeBtnText" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-- Any Set --</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu multi-select-menu" aria-labelledby="setCodeDropdownBtn"
+                            style="padding: 8px 14px; min-width: 350px; max-height: 300px; overflow-y: auto;">
+                            <c:forEach var="set" items="${scryfallSets}">
+                                <li>
+                                    <label style="font-weight: normal; cursor: pointer; display: block; margin-bottom: 4px;">
+                                        <input type="checkbox" name="setCode" value="${set.setCode}"
+                                               onchange="updateMultiSelectLabel('setCode', 'setCodeBtnText', '-- Any Set --')">
+                                        <c:if test="${not empty set.setIconUri}">
+                                            <img src="${set.setIconUri}" alt="" style="width: 16px; height: 16px; margin: 0 4px; vertical-align: text-bottom;">
+                                        </c:if>
+                                            ${set.setName} (${set.setCode.toUpperCase()})
+                                    </label>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Row 3: Rarity -->
+            <!-- Row 3: Rarity Multi-Select Dropdown -->
             <div class="form-inline" style="margin-top: 15px; margin-bottom: 15px;">
                 <div class="form-group">
-                    <label for="rarity">Rarity:</label>
-                    <select class="form-control" id="rarity" name="rarity" style="width: 150px; display: inline-block;">
-                        <option value="">-- Any Rarity --</option>
-                        <option value="common">Common</option>
-                        <option value="uncommon">Uncommon</option>
-                        <option value="rare">Rare</option>
-                        <option value="mythic">Mythic Rare</option>
-                        <option value="special">Special</option>
-                        <option value="bonus">Bonus</option>
-                    </select>
+                    <label for="rarityDropdownBtn">Rarity:</label>
+                    <div class="dropdown" style="display: inline-block;">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="rarityDropdownBtn"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="width: 220px; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                            <span id="rarityBtnText" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-- Any Rarity --</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu multi-select-menu" aria-labelledby="rarityDropdownBtn"
+                            style="padding: 8px 14px; min-width: 220px;">
+                            <c:forEach var="r" items="${rarities}">
+                                <li>
+                                    <label style="font-weight: normal; cursor: pointer; display: block; margin-bottom: 4px;">
+                                        <input type="checkbox" name="rarity" value="${r.toLowerCase()}"
+                                               onchange="updateMultiSelectLabel('rarity', 'rarityBtnText', '-- Any Rarity --')"> ${r}
+                                    </label>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
