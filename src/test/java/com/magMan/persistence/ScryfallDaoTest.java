@@ -100,8 +100,8 @@ class ScryfallDaoTest {
         ScryfallSearchCriteria criteria = new ScryfallSearchCriteria();
         criteria.setFormat("Commander");
         criteria.setLegality("Not Legal");
-        criteria.setSetCode("lea");
-        criteria.setRarity("Rare");
+        criteria.setSetCodes(List.of("lea", "bro"));
+        criteria.setRarities(List.of("Rare", "Mythic"));
         criteria.setFlavorText("In the beginning");
         criteria.setArtistName("Christopher Rush");
         criteria.setLanguage("en");
