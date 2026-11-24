@@ -106,7 +106,8 @@ class ScryfallDaoTest {
         criteria.setArtistName("Christopher Rush");
         criteria.setLanguage("en");
 
-        String expected = "s:lea r:rare ft:\"In the beginning\" a:\"Christopher Rush\" lang:en -legal:commander not:digital";
+        String expected = "(s:lea OR s:bro) (r:rare OR r:mythic) ft:\"In the beginning\" a:\"Christopher Rush\" lang:en " +
+                "-legal:commander not:digital";
         assertEquals(expected, dao.buildQueryString(criteria));
     }
 
