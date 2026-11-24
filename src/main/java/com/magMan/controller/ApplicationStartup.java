@@ -6,6 +6,7 @@ import com.magMan.util.PropertiesLoader;
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -51,5 +52,9 @@ public class ApplicationStartup extends HttpServlet implements PropertiesLoader 
         // Add all MTG sets as context attribute for dropdown search field in index.jsp
         ScryfallDao scryfallDao = new ScryfallDao();
         context.setAttribute("scryfallSets", scryfallDao.getAllSets());
+
+        // Add all six Super Types as a context attribute for dropdown search field in index.jsp
+        context.setAttribute("superTypes",
+                List.of("Basic", "Legendary", "Snow", "World", "Ongoing", "Host"));
     }
 }
