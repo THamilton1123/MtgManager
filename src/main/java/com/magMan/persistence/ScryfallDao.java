@@ -125,11 +125,32 @@ public class ScryfallDao implements PropertiesLoader {
         }
 
         // 2. Set & Rarity
-        if (isPresent(criteria.getSetCode())) {
-            terms.add("s:" + criteria.getSetCode().trim());
+        if (criteria.getSetCodes() != null &&  !criteria.getSetCodes().isEmpty()) {
+            List<String> setTerms = new ArrayList<>();
+            for (String code :  criteria.getSetCodes()) {
+                if (isPresent(code)) {
+                    setTerms.add("s:" + code.trim());
+                }
+            }
+            if (setTerms.size() == 1) {
+                terms.add(setTerms.get(0));
+            } else if (setTerms.size() > 1) {
+                terms.add("(" + String.join(" OR ", setTerms) + ")");
+            }
         }
-        if (isPresent(criteria.getRarity())) {
-            terms.add("r:" + criteria.getRarity().trim().toLowerCase());
+
+        if (criteria.getRarities() != null && !criteria.getRarities().isEmpty()) {
+            List<String> rarityTerms = new ArrayList<>();
+            for (String r : criteria.getRarities()) {
+                if (isPresent(r)) {
+                    rarityTerms.add("r:" + r.trim().toLowerCase());
+                }
+            }
+            if (rarityTerms.size() == 1) {
+                terms.add(rarityTerms.get(0));
+            } else if (rarityTerms.size() > 1) {
+                terms.add("(" + String.join(" OR ", rarityTerms) + ")");
+            }
         }
 
         // 3. Oracle Text, Flavor Text, Artist, Language
